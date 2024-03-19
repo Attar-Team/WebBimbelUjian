@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.keranjang{
+    padding: 0 80px;
+    height: calc(100vh - 80px);
+}
+
+.keranjang h1{
+    font-size: 40px;
+    padding: 20px 0 0 0 ;
+    color: #2E3D64;
+}
+
+.keranjang h2{
+    font-size: 20px;
+    color: #414141;
+}
+
+.paket_keranjang{
+    border-radius: 3px;
+    text-align: center;
+    margin: 23px 0 0 0;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
+    height: 400px;
+}
+
+.paket_keranjang img{
+    width: 300px;
+}
+
+.paket_keranjang a button{
+    cursor: pointer;
+    margin: 10px 0 0 0;
+    border-radius: 3px;
+    background-color: #2E3D64;
+    color: white;
+    font-size: 19px;
+    padding: 5px 35px;
+    border: 1px solid;
+    border-color: #2E3D64;
+    transition: 0.3s all;
+}
+
+.paket_keranjang a button:hover{
+    background-color: #0093AC;
+    border-color: #0093AC;
+}
+
+.cart_nonelogin{
+    display: none;
+}
+
+.cartkosong_login{
+    display: none;
+}
+
+.cartada_login{
+    /* display: none; */
+}
+
+.garis_keranjang{
+    margin: 10px 0 0 0;
+    background-color: #c9c9c9;
+    height: 2px;
+}
+
+.contoh_keranjang{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.contoh_keranjang img{
+    margin: 40px 0 0 0;
+ width: 180px;
+}
+
+.namapaket_dan_isi h1{
+    font-size: 23px;
+}
+
+.namapaket_dan_isi p{
+    font-size: 13px;
+}
+
+.deskripsi_paket h1{
+    font-size: 23px;
+}
+
+.deskripsi_paket p {
+    width: 450px;
+    font-size: 13px;
+}
+
+.total_paket .hapus{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total_paket .hapus h1{
+    font-size: 23px
+}
+
+.total_paket .hapus a i{
+    margin: 20px 0 0 0;
+    font-size: 22px;
+    color: #CD2626;
+    border-color: #CD2626;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.total_paket .hapus a i:hover{
+    color: white;
+    border-color: #CD2626;
+    background-color: #CD2626;
+}
+
+.total_paket h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: #2E3D64;
+}
+
+.total_paket button{
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 25px;
+    padding: 6px;
+    width: 100%;
+    border: none;
+    background-color: #2E3D64;
+    color: white;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.total_paket button:hover{
+    background-color: #0093AC;
+    color: white;
+}

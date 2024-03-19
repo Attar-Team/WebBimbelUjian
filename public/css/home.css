@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+img{
+    object-fit: cover;
+}
+
+body{
+
+    background-color: white;
+}
+
+nav{
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    transition: 0.3s ease;
+}
+
+nav.active{
+    position: fixed;
+    /* padding: 0px; */
+    z-index: 10;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+nav a.logo{
+    font-size: 33px;
+    font-weight: 700;
+    color: #2E3D64;
+}
+
+nav a.logo span{
+    color: #0093AC;
+}
+
+nav .links a:not(:last-child){
+    margin-right: 20px;
+}
+
+nav .links a{
+    font-weight: 500;
+}
+
+nav .links .belajar{
+    display: none;
+}
+
+.button_header{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_header a i{
+    color: #1a1a1a;
+    font-size: 24px;
+    margin:7px 15px 0 0;
+}
+
+.button_header button{
+    font-size: 17px;
+    margin-right: 10px;
+    padding: 5px 25px;
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: #2E3D64;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+    background-color: #2E3D64;
+}
+
+.button_header button.singup{
+    margin-right: none;
+    color: #2E3D64;
+    background-color: transparent;
+}
+
+.button_header button.login:hover{
+    background-color: #0093AC;
+    border-color: #0093AC;
+}
+
+.button_header button.singup:hover{
+    background-color: #0093AC;
+    color: white;
+    border-color: #0093AC;
+}
+
+.masuk_akun {
+    display: none;
+    align-items: center;
+}
+
+.masuk_akun a i{
+    color: #1a1a1a;
+    font-size: 24px;
+    margin:7px 15px 0 0;
+}
+
+.masuk_akun p{
+    font-size: 17px;
+    margin-right: 15px;
+}
+
+.masuk_akun img{
+    object-fit: cover;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    
+}
+
+.image_left{
+    top: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+header{
+    padding: 0 80px;
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .left{
+    
+    width: 700px;
+}
+
+.image_left img{
+    width: 900px;
+}
+
+@media screen and (width: 1366px) {
+    .image_left img{
+        width: 750px;
+    }
+
+}
+
+header img{
+    width: 500px;
+}
+
+header .left h1{
+    font-size: 40px;
+}
+
+header .left h1 span{
+    border: 1px solid;
+    padding: 2px 10px;
+    border-radius: 3px;
+    border-color: #2E3D64;
+    background-color: #2E3D64;
+    color: white;
+}
+
+header .left h2{
+    color: #2E3D64;
+    font-size: 30px;
+}
+
+header .left h2 span{
+    color: #0093AC;
+}
+
+header .left p{
+    width: 550px;
+    font-weight: 500;
+}
+
+header .left .button_left{
+    margin-top: 10px;
+}
+
+header .left .button_left button{
+    border: 1px solid;
+    border-color: #2E3D64;
+    background-color: #2E3D64;
+    color: white;
+    font-size: 20px;
+    border-radius: 2px;
+    padding: 3px 17px;
+    margin-right: 10px;
+    transition: .0.2s ease;
+    cursor: pointer;
+}
+
+header .left .button_left .contact{
+    margin-right: none;
+    background-color: transparent;
+    color: #2E3D64;
+}
+
+header .left .button_left .belajar:hover{
+    background-color: #0093AC;
+    border-color: #0093AC;
+}
+
+header .left .button_left .contact:hover{
+    background-color: #0093AC;
+    color: white;
+    border-color: #0093AC;
+}
+
+.title{
+    height: 100vh;
+    width: 100%;
+
+}
+
+.title h1{
+    padding-top: 30px;
+    text-align: center;
+    color: #2E3D64;
+}
+
+.title p{
+    margin: 15px 20% 0 20%;
+    text-align: center;
+}
+
+.keunggulan{
+    margin-top: 60px;
+    padding: 0 80px;
+    display: flex;
+}
+
+.keunggulan img {
+    width: 450px;
+}
+
+
+.keunggulan .bagiankiri_keunggulan{
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.keunggulan .list{
+    width: 300px;
+    margin-right: 50px;
+}
+
+.keunggulan .list .judul_keunggulan{
+    display: flex;
+    background-color: #EEF5FF;
+    border-radius: 3px;
+}
+
+.keunggulan .list .judul_keunggulan i{
+    font-size: 60px;
+    margin: auto 0;
+}
+
+.keunggulan .list .judul_keunggulan h1{
+    padding: 0;
+    font-size: 25px;
+}
+
+.keunggulan .list p{
+    margin: 10px 0;
+    text-align: left;
+}
+
+.bgbiru{
+    background-color: #ebf1ff;
+}
+
+.bgbiru h1{
+    /*   */
+}
+
+.title .kelas {
+    padding: 0 80px;
+    
+}
+
+.title .kelas .macam_kelas{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2E3D64;
+    border-radius: 5px;
+    height: 100px;
+    width: 300px;
+}
+
+.title .kelas .macam_kelas h1{
+    font-weight: 600;
+    color: white;
+    background-color: #2E3D64;
+    width: 150px;
+    margin: 0;
+    padding: 0;
+}
+
+.title .kelas .macam_kelas i{
+    color: #B4D4FF;
+    margin: auto;
+    font-size: 80px;
+}
+
+.title .contohpaket{
+    margin: 20px 80px 0 80px;
+    padding: 0 40px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.5s ease;
+}
+
+.title .contohpaket:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.title .contohpaket .kiri_paket{
+    width: 500px;
+    
+}
+
+.title .contohpaket .kiri_paket h1{
+    padding: 15px 0 0 0;
+    text-align: left;
+    font-weight: 500;
+    color: #000;
+}
+
+.title .contohpaket .kiri_paket .keteranganpaket{
+    display: flex;
+}
+
+.title .contohpaket .kiri_paket .keteranganpaket i{
+    font-size: 25px;
+    margin-top: 10px;
+    color: #2E3D64;
+}
+
+.title .contohpaket .kiri_paket .keteranganpaket p{
+    margin: 10px 0 0 10px;
+
+}
+
+.title .contohpaket .kiri_paket .garis{
+    height: 2px;
+    background-color: #f3f3f3;
+    margin: 20px 0;
+}
+
+.title .contohpaket .kiri_paket p{
+    text-align: left;
+    font-size: 15px;
+    margin: 0 0 10px 0;
+}
+
+.title .contohpaket .kiri_paket button{
+    border: 1px solid;
+    border-radius: 3px;
+    background-color: #2E3D64;
+    border-color: #2E3D64;
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+    padding: 3px 70px;
+    margin: 0 0 20px 0;
+    transition: .0.3s ease;
+}
+
+.title .contohpaket .kiri_paket button:hover{
+    background-color: #0093AC;
+    border-color: #0093AC;
+}
+
+.title .contohpaket .kanan_paket .macam_isipaket{
+    display: flex;
+    align-items: center;
+    
+    /* justify-content: center; */
+    background-color: #e2e2e2;
+    border-radius: 38px;
+    padding: 15px 20px;
+    transition: 0.5s ease;
+}
+
+.title .contohpaket .kanan_paket .macam_isipaket:first-child{
+    background-color: #07205f;
+}
+
+.title .contohpaket .kanan_paket .macam_isipaket:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.title .contohpaket .kanan_paket .macam_isipaket i{
+    font-size: 30px;
+    margin: 0 20px 0 0;
+    border-radius: 50%;
+    background-color: white;
+    padding: 6px;
+}
+
+.title .contohpaket .kanan_paket .macam_isipaket h1{
+    padding: 0;
+    color: #000;
+    font-size: 17px;
+    font-weight: 400;
+    
+}
+
+.title .contohpaket .kanan_paket .macam_isipaket:first-child h1{
+    color: #ffffff;
+}
+
+/* .title .contohpaket .kanan_paket .macam_isipaket:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    background-color: #0093AC;
+} */
+
+.title .testi{
+    padding: 0 50px;
+    display: flex;
+    
+    align-items: center;
+}
+
+.title .testi i{
+    color: white;
+    background-color: #2E3D64;
+    border-radius: 3px;
+    font-size: 50px;
+    cursor: pointer;
+    transition: .0.3s ease;
+}
+
+.title .testi i:hover{
+    background-color: #0093AC;
+}
+
+.title .testi img{
+    width: 400px;
+    margin: 0 30px;
+}
+
+.title .testi .komentar i{
+    padding: 15px;
+    cursor: auto    ;
+}
+.title .testi .komentar i:hover{
+    background-color: #2E3D64;
+}
+
+.title .testi .komentar p{
+    text-align: left;
+    margin: 25px 30px 0 0;
+    width: 650px;
+}
+
+.list_testi{
+    position: relative;
+    width: 1300px;
+    max-width: 100vw;
+}
+
+.macam_testi{
+    overflow-x: auto;
+    position: absolute;
+    display: flex;
+    width: max-content;
+}
+
+.title .testi .komentar h1{
+    font-size: 20px;
+    color: #000;
+}
+
+footer {
+    background-color: #2E3D64;
+    margin:  0;
+    padding: 5px 0;
+    
+}
+
+.footers{
+    
+    padding: 30px 0;
+    margin: 0 80px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.footer_kiri{
+    width: 400px;
+
+}
+
+.footer_kiri h1{
+    color: #07205f;
+    font-size: 35px;
+}
+
+.footer_kiri h1 span{
+    color: #0093AC;
+}
+
+.footer_kiri h2{
+    color: white;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.footer_tengah{
+    width: 400px;
+    color: white;
+}
+
+.footer_tengah h1{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.footer_tengah h2{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.footer_tengah h2:hover{
+    color: #bdbdbd;
+}
+
+.footer_kanan{
+    width: 300px;
+}
+
+.garis_footer{
+    height: 1.5px;
+    margin: 10px 0;
+    background-color: white;
+}
+
+
+
+.copyright h1{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+}
+
