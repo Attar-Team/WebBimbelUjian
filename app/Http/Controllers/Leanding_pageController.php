@@ -21,4 +21,8 @@ class Leanding_pageController extends Controller
     public function keranjang(){
         return view('leanding_page.keranjang');
     }
+
+    public function detail_paket(){
+        return view('leanding_page.detail_paket');
+    }
 }

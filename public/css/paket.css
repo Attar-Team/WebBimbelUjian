@@ -1,1 +1,146 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.atas_menupaket{
+    padding: 0 80px;
+}
+
+.atas_menupaket h1{
+    padding: 40px 0 0 0;
+    font-size: 18px;
+    color: #2E3D64;
+}
+
+.atas_menupaket h1 span{
+    color: #0093AC;
+}
+
+.atas_menupaket p{
+    font-weight: 300;
+    width: 400px;
+}
+
+.menu_paket{
+    padding: 0 6%;
+}
+
+.menu_paket h1.caripaket{
+    font-size: 27px;
+    width: 300px;
+    color: #2E3D64;
+    padding: 60px 0 30px 0;
+}
+
+.paket_database{
+    display: flex;
+    
+}
+
+.grup_paket{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.paket_database .paket_list h1{
+    padding: 0 0 10px 0;
+    font-size: 20px;
+    color: #2E3D64;
+}
+
+.apa{
+    padding: 0 0 25px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.apa input{
+    
+}
+
+.check{
+    margin: 8px 0 0 0;
+}
+
+.apa label{
+    padding: 0;
+    font-size: 16px;
+
+}
+
+.paket_list{
+    margin: 0 40px 0 0;
+}
+
+.contoh_paket{
+    margin: 0 0 50px 1%;
+    transition: 0.4s ease;
+    border-radius: 5px;
+}
+
+.contoh_paket:hover{
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
+}
+
+.contoh_paket img{
+    border-radius: 5px 5px 0 0;
+    width: 250px;
+}
+
+.contoh_paket h1{
+    font-size: 20px;
+    max-width: 250px;
+    margin: 0 0 10px 15px;
+}
+
+.contoh_paket p{
+    margin: 0 0 0 20px;
+    font-size: 14px;
+}
+
+.contoh_paket h2{
+    margin: 5px 5px;
+}
+
+.contoh_paket .button_paket{
+    margin: 10px 5px;
+    max-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contoh_paket .button_paket button{
+    padding: 7px 40px;
+    font-size: 18px;
+    border: 2px solid;
+    cursor: pointer;
+    background-color: #2E3D64;
+    color: white;
+    border-radius: 2.5px;
+    border-color: #2E3D64;
+    transition: 0.3s ease;
+}
+
+.contoh_paket .button_paket button:hover{
+    border-color: #0093AC;
+    background-color: #0093AC;
+}
+
+.contoh_paket .button_paket a i{
+    border: 2px solid;
+    border-radius: 2.5px;
+    color: #2E3D64;
+    border-color: #2E3D64;
+    padding: 7px;
+    font-size: 26px;
+    bottom: 0;
+}
+
+.contoh_paket .button_paket a i:hover{
+    color: white;
+    background-color: #2E3D64;
+}
+
+

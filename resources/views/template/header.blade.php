@@ -8,6 +8,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/keranjang.css">
+    <link rel="stylesheet" href="css/check_list.css">
+    <link rel="stylesheet" href="css/paket.css">
 </head>
 <body>
     <nav>
