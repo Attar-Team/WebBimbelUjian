@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/keranjang.css">
     <link rel="stylesheet" href="css/check_list.css">
     <link rel="stylesheet" href="css/paket.css">
+    <link rel="stylesheet" href="css/detail_paket.css">
 </head>
 <body>
     <nav>

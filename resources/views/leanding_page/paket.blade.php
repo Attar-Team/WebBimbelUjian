@@ -1,6 +1,7 @@
 @extends('template.header')
 @section('title', 'Bumn Muda | Paket')
 @section('content')
+    <script src="js/home.js"></script>
     <script src="js/check_list.js"></script>
     <div class="atas_menupaket">
         <h1>#Ayo segera belajar dengan Bumn <span>Muda.</span></h1>
@@ -9,7 +10,11 @@
     <div class="menu_paket">
         <h1 class="caripaket">Cari paket sesuai keinginanmu</h1>
         <div class="paket_database">
+            <div class="paket_terbang">
+
+            </div>
             <div class="paket_list">
+
                 <h1>Jenis</h1>
                 <div class="apa">
                     <div class="check">

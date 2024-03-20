@@ -47,7 +47,7 @@
 }
 
 .cart_nonelogin{
-    display: none;
+    /* display: none; */
 }
 
 .cartkosong_login{
@@ -55,7 +55,7 @@
 }
 
 .cartada_login{
-    /* display: none; */
+    display: none;
 }
 
 .garis_keranjang{

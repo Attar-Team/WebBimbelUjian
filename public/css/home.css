@@ -58,12 +58,12 @@ nav .links a{
 }
 
 nav .links .belajar{
-    display: none;
+    /* display: none; */
 }
 
 .button_header{
 
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -105,7 +105,7 @@ nav .links .belajar{
 }
 
 .masuk_akun {
-    display: none;
+    display: flex;
     align-items: center;
 }
 

@@ -43,6 +43,32 @@
     justify-content: center;
 }
 
+.paket_list{
+    /* width: 126px; */
+    transition: 0.5s ease;
+}
+
+
+.paket_list.halo{
+    position: fixed;
+    top: 80px;
+}
+
+.paket_list.active{
+    /* box-shadow: 0 0 7px rgba(0, 0, 0, 0.6); */
+    position: fixed;
+    top: 100px;
+}
+
+.paket_terbang{
+    display: none;
+    width: 150px;
+}
+
+.paket_terbang.active{
+    display: block;
+}
+
 .paket_database .paket_list h1{
     padding: 0 0 10px 0;
     font-size: 20px;
