@@ -5,11 +5,11 @@
 }
 
 .detail_paketkiri{
-    width: 800px;
+    width: 63vw;
 }
 
 .detail_paketkiri img{
-    width: 800px;
+    width: 63vw;
     border-radius: 9px;
 }
 
@@ -63,10 +63,38 @@
     width: 350px;
     padding: 10px;
     margin-left: 3%;
-    transition: 0.3s ease;
+    transition: 0.7s ease;
     border-radius: 7px;
     /* position: fixed; */
 }
+
+
+.detail_paketkanan.active{
+    right: 83px;
+    top: 100px;
+    position: fixed;
+    background-color: #ebeffa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.detail_paketkanan.berhenti{
+    top: -70px;
+    background-color: #ebeffa;
+    /* bottom: -290px; */
+    right: 83px;
+    /* z-index: 100; */
+    position: fixed;
+}
+
+@media screen and (width: 1366px) {
+    .detail_paketkiri{
+        width: 58.5vw;
+    }
+    
+    .detail_paketkiri img{
+        width: 58.5vw;
+        border-radius: 9px;
+    }
 
 .detail_paketkanan.active{
     right: 83px;
@@ -83,7 +111,7 @@
     right: 83px;
     position: absolute;
 }
-
+}
 
 
 .isi_detailpaket{

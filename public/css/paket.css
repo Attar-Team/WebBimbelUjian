@@ -40,7 +40,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .paket_list{
@@ -49,20 +49,23 @@
 }
 
 
+
 .paket_list.halo{
+    transition: 0.5s ease;
     position: fixed;
-    top: 80px;
+    top: 130px;
 }
 
 .paket_list.active{
     /* box-shadow: 0 0 7px rgba(0, 0, 0, 0.6); */
     position: fixed;
+    transition: 0.5s ease;
     top: 100px;
 }
 
 .paket_terbang{
     display: none;
-    width: 150px;
+    width: 265px;
 }
 
 .paket_terbang.active{
@@ -103,6 +106,30 @@
     margin: 0 0 50px 1%;
     transition: 0.4s ease;
     border-radius: 5px;
+    width: 18vw;
+    min-width: 260px;
+}
+
+@media screen and (width: 1366px) {
+    .contoh_paket{
+        margin: 0 0 50px 1%;
+        transition: 0.4s ease;
+        border-radius: 5px;
+        width: 16vw;
+        min-width: 250px;
+    }
+
+    .contoh_paket img{
+        border-radius: 5px 5px 0 0;
+        width: 16vw;
+        min-width: 250px;
+    }
+
+    .paket_list.halo{
+        position: fixed;
+        top: 80px;
+    }
+    
 }
 
 .contoh_paket:hover{
@@ -111,12 +138,13 @@
 
 .contoh_paket img{
     border-radius: 5px 5px 0 0;
-    width: 250px;
+    width: 18vw;
+    min-width: 260px;
 }
 
 .contoh_paket h1{
     font-size: 20px;
-    max-width: 250px;
+    /* max-width: 250px; */
     margin: 0 0 10px 15px;
 }
 
@@ -131,7 +159,7 @@
 
 .contoh_paket .button_paket{
     margin: 10px 5px;
-    max-width: 250px;
+    /* max-width: 250px; */
     display: flex;
     align-items: center;
     justify-content: space-between;

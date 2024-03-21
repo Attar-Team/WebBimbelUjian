@@ -106,6 +106,58 @@
                         <a href=""><i class='bx bxs-cart-add'></i></a>
                     </div>
                 </div>
+                <div class="contoh_paket">
+                    <img src="image/contoh_paket.png" alt="">
+                    <h1>Paket Try Out BUMN 1</h1>
+                    <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
+                    <p><span>•</span> Tes Ujian simulasi</p>
+                    <p><span>•</span> Tes Logika</p>
+                    <p><span>•</span> Paket Soal Lengkap</p>
+                    <h2>Rp 35.000,00</h2>
+                    <div class="button_paket">
+                        <a href="{{ 'detail_paket' }}"><button>Detail Paket</button></a>
+                        <a href=""><i class='bx bxs-cart-add'></i></a>
+                    </div>
+                </div>
+                <div class="contoh_paket">
+                    <img src="image/contoh_paket.png" alt="">
+                    <h1>Paket Try Out BUMN 1</h1>
+                    <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
+                    <p><span>•</span> Tes Ujian simulasi</p>
+                    <p><span>•</span> Tes Logika</p>
+                    <p><span>•</span> Paket Soal Lengkap</p>
+                    <h2>Rp 35.000,00</h2>
+                    <div class="button_paket">
+                        <a href="{{ 'detail_paket' }}"><button>Detail Paket</button></a>
+                        <a href=""><i class='bx bxs-cart-add'></i></a>
+                    </div>
+                </div>
+                <div class="contoh_paket">
+                    <img src="image/contoh_paket.png" alt="">
+                    <h1>Paket Try Out BUMN 1</h1>
+                    <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
+                    <p><span>•</span> Tes Ujian simulasi</p>
+                    <p><span>•</span> Tes Logika</p>
+                    <p><span>•</span> Paket Soal Lengkap</p>
+                    <h2>Rp 35.000,00</h2>
+                    <div class="button_paket">
+                        <a href="{{ 'detail_paket' }}"><button>Detail Paket</button></a>
+                        <a href=""><i class='bx bxs-cart-add'></i></a>
+                    </div>
+                </div>
+                <div class="contoh_paket">
+                    <img src="image/contoh_paket.png" alt="">
+                    <h1>Paket Try Out BUMN 1</h1>
+                    <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
+                    <p><span>•</span> Tes Ujian simulasi</p>
+                    <p><span>•</span> Tes Logika</p>
+                    <p><span>•</span> Paket Soal Lengkap</p>
+                    <h2>Rp 35.000,00</h2>
+                    <div class="button_paket">
+                        <a href="{{ 'detail_paket' }}"><button>Detail Paket</button></a>
+                        <a href=""><i class='bx bxs-cart-add'></i></a>
+                    </div>
+                </div>
             </div>
             
         </div>
