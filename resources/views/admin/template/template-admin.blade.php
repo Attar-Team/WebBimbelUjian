@@ -5,7 +5,7 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../assets/"
+  data-assets-admin-path="../assets-admin/"
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -20,7 +20,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../assets-admin/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,26 +31,33 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
+    {{-- <link rel="stylesheet" href="/assets-admin/vendor-admin/fonts/boxicons.css" /> --}}
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="/assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets-admin/vendor-admin/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets-admin/vendor-admin/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets-admin/css/demo.css" />
 
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <!-- Vendor-admins CSS -->
+    <link rel="stylesheet" href="/assets-admin/vendor-admin/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="/assets-admin/vendor-admin/libs/apex-charts/apex-charts.css" />
 
-    <!-- Page CSS -->
+    
 
     <!-- Helpers -->
-    <script src="/assets/vendor/js/helpers.js"></script>
+    <script src="/assets-admin/vendor-admin/js/helpers.js"></script>
+
+    {{-- jquery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+      {{-- datatable --}}
+      <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
+      <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="/assets/js/config.js"></script>
+    <script src="/assets-admin/js/config.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
@@ -123,23 +130,26 @@
 
 
     <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="/assets/vendor/libs/popper/popper.js"></script>
-    <script src="/assets/vendor/js/bootstrap.js"></script>
-    <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <!-- build:js assets-admin/vendor-admin/js/core.js -->
+    <script src="/assets-admin/vendor-admin/libs/jquery/jquery.js"></script>
+    <script src="/assets-admin/vendor-admin/libs/popper/popper.js"></script>
+    <script src="/assets-admin/vendor-admin/js/bootstrap.js"></script>
+    <script src="/assets-admin/vendor-admin/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="/assets/vendor/js/menu.js"></script>
+    <script src="/assets-admin/vendor-admin/js/menu.js"></script>
     <!-- endbuild -->
 
-    <!-- Vendors JS -->
-    <script src="/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <!-- Vendor-admins JS -->
+    <script src="/assets-admin/vendor-admin/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets-admin/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="/assets/js/dashboards-analytics.js"></script>
+    <script src="/assets-admin/js/dashboards-analytics.js"></script>
+
+
+  
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

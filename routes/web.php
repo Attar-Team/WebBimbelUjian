@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,6 @@ Route::get('/', function () {
 
 
 Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard');
+
+//Route untuk menangani Exam
+Route::resource('/admin/exam', ExamController::class);
