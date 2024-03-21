@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->dateTime('start_date')->nullable();
             $table->integer('grade')->nullable();
+            $table->timestamps();
         });
     }
 

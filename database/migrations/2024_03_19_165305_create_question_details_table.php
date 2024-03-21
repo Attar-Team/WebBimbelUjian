@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('content_answer');
             $table->string('photo');
             $table->boolean('correct_answer');
+            $table->timestamps();
         });
     }
 

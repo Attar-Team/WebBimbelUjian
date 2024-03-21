@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('exam_id');
             $table->string('question');
             $table->string('photo');
+            $table->timestamps();
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->dateTime('date');
             $table->integer('total_payment');
             $table->string('token');
+            $table->timestamps();
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('question_detail_id');
             $table->boolean('is_correct');
             $table->boolean('is_doubtful');
+            $table->timestamps();
         });
     }
 

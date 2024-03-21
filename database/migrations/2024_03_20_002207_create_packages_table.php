@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('category', ['try out','kursus']);
             $table->integer('price');
             $table->integer('discount');
+            $table->timestamps();
         });
     }
 
