@@ -99,8 +99,8 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="/users" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <a href="/admin/question" class="menu-link">
+          <i class="menu-icon tf-icons fa-solid fa-list"></i>
           <div data-i18n="Analytics">Soal</div>
         </a>
       </li>

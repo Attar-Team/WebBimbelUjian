@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,7 @@ Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dash
 
 //Route untuk menangani Exam
 Route::resource('/admin/exam', ExamController::class);
+
+//Route untuk menangani Question
+Route::get('/admin/question',[QuestionController::class,'index'])->name('viewQuestion');
+Route::get('/admin/question/create/{id}',[QuestionController::class,'create'])->name('viewQuestion');

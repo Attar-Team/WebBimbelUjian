@@ -43,13 +43,20 @@
 
     <link rel="stylesheet" href="/assets-admin/vendor-admin/libs/apex-charts/apex-charts.css" />
 
-    
+ 
 
     <!-- Helpers -->
     <script src="/assets-admin/vendor-admin/js/helpers.js"></script>
 
     {{-- jquery --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/minified/themes/default.min.css" />
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/xhtml.min.js"></script>
+
+
 
       {{-- datatable --}}
       <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
@@ -82,7 +89,7 @@
 
             @yield('content')
             <!-- / Content -->
-
+        
             <!-- Footer -->
             {{-- <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
@@ -148,8 +155,23 @@
     <!-- Page JS -->
     <script src="/assets-admin/js/dashboards-analytics.js"></script>
 
+    <script src="/minified/sceditor.min.js"></script>
+    <script src="/minified/formats/bbcode.js"></script>
+    <script src="/minified/formats/xhtml.js"></script>
+    <script>
+var textarea = document.querySelectorAll("#mytextarea");
 
-  
+textarea.forEach(element => {
+  sceditor.create(element, {
+	format: 'xhtml',
+	style: 'minified/themes/content/default.min.css'
+});
+});
+
+
+
+// sceditor.instance(textarea).val();
+      </script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
