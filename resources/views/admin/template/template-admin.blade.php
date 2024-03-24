@@ -69,6 +69,12 @@
   </head>
 
   <body>
+    <div id="pageLoader" class="page-loader" style="inset: 0; background-color: #ddd;display:flex;justify-content: center;align-items: center; position:fixed;z-index: 9999;">
+      <!-- <img src="/image/logo 1.png" alt=""> -->
+      <div class="spinner-border  spinner-border-lg text-warning" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+    </div>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -158,21 +164,34 @@
     <script src="/minified/sceditor.min.js"></script>
     <script src="/minified/formats/bbcode.js"></script>
     <script src="/minified/formats/xhtml.js"></script>
+  
     <script>
 var textarea = document.querySelectorAll("#mytextarea");
 
 textarea.forEach(element => {
   sceditor.create(element, {
 	format: 'xhtml',
+  emoticons : {
+    hidden: {
+        ':aliasforalien:': 'emoticons/alien.png',
+        ':aliasforblink:': 'emoticons/blink.png'
+    }
+  },
 	style: 'minified/themes/content/default.min.css'
 });
 });
 
-
-
-// sceditor.instance(textarea).val();
       </script>
-
+  <script type="text/javascript">
+       
+    $(document).ready(function(){
+        // $("#pageLoader").fadeOut();
+        $("#pageLoader").fadeOut("slow");
+        // $("#pageLoader").fadeOut(3000);
+    
+    });
+    
+    </script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>

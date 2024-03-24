@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('question_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('question_id');
-            $table->string('content_answer');
-            $table->string('photo');
+            $table->text('content_answer');
+            $table->string('photo')->nullable();
             $table->boolean('correct_answer');
             $table->timestamps();
         });

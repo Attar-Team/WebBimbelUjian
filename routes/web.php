@@ -28,4 +28,6 @@ Route::resource('/admin/exam', ExamController::class);
 
 //Route untuk menangani Question
 Route::get('/admin/question',[QuestionController::class,'index'])->name('viewQuestion');
-Route::get('/admin/question/create/{id}',[QuestionController::class,'create'])->name('viewQuestion');
+Route::get('/admin/question/create/{id}',[QuestionController::class,'create'])->name('createQuestion');
+Route::post('/admin/question',[QuestionController::class,'store'])->name('storeQuestion');
+Route::post('/admin/question/import',[QuestionController::class,'storeWithImport'])->name('storeQuestion');
