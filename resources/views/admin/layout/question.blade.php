@@ -34,13 +34,7 @@
                             <td>{{ $item['amount_question'] }}</td>
                             <td class="d-flex gap-2">               
                               <a class="btn btn-info" href="/admin/question/create/{{ $item['id'] }}" role="button">Tambah <i class="fa-solid fa-plus"></i></a>
-                              <a class="btn btn-warning" href="/admin/question/{{ $item['id'] }}/edit" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-                              <a class="btn btn-success" href="/admin/question/" role="button"><i class="fa-solid fa-circle-info"></i></a>
-                              <form action="/admin/question/{{ $item['id'] }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" onclick="return confirm('Apakah yakin untuk menghapus')" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                              </form>
+                              <a class="btn btn-success" href="/admin/question/{{ $item['id'] }}" role="button"><i class="fa-solid fa-circle-info"></i></a>
                             </td>
                           </tr>
                           @endforeach

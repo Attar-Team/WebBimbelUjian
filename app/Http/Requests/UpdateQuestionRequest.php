@@ -4,12 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class QuestionRequest extends FormRequest
+class UpdateQuestionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -18,20 +17,12 @@ class QuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "exam_id"=> "numeric|required",
+            "exam_id"=> "required",
+            "question_detail_id" => "required",
             "question"=> "required",
             "content_answer"=> "required",
             "review"=> "required",
-            "question_detail"=> "required",
             "is_correct"=> "required",
         ];
     }
-
-    public function messages()
-{
-    return [
-        'question.required' => 'Field Soal harus di isi.',
-        'review.required' => 'Field review harus di isi.'
-    ];
-}
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('exam_id');
             $table->text('question');
+            $table->text('review');
             $table->string('photo')->nullable();
             $table->timestamps();
         });

@@ -25,15 +25,16 @@ class QuestionImport implements ToCollection
 
             $question = Question::create([
                 "exam_id"=> $this->exam_id,
-                "question"=> $item["0"]
+                "question"=> $item["0"],
+                "review"=> $item[count($item) - 1] ,
             ]);
             
             $data = [];
-            for ($i = 1; $i < count($item)-1; $i++){
+            for ($i = 1; $i < count($item)-2; $i++){
                 $data[$i] = [
                     "question_id"=> $question->id,
                     "content_answer"=> $item[$i],
-                    "correct_answer"=> $item[$i] == $item[count($item) - 1] ? true : false,
+                    "correct_answer"=> $item[$i] == $item[count($item) - 2] ? true : false,
                 ];
             }
             QuestionDetail::insert($data);

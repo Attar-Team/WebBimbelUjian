@@ -24,4 +24,14 @@ class ExamRequest extends FormRequest
             'amount_question'=> 'required|numeric',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Field nama harus di isi.',
+            'duration.required' => 'Field durasi harus di isi.',
+            'amount_question.required' => 'Field banyak soal harus di isi.',
+            'amount_question.numeric' => 'Field banyak soal harus berisi angka.'
+        ];
+    }
 }

@@ -30,7 +30,10 @@
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label" for="basic-default-name">Soal</label>
                                         <div class="col-sm-10">
-                                            <textarea name="question" id="mytextarea" cols="80" rows="8"></textarea>
+                                            <textarea name="question" id="mytextarea" cols="80" rows="8">{{ old('question') }}</textarea>
+                                            @error('question')
+                                                <small style="color: red">* {{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3 border py-3 rounded" style="background-color: #f2f2f2">
@@ -52,6 +55,16 @@
 
                                     <div class="inp-group" id="inp-group">
 
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label class="col-sm-2 col-form-label" for="basic-default-name">Review</label>
+                                        <div class="col-sm-10">
+                                            <textarea name="review" id="mytextarea" cols="80" rows="8">{{ old('review') }}</textarea>
+                                            @error('review')
+                                            <small style="color: red">* {{ $message }}</small>
+                                        @enderror
+                                        </div>
                                     </div>
 
                                     <button class="btn btn-info add-inp" id="p" type="button">tambah</button>
@@ -88,9 +101,6 @@
                 </div>
             </div>
         </div>
-
-        
-
     </div>
 
     <script type="text/javascript">
@@ -152,6 +162,7 @@
                 var question = item.question;
                 var options = item.opsi;
                 var answer = item.jawaban;
+                var review = item.review;
                 var no = i+1;
                 // Buat elemen HTML untuk menampilkan data
                 var questionElement = "<div class='question'>" +no+". "+ question + "</div>";
@@ -161,9 +172,11 @@
                 }
                 optionsElement += "</ul>";
                 var answerElement = "<div class='answer mb-2'>Jawaban: " + answer + "</div>";
+
+                var reviewElement = "<div class='answer mb-2'>Jawaban: " + review + "</div>";
                 
                 // Gabungkan semua elemen menjadi satu untuk ditampilkan di dalam HTML
-                var html = questionElement + optionsElement + answerElement;
+                var html = questionElement + optionsElement + answerElement + reviewElement;
                 
                 // Masukkan elemen HTML ke dalam container di dalam halaman Anda
                 $('#preview').append(html);
