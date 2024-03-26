@@ -1,5 +1,5 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-    <div class="app-brand demo">
+    <div class="app-brand demo mb-2">
       <a href="index.html" class="app-brand-link">
         <span class="app-brand-logo demo">
           <svg
@@ -69,8 +69,8 @@
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
       <li class="menu-item active">
-        <a href="/dashboard" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <a href="/admin/dashboard" class="menu-link">
+          <i class="menu-icon tf-icons fa-solid fa-house-chimney"></i>
           <div data-i18n="Analytics">Dashboard</div>
         </a>
       </li>
@@ -79,7 +79,7 @@
       </li>
       <li class="menu-item">
         <a href="/users" class="menu-link">
-          <i class="menu-icon bx bxs-package"></i>
+          <i class="menu-icon tf-icons fa-solid fa-cubes"></i>
           <div data-i18n="Analytics">Paket</div>
         </a>
       </li>
@@ -93,14 +93,14 @@
         <span class="menu-header-text">Ujian</span>
       </li>
       <li class="menu-item">
-        <a href="/users" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <a href="/admin/exam" class="menu-link">
+          <i class="menu-icon tf-icons fa-solid fa-pen-to-square"></i>
           <div data-i18n="Analytics">Ujian</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="/users" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <a href="/admin/question" class="menu-link">
+          <i class="menu-icon tf-icons fa-solid fa-list"></i>
           <div data-i18n="Analytics">Soal</div>
         </a>
       </li>

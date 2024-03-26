@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "name",
+        "duration",
+        "amount_question",
+        "is_random",
+    ];
 }
