@@ -17,6 +17,8 @@ class Question extends Model
         "photo",
     ];  
 
+    public $quizQuestion = [];
+
     public function QuestionDetail() :HasMany
     {
         return $this->hasMany(QuestionDetail::class);

@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+   
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: #2E3D64;
+    color: #fff;
+    padding: 30px 60px 60px 60px;
+}
+nav h3{
+    font-weight: bold;
+}
+nav h3 span{
+    color: #0093AC;
+}
+nav h2{
+    font-weight: 500;
+    border-bottom: 1px solid;
+}
+.quiz{
+    display: flex;
+    gap: 20px;
+    padding: 0 50px;
+    margin-top: -40px;
+}
+.quiz .soal{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 10px;
+    padding: 25px;
+    user-select: none;
+    background-color: #fff;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2);
+}
+.quiz .soal .header-soal{
+    min-height: 550px;
+}
+.quiz .soal .header-soal h3{
+    margin-bottom: 40px;
+}
+.quiz .soal .header-soal h3 span{
+    background-color: #0466E9;
+    padding: 5px 10px;
+    color: #fff;
+}
+.quiz .soal .header-soal .line{
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+}
+.quiz .soal .foot-soal{
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.quiz .info{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: #fff;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2);
+}
+.quiz .info .header-info{
+    min-height: 550px;
+}
+.quiz .info .header-info h2{
+    padding: 10px;
+    font-size: 45px;
+    background-color: #FF7A00;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+.quiz .info .header-info .no-soal{
+    font-size: 20px;
+    font-weight: 500;
+}
+.quiz .info .header-info .nomor-soal{
+    display: flex;
+    gap: 11px;
+    flex-wrap: wrap;
+}
+.quiz .info .header-info .nomor-soal .box{
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+
+}
+.quiz .info .header-info .nomor-soal .box a{
+    text-decoration: none;
+    font-weight: 400;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.saat-ini{
+    background-color: #ddd;
+    border: none !important;
+}
+.ragu-ragu{
+    background-color: #FFF500;
+    border: none !important;
+}
+.sudah-terjawab{
+    background-color: #62FF01;
+    border: none!important;
+}
+
+.quiz .info .foot-info{
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 15px; */
+}
+.quiz .info .foot-info .box{
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+    align-items: center;
+}
+.quiz .info .foot-info .box .warna{
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+}
+.quiz .info .foot-info .box p{
+    margin: 0;
+    font-size: 15px;
+}
+
+/* koding untuk page start */
+.start{
+    width: 90%;
+    margin: -40px auto;
+    border-radius: 10px;
+    padding: 50px 30px;
+    background-color: #fff;
+}
+.start h2{
+    font-weight: bold;
+}
+.start .body-start img{
+    height: 100%;
+}
+.start .body-start{
+    display: flex;
+    gap: 30px;
+}
+.start .body-start .desc{
+    width: 400px;
+}
+.start .body-start .desc ul{
+    list-style: none;
+    padding: 0;
+    display: flex; 
+    justify-content: space-between;
+}
+.start .body-start .desc ul li{
+    font-weight: bold;
+    font-size: 20px;
+    width:250px;
+}
+.start .body-start .desc .cont {
+    width: 600px;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid;
+    background-color: #efefef;
+}
+.start .body-start .desc .cont .cont-header{
+    border-bottom: 1px solid;
+    border-radius: 10px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 50px;
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+}
+.start .body-start .desc .cont .cont-body{
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 50px;
+    align-items: center;
+    display: flex;
+}
+.start .body-start .desc form{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.start .body-start .desc form .btn-attempt{
+    background-color: #0466E9;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+}
+.start .peraturan{
+    width: 550px;
+}
+

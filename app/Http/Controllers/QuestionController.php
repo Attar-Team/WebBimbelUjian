@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\QuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
 use App\Imports\QuestionImport;
+use App\Models\AnswerDetail;
 use App\Models\Exam;
 use App\Models\Question;
 use App\Models\QuestionDetail;
@@ -34,6 +35,7 @@ public function index()
     public function store(QuestionRequest $request)
     {
         $option = $request->content_answer;
+        // dd($option);
         $question = Question::create([
             "exam_id"=> $request->exam_id,
             "question"=> $request->question,
@@ -42,7 +44,7 @@ public function index()
 
         foreach($option as $key => $value){
             $is_correct = false;
-            if($key == $request->is_correct){
+        if($key == $request->is_correct){
                 $is_correct = true;
             }
             $option[$key] = $value;
@@ -83,17 +85,14 @@ public function index()
             ];
             
         },$question[0]);
-
-
-    //    dd($a);
-    //    return redirect('/')->with('success', 'All good!');
          return response()->json($result);
 
     }
 
+
     public function edit($id)
     {
-        $question = Question::where('id','=',$id)->with('QuestionDetail')->first();
+        $question = Question::where('id','=',$id)->first();
         return view('admin.layout.update-question',[
             "title" => "Detail Question",
             "data"=> $question
@@ -142,5 +141,20 @@ public function index()
         $question = Question::find($id);
         $question->delete();
         return redirect()->back()->with("success","Data berhasil dihapus");
+    }
+
+    public function apiAnswer(Request $request)
+    {
+        //mengambil status benar opsi jawaban 
+        $questionDetail = QuestionDetail::find($request->question_detail_id);
+        
+        //mengambil data detail jawaban berdasarkan id soal dan id jawaban
+        $check = AnswerDetail::where("question_id","=",$request->question_id)
+        ->where("exam_id","=",$request->exam_id)
+        ->get();
+
+        //mengecek jawaban benar atau salah
+        $boolCorrect = false;
+        
     }
 }

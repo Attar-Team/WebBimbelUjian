@@ -68,7 +68,7 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
-      <li class="menu-item active">
+      <li class="menu-item @active('dashboard')">
         <a href="/admin/dashboard" class="menu-link">
           <i class="menu-icon tf-icons fa-solid fa-house-chimney"></i>
           <div data-i18n="Analytics">Dashboard</div>
@@ -92,7 +92,7 @@
       <li class="menu-header pb-0 small text-uppercase">
         <span class="menu-header-text">Ujian</span>
       </li>
-      <li class="menu-item">
+      <li class="menu-item @active('exam.*')">
         <a href="/admin/exam" class="menu-link">
           <i class="menu-icon tf-icons fa-solid fa-pen-to-square"></i>
           <div data-i18n="Analytics">Ujian</div>

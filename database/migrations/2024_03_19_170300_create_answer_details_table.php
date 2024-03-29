@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('answer_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('exam_id');
+            $table->foreignId('answer_id');
             $table->foreignId('question_id');
             $table->foreignId('question_detail_id');
             $table->boolean('is_correct');

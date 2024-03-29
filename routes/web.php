@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,8 @@ Route::get('/admin/question/{id}',[QuestionController::class,'show'])->name('sho
 Route::post('/admin/question/import',[QuestionController::class,'storeWithImport'])->name('storeWithQuestion');
 Route::post('/admin/question/update/{id}',[QuestionController::class,'update'])->name('updateQuestion');
 Route::post('/admin/question/delete/{id}',[QuestionController::class,'destroy'])->name('updateQuestion');
+
+//Route untuk menangani Quiz 
+Route::get('/quiz/{exam_id}/start',[QuizController::class,'start'])->name('startQuiz');
+Route::get('/quiz/{number_question}',[QuizController::class,'index'])->name('quiz');
+Route::post('/quiz/start/{exam_id}',[QuizController::class,'submitStart']);
