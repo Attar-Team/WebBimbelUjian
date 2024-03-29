@@ -112,4 +112,43 @@ class QuizController extends Controller
         }
         return response()->json($data);
     }
+
+    public function apiDoubtful(Request $request)
+    {
+        //mengambil data dari tabel detail soal berdsarkan id;
+        $answerDetail = AnswerDetail::where('question_id','=', $request->question_id)
+        ->where("answer_id","=",$request->answer_id)->get();
+
+        //mengecek apakah sudah menjawab apa belom
+        //jika belum maka lakukan tambah data ke dalan answer detail
+        if(count($answerDetail) == 0){
+            AnswerDetail::create([
+                'answer_id' => $request->answer_id,
+                'question_id'=> $request->question_id,
+                'is_doubtful'=> false,
+            ]);
+        }
+
+        $checkDoubtful = AnswerDetail::select('is_doubtful')->where('question_id','=', $request->question_id)
+        ->where("answer_id","=",$request->answer_id)->first();
+
+
+        if($checkDoubtful->is_doubtful === 0){
+            $detailAnswer = AnswerDetail::where('question_id','=',$request->question_id)->first();
+            $detailAnswer->is_doubtful = true;
+            $detailAnswer->save();
+            $data = [
+                'message'=> "data berhasil menjadi true"
+            ];
+        }else{
+            $detailAnswer = AnswerDetail::where('question_id','=',$request->question_id)->first();
+            $detailAnswer->is_doubtful = false;
+            $detailAnswer->save();
+            $data = [
+                'message'=> "data berhasil menjadi false"
+            ];
+        }
+
+        return response()->json($data);
+    }
 }

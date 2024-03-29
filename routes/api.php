@@ -23,5 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/preview-excel',[QuestionController::class,'preview']);
 
 //Route untuk menangani quiz
-Route::post('quiz/answer',[QuizController::class,'apiAnswer']);
-Route::post('quiz/doubtful',[QuizController::class,'apiDoubtful']);
+Route::post('/quiz/answer',[QuizController::class,'apiAnswer']);
+Route::post('/quiz/doubtful',[QuizController::class,'apiDoubtful']);

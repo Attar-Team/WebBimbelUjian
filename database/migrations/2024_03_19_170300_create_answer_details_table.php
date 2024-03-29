@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('answer_id');
             $table->foreignId('question_id');
-            $table->foreignId('question_detail_id');
-            $table->boolean('is_correct');
-            $table->boolean('is_doubtful');
+            $table->foreignId('question_detail_id')->nullable();
+            $table->boolean('is_correct')->nullable();
+            $table->boolean('is_doubtful')->nullable();
             $table->timestamps();
         });
     }

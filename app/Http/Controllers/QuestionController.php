@@ -143,18 +143,4 @@ public function index()
         return redirect()->back()->with("success","Data berhasil dihapus");
     }
 
-    public function apiAnswer(Request $request)
-    {
-        //mengambil status benar opsi jawaban 
-        $questionDetail = QuestionDetail::find($request->question_detail_id);
-        
-        //mengambil data detail jawaban berdasarkan id soal dan id jawaban
-        $check = AnswerDetail::where("question_id","=",$request->question_id)
-        ->where("exam_id","=",$request->exam_id)
-        ->get();
-
-        //mengecek jawaban benar atau salah
-        $boolCorrect = false;
-        
-    }
 }

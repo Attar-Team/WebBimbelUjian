@@ -61,7 +61,7 @@ return false;
                 @if ($numberQuestion == 1)
                 <a href="{{ $no = $numberQuestion - 1 }}" class="btn btn-dark disabled"><i class="fa-solid fa-caret-left"></i> Soal Sebelumnya</a>
                 <div class="ragu-ragu d-inline-block p-2 rounded" style="background-color: #FFF500">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input doubtful" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Ragu - Ragu
                     </label>
@@ -75,7 +75,7 @@ return false;
                 
                 <a href="{{ $no = $numberQuestion - 1 }}" class="btn btn-dark"><i class="fa-solid fa-caret-left"></i> Soal Sebelumnya</a>
                 <div class="ragu-ragu d-inline-block p-2 rounded" style="background-color: #FFF500">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input doubtful" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Ragu - Ragu
                     </label>
@@ -88,7 +88,7 @@ return false;
                 @if ( $numberQuestion > 1 && $maxNumberQuestion > $numberQuestion)
                 <a href="{{ $no = $numberQuestion - 1 }}" class="btn btn-dark"><i class="fa-solid fa-caret-left"></i> Soal Sebelumnya</a>
                 <div class="ragu-ragu d-inline-block p-2 rounded" style="background-color: #FFF500">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input doubtful" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Ragu - Ragu
                     </label>
@@ -167,22 +167,24 @@ return false;
                     })
                 }))
         
-                // ($("#doubtful").click(function() {
-                //     const data = {
-                //         question_id: questionId
-                //     }
-                //     $.ajax({
-                //         url: "/api/doubtful",
-                //         method: 'POST',
-                //         data: data,
-                //         success(res){
-                //             console.log(res)
-                //         },
-                //         error(err){
-                //             console.log(err);
-                //         }
-                //     })
-                // }))
+                ($(".doubtful").click(function() {
+                    // alert('asd')
+                    const data = {
+                        question_id: question_id,
+                        answer_id: answer_id
+                    }
+                    $.ajax({
+                        url: "/api/quiz/doubtful",
+                        method: 'POST',
+                        data: data,
+                        success(res){
+                            console.log(res)
+                        },
+                        error(err){
+                            console.log(err);
+                        }
+                    })
+                }))
                 })
 
                 </script>
