@@ -15,25 +15,44 @@ class QuizController extends Controller
 
     public function index($number_question)
     {
-        // dd(Session::get("answerId"));
+        $doubtfulAnswer = [];
+        $doneAnswer = [];
+        $answer_id = Session::get("answerId");
         //ambil data dari session yang sudah dibuat pada saat start ujian
         $question = Session::get("questions");
-
         // mengecek apakah sudah ada jawaban nya
         $checkAnswerAll = Question::join('answer_details','questions.id','=','answer_details.id')->get();
-
         // mengambil detail soal berdasarkan nomor soal
         $detailQuestion = $question->where("nomor_soal",$number_question)->first();
         $questionId = $detailQuestion->id;
-
         //mengambil detail opsi berdasarkkan id soal
         $optionAnswer = QuestionDetail::where('question_id',$questionId)->get();
+        //mengambil data dari detail jawab untuk mengecek aktif radio button
+        $answer = AnswerDetail::where("question_id",$questionId)
+        ->where('answer_id', $answer_id)->first();
+        //mengambil semua data answer
+        $answerDetail = AnswerDetail::where("answer_id",$answer_id)->get();
+        //menentukan warna untuk ragu ragu dan sudah terjawab
+            foreach($question as $key => $item){
+                foreach($answerDetail as $a){
+                    $questionAnswerId = $a->question_id ?? 0;
+                    if($item->id == $questionAnswerId){
+                        if($a->question_detail_id != null)
+                        array_push($doneAnswer, $item->nomor_soal);
+                        if($a->is_doubtful == 1)
+                        array_push($doubtfulAnswer, $item->nomor_soal);
 
+                    }
+                }
+            }
         return view("quiz.index",[
             "question"=> $question,
             "detailQuestion"=> $detailQuestion,
             "optionQuestion"=> $optionAnswer,
-            "checkAnswerAll"=> $checkAnswerAll
+            "checkAnswerAll"=> $checkAnswerAll,
+            "answer" => $answer,
+            "doubtfulAnswer" => $doubtfulAnswer,
+            "doneAnswer" => $doneAnswer
         ]);
     }
 
@@ -82,7 +101,7 @@ class QuizController extends Controller
 
         //mengecek jawaban benar atau salah
         $boolCorrect = false;
-        if($questionDetail->is_correct === 1){
+        if($questionDetail->correct_answer === 1){
             $boolCorrect = true;
         }
 

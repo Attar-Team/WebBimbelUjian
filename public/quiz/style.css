@@ -111,18 +111,18 @@ nav h2{
     height: 100%;
 }
 .saat-ini{
-    background-color: #ddd;
+    background-color: #ddd !important;
     border: none !important;
 }
-.ragu-ragu{
-    background-color: #FFF500;
-    border: none !important;
-}
+
 .sudah-terjawab{
     background-color: #62FF01;
     border: none!important;
 }
-
+.ragu-ragu{
+    background-color: #FFF500 ;
+    border: none !important;
+}
 .quiz .info .foot-info{
     border-top: 1px solid #ddd;
     display: flex;

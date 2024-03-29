@@ -1,7 +1,9 @@
 @php
     $numberQuestion = $detailQuestion->nomor_soal;
     $maxNumberQuestion = count($question);
+    $optionAnswerId = $answer->question_detail_id ?? 0;
 @endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,12 +47,14 @@ return false;
                 <div class="line"></div>
 
                 @foreach ($optionQuestion as $item)
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="radio" value="{{ $item->id }}" name="content_answer" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            {!! $item->content_answer !!}
-                        </label>
-                    </div>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" value="{{ $item->id }}" <?= $optionAnswerId == $item->id ? 'checked' : ''?> name="content_answer" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                {!! $item->content_answer !!}
+                            </label>
+                        </div>
+
                 @endforeach
             </div>
 
@@ -61,7 +65,7 @@ return false;
                 @if ($numberQuestion == 1)
                 <a href="{{ $no = $numberQuestion - 1 }}" class="btn btn-dark disabled"><i class="fa-solid fa-caret-left"></i> Soal Sebelumnya</a>
                 <div class="ragu-ragu d-inline-block p-2 rounded" style="background-color: #FFF500">
-                    <input class="form-check-input doubtful" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input doubtful" type="checkbox" <?= in_array($numberQuestion, $doubtfulAnswer) ? 'checked' : '' ?> value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Ragu - Ragu
                     </label>
@@ -75,7 +79,7 @@ return false;
                 
                 <a href="{{ $no = $numberQuestion - 1 }}" class="btn btn-dark"><i class="fa-solid fa-caret-left"></i> Soal Sebelumnya</a>
                 <div class="ragu-ragu d-inline-block p-2 rounded" style="background-color: #FFF500">
-                    <input class="form-check-input doubtful" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input doubtful" type="checkbox" <?= in_array($numberQuestion, $doubtfulAnswer) ? 'checked' : '' ?> value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Ragu - Ragu
                     </label>
@@ -88,7 +92,7 @@ return false;
                 @if ( $numberQuestion > 1 && $maxNumberQuestion > $numberQuestion)
                 <a href="{{ $no = $numberQuestion - 1 }}" class="btn btn-dark"><i class="fa-solid fa-caret-left"></i> Soal Sebelumnya</a>
                 <div class="ragu-ragu d-inline-block p-2 rounded" style="background-color: #FFF500">
-                    <input class="form-check-input doubtful" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input doubtful" type="checkbox" <?= in_array($numberQuestion, $doubtfulAnswer) ? 'checked' : '' ?> value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Ragu - Ragu
                     </label>
@@ -104,14 +108,20 @@ return false;
                 <h2>01 : 20 : 20</h2>
                 <p class="no-soal">Nomor soal:</p>
                 <div class="nomor-soal">
-                    @foreach ($question as $item)
-                    {{-- @dd($item) --}}
-                    <div class="box <?= $numberQuestion == $item->nomor_soal ? 'saat-ini' : ''?>
-                        <?= $item->doubtful === 1 ? 'ragu-ragu' : ''?>
-                        ">
-                        <a href="/quiz/{{ $item->nomor_soal }}">{{ $item->nomor_soal }}</a>
-                    </div>
+
+                    @foreach ($question as $key => $item)
+                            <div class="box 
+                                {{-- memberi warna untuk posisi saat ragu-ragu --}}
+                                <?= in_array($item->nomor_soal,$doubtfulAnswer) ? 'ragu-ragu' : ''?>
+                                 {{-- memberi warna untuk posisi saat ini --}}
+                                 <?= in_array($item->nomor_soal,$doneAnswer) ? 'sudah-terjawab' : ''?>
+                                {{-- memberi warna untuk posisi saat ini --}}
+                                <?= $numberQuestion == $item->nomor_soal ? 'saat-ini' : ''?>
+                                ">
+                                <a href="/quiz/{{ $item->nomor_soal }}">{{ $item->nomor_soal }}</a>
+                            </div>
                     @endforeach
+
                 </div>
             </div>
 
