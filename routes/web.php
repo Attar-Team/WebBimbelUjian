@@ -38,6 +38,7 @@ Route::post('/admin/question/update/{id}',[QuestionController::class,'update'])-
 Route::post('/admin/question/delete/{id}',[QuestionController::class,'destroy'])->name('updateQuestion');
 
 //Route untuk menangani Quiz 
+Route::get('/quiz/confirm',[QuizController::class,'confirm']);
 Route::get('/quiz/{exam_id}/start',[QuizController::class,'start'])->name('startQuiz');
 Route::get('/quiz/{number_question}',[QuizController::class,'index'])->name('quiz');
 Route::post('/quiz/start/{exam_id}',[QuizController::class,'submitStart']);

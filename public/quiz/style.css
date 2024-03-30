@@ -123,6 +123,11 @@ nav h2{
     background-color: #FFF500 ;
     border: none !important;
 }
+.belum-terjawab{
+    background-color: red;
+    color: #fff;
+    border: none!important;
+}
 .quiz .info .foot-info{
     border-top: 1px solid #ddd;
     display: flex;
@@ -215,5 +220,54 @@ nav h2{
 }
 .start .peraturan{
     width: 550px;
+}
+
+/* style untuk page confirm */
+.confirm{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 10px;
+    margin: -40px auto;
+    padding: 25px;
+    background-color: #fff;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2);
+}
+
+.confirm .box{
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    justify-content: space-between;
+}
+.confirm .box .soal{
+    width: 500px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.confirm .box .soal .no{
+    padding: 10px 15px;
+    background-color: #0466E9;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: 500;
+    text-align: center;
+}
+.confirm .box .status{
+    min-width: 100px;
+    border-radius: 10px;
+    padding: 10px 8px;
+}
+.confirm .box .jawaban{
+    text-align: center;
+    width: 400px;
 }
 

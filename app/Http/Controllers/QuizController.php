@@ -186,4 +186,61 @@ class QuizController extends Controller
 
         return response()->json($data);
     }
+
+    public function confirm()
+    {
+        $doneAnswer = [];
+        $finalDoneAnswer = [];
+        $answer_id = Session::get("answerId");
+
+        $question = Session::get("questions");
+        //mengambil semua data answer
+        $answerDetail = AnswerDetail::with('question')->with('question_details')->where("answer_id",$answer_id)->get();
+        //menentukan warna untuk ragu ragu dan sudah terjawab
+            foreach($question as $key => $item){
+                foreach($answerDetail as $a){
+                    
+                    $questionAnswerId = $a->question_id ?? 0;
+
+                    if($item->id == $questionAnswerId){
+                        
+                        if($a->question_detail_id == null){
+                            array_push($doneAnswer, [
+                                "question_id"=> $item->question_id,
+                                "nomor_soal"=> $item->nomor_soal,
+                                "question"=> $a->question->question,
+                                "content_answer"=> "",
+                            ]);
+                        }
+                        if($a->question_detail_id != null)
+                        array_push($doneAnswer, [
+                            "question_id"=> $item->question_id,
+                            "nomor_soal"=> $item->nomor_soal,
+                            "question"=> $a->question->question,
+                            "content_answer"=> $a->question_details->content_answer,
+                        ]);
+                    }
+                    
+                }
+            }
+            foreach($question as $key => $item){
+                foreach($doneAnswer as $k => $d){
+                    $content_answer = AnswerDetail::with('question_details')->where('question_id',$item->id)->where('answer_id',$answer_id)->get();
+                    $answer = $content_answer[0]->question_details->content_answer ?? "";
+                    $is_doubtful = $content_answer[0]->is_doubtful ?? 0;
+                    if(!in_array($item->nomor_soal, $doneAnswer[$k])){
+                        array_push($finalDoneAnswer, [
+                            "nomor_soal"=> $item->nomor_soal,
+                            "question"=> $item->question,
+                            "is_doubtful"=> $is_doubtful,
+                            "content_answer"=> $answer,
+                        ]);
+                        break;
+                    }
+            }
+        }
+        return view("quiz.confirm",[
+            "data"=> $finalDoneAnswer,
+        ]);
+    }
 }
