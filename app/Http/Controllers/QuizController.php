@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Session;
 
 class QuizController extends Controller
 {
-
     public function index($number_question)
     {
         $doubtfulAnswer = [];
@@ -45,6 +44,20 @@ class QuizController extends Controller
                     }
                 }
             }
+
+        //mengambil waktu ujian dan berapa lama
+        $getTimeStart = Answer::find($answer_id);
+        
+        $timeStart = $getTimeStart->start_date;
+        $duration = $getTimeStart->Exam->duration;
+
+        //menambahkan durasi
+        $date=date_create($timeStart);
+        date_add($date,date_interval_create_from_date_string("$duration minutes"));
+        // menampikan format ($date,"Y-m-d");
+        $endTimeExam = date_format($date,"F j, Y H:i:s");
+
+
         return view("quiz.index",[
             "question"=> $question,
             "detailQuestion"=> $detailQuestion,
@@ -52,7 +65,8 @@ class QuizController extends Controller
             "checkAnswerAll"=> $checkAnswerAll,
             "answer" => $answer,
             "doubtfulAnswer" => $doubtfulAnswer,
-            "doneAnswer" => $doneAnswer
+            "doneAnswer" => $doneAnswer,
+            "endTimeExam"=> $endTimeExam
         ]);
     }
 
@@ -152,15 +166,17 @@ class QuizController extends Controller
         ->where("answer_id","=",$request->answer_id)->first();
 
 
-        if($checkDoubtful->is_doubtful === 0){
-            $detailAnswer = AnswerDetail::where('question_id','=',$request->question_id)->first();
+        if($checkDoubtful->is_doubtful == 0){
+            $detailAnswer = AnswerDetail::where('question_id','=',$request->question_id)
+            ->where('answer_id',$request->answer_id)->first();
             $detailAnswer->is_doubtful = true;
             $detailAnswer->save();
             $data = [
                 'message'=> "data berhasil menjadi true"
             ];
         }else{
-            $detailAnswer = AnswerDetail::where('question_id','=',$request->question_id)->first();
+            $detailAnswer = AnswerDetail::where('question_id','=',$request->question_id)
+            ->where('answer_id',$request->answer_id)->first();
             $detailAnswer->is_doubtful = false;
             $detailAnswer->save();
             $data = [
