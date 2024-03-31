@@ -2,6 +2,7 @@
     $numberQuestion = $detailQuestion->nomor_soal;
     $maxNumberQuestion = count($question);
     $optionAnswerId = $answer->question_detail_id ?? 0;
+
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +47,6 @@ return false;
                 <div class="line"></div>
 
                 @foreach ($optionQuestion as $item)
-
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="radio" value="{{ $item->id }}" <?= $optionAnswerId == $item->id ? 'checked' : ''?> name="content_answer" id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
@@ -83,7 +83,7 @@ return false;
                         Ragu - Ragu
                     </label>
                 </div>
-                <a href="{{ $no = $numberQuestion + 1 }}" class="btn btn-dark ">Finish <i class="fa-solid fa-caret-right"></i></a>
+                <a href="/quiz/confirm" class="btn btn-dark ">Finish <i class="fa-solid fa-caret-right"></i></a>
                 @endif
 
                 {{-- pengecekan jika nomor soal pada posisi lebih dari 1 dan kurang dari banyak soal --}}
