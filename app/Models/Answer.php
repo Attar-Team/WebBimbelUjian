@@ -11,7 +11,7 @@ class Answer extends Model
     use HasFactory;
 
     protected $fillable = [
-        "exam_id","user_id","start_date","grade"
+        "exam_id","user_id","start_date","grade","status"
     ];
 
     public function Exam() :BelongsTo

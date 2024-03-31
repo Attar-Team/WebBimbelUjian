@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('exam_id');
             $table->foreignId('user_id');
+            $table->enum('status', ['not finished','finished']);
             $table->dateTime('start_date')->nullable();
             $table->integer('grade')->nullable();
             $table->timestamps();

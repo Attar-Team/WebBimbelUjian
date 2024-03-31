@@ -50,6 +50,14 @@
             </div>
         </div>
         @endforeach
+
+        <div class="foot-confirm">
+            <a href="{{ url()->previous() }}">Kembali Ke Quiz</a>
+            <form action="/quiz/finish" method="POST">
+                @csrf
+                <button onclick="return confirm('Apakah yakin akan menyelesaikan soal')" type="submit" >Submit dan Selesai</button>
+            </form>
+        </div>
         
         
     </div>

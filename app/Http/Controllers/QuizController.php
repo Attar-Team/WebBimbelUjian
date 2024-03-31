@@ -82,7 +82,8 @@ class QuizController extends Controller
         $answer = Answer::create([
             "exam_id"=> $exam_id,
             // "user_id"=> Auth::user()->id,
-            "user_id"=> 1,
+            "user_id"=> 2,
+            "status"=> "not finished",
             "start_date"=> now()
         ]);
 
@@ -189,14 +190,42 @@ class QuizController extends Controller
     public function confirm()
     {
         $finalDoneAnswer = [];
+        $doneAnswer = [];
         $answer_id = Session::get("answerId");
 
         $question = Session::get("questions");
 
         $answerDetail = AnswerDetail::with('question')->with('question_details')->where("answer_id",$answer_id)->get();
 
+        foreach($question as $key => $item){
+            foreach($answerDetail as $a){
+
+                $questionAnswerId = $a->question_id ?? 0;
+
+                if($item->id == $questionAnswerId){
+
+                    if($a->question_detail_id == null){
+                        array_push($doneAnswer, [
+                            "question_id"=> $item->question_id,
+                            "nomor_soal"=> $item->nomor_soal,
+                            "question"=> $a->question->question,
+                            "content_answer"=> "",
+                        ]);
+                    }
+                    if($a->question_detail_id != null)
+                    array_push($doneAnswer, [
+                        "question_id"=> $item->question_id,
+                        "nomor_soal"=> $item->nomor_soal,
+                        "question"=> $a->question->question,
+                        "content_answer"=> $a->question_details->content_answer,
+                    ]);
+                }
+
+            }
+        }
+
             foreach($question as $key => $item){
-                foreach($answerDetail->toArray() as $k => $d){
+                foreach($doneAnswer as $k => $d){
                     $content_answer = AnswerDetail::with('question_details')->where('question_id',$item->id)->where('answer_id',$answer_id)->get();
                     $answer = $content_answer[0]->question_details->content_answer ?? "";
                     $is_doubtful = $content_answer[0]->is_doubtful ?? 0;
@@ -216,4 +245,47 @@ class QuizController extends Controller
             "data"=> $finalDoneAnswer,
         ]);
     } 
+    public function submitFinish()
+    {
+        $finalDoneAnswer = [];
+        $answer_id = Session::get("answerId");
+
+        $question = Session::get("questions");
+
+        $answerDetail = AnswerDetail::with('question')->with('question_details')->where("answer_id",$answer_id)->get();
+        
+        //mencari examid 
+        $exam = Answer::find($answer_id);
+
+        foreach($question as $key => $item){
+            foreach($answerDetail->toArray() as $k => $d){
+                $content_answer = AnswerDetail::with('question_details')->where('question_id',$item->id)->where('answer_id',$answer_id)->get();
+                
+                $answer = $content_answer[0]->question_details->content_answer ?? "";
+                $is_doubtful = $content_answer[0]->is_doubtful ?? 0;
+                           if( $answer == "" && count($content_answer) == 0){
+                            array_push($finalDoneAnswer, [
+                                "answer_id"=> $answer_id,
+                                "question_id"=> $item->id,
+                                "is_doubtful"=> $is_doubtful,
+                            ]);
+                            break;
+            }
+        }
+    }
+    //update field status menjadi finis
+    $updateAnswer = Answer::find($answer_id);
+    $updateAnswer->status = "finished";
+    $updateAnswer->save();
+
+    //menambahkan data yang belum terjawab
+    AnswerDetail::insert($finalDoneAnswer);
+
+    //menghapus session
+    Session::forget('answerId');
+    Session::forget('startId');
+    Session::forget('questions');
+
+    return redirect("/quiz/$exam->exam_id/start");
+    }
 }
