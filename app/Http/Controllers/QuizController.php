@@ -72,7 +72,15 @@ class QuizController extends Controller
 
     public function start($exam_id)
     {
-        return view("quiz.start");
+        // $answer = Answer::where("exam_id", $exam_id)
+        // ->where('user_id', Auth::user()->id)->get();
+
+        $answer = Answer::where("exam_id", $exam_id)
+        ->where('user_id', 2)->get();
+
+        return view("quiz.start",[
+            "data"=> $answer,
+        ]);
     }
 
     public function submitStart($exam_id)
@@ -97,7 +105,7 @@ class QuizController extends Controller
         });
 
         Session::put('answerId', $answer->id);
-        Session::put('startId', true);
+        Session::put('is_start', true);
         Session::put('questions',$question);
         return redirect('/quiz/1');
     }
@@ -125,6 +133,7 @@ class QuizController extends Controller
                 'answer_id' => $request->answer_id,
                 'question_id'=> $request->question_id,
                 'question_detail_id'=> $request->question_detail_id,
+                'number_question'=> $request->number_question,
                 'is_correct'=> $boolCorrect,
                 'is_doubtful'=> false,
             ]);
@@ -137,6 +146,7 @@ class QuizController extends Controller
             $detailAnswer->answer_id = $request->answer_id;
             $detailAnswer->question_id = $request->question_id;
             $detailAnswer->question_detail_id = $request->question_detail_id;
+            $detailAnswer->number_question = $request->number_question;
             $detailAnswer->is_correct = $boolCorrect;
             $detailAnswer->save();
             $data = [
@@ -267,19 +277,32 @@ class QuizController extends Controller
                             array_push($finalDoneAnswer, [
                                 "answer_id"=> $answer_id,
                                 "question_id"=> $item->id,
+                                "number_question"=> $item->nomor_soal,
                                 "is_doubtful"=> $is_doubtful,
+                                "is_correct"=> 0
                             ]);
                             break;
             }
         }
     }
-    //update field status menjadi finis
-    $updateAnswer = Answer::find($answer_id);
-    $updateAnswer->status = "finished";
-    $updateAnswer->save();
+
 
     //menambahkan data yang belum terjawab
     AnswerDetail::insert($finalDoneAnswer);
+
+    $correctAnswer = AnswerDetail::where('answer_id', $answer_id)
+    ->where('is_correct',1)->get();
+
+    $answer = Answer::find( $answer_id );
+    $amountQuestion = $answer->Exam->amount_question;
+
+    $grade = count($correctAnswer) * 100 / $amountQuestion;
+    
+    //update field status menjadi finis
+    $updateAnswer = Answer::find($answer_id);
+    $updateAnswer->status = "finished";
+    $updateAnswer->grade = $grade;
+    $updateAnswer->save();
 
     //menghapus session
     Session::forget('answerId');

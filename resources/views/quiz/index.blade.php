@@ -153,8 +153,7 @@ return false;
 
         var question_id = {{ $detailQuestion->id }}
         var answer_id = {{  Session::get("answerId") }}
-
-        console.log(answer_id);
+        var number_question = {{ $numberQuestion }}
 
         $(document).ready(function() {
             ($(":input[type=radio]").click(function() {
@@ -162,7 +161,8 @@ return false;
                     const data = {
                         question_detail_id: question_detail_id,
                         question_id: question_id,
-                        answer_id: answer_id
+                        answer_id: answer_id,
+                        number_question: number_question
                     }
                     // console.log(data)
                     $.ajax({

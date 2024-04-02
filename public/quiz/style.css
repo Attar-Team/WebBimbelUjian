@@ -186,7 +186,7 @@ nav h2{
     width: 600px;
     border-radius: 10px 10px 10px 10px;
     border: 1px solid;
-    background-color: #efefef;
+    background-color: #f1f1f1;
 }
 .start .body-start .desc .cont .cont-header{
     border-bottom: 1px solid;
@@ -198,23 +198,37 @@ nav h2{
     background-color: #fff;
     display: flex;
 }
+.start .body-start .desc .cont .cont-header p{
+    width: 150px;
+    text-align: center;
+}
 .start .body-start .desc .cont .cont-body{
     width: 100%;
     justify-content: space-between;
     padding: 15px 50px;
     align-items: center;
+    border-bottom: 1px solid #ddd;
     display: flex;
 }
-.start .body-start .desc form{
+.start .body-start .desc .cont .cont-body div{
+    width: 150px;   
+    text-align: center;
+}
+.start .body-start .desc .cont .cont-body .status{
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 10px;
+}
+/* .start .body-start .desc form{
     width: 600px;
     display: flex;
     justify-content: center;
     margin-top: 15px;
-}
-.start .body-start .desc form .btn-attempt{
+} */
+.start .body-start .desc .btn-attempt{
     background-color: #0466E9;
     color: #fff;
-    padding: 15px 25px;
+    padding: 10px 15px;
     border: none;
     border-radius: 10px;
 }

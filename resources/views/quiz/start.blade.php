@@ -46,28 +46,72 @@
                     <div class="cont-header">
                         <p class="m-0">Deskripsi</p>
                         <p class="m-0">Nilai</p>
+                        <p class="m-0">Action</p>
                     </div>
+                    
+                    @foreach ($data as $item)
+                    @if ($item->status == "not finished")
                     <div class="cont-body">
                         <div>
-                            <p>Not Opened</p>
+                            <p class="status">Belum Selesai</p>
                             <p class="m-0">Selesai pada -</p>
                         </div>
-                        <p class="m-0">100</p>
+                        <p class="m-0" style="font-weight: 500;font-size: 25px">---</p>
+                        <a href="" class="btn btn-warning">Lanjutkan mengeerjakan</a>
                     </div>
+                    @else
+                    <div class="cont-body">
+                        <div>
+                            <p class="btn btn-success">Selesai</p>
+                            <p class="m-0">Selesai pada {{ $item->updated_at }}</p>
+                        </div>
+                        <p class="m-0" style="font-weight: 500;font-size: 25px">{{ $item->grade }}</p>
+                        <a href="" class="btn btn-success">Pembahasan</a>
+                    </div>
+                    @endif
+                   
+                   @endforeach
+
+                    <?php
+                        $amountAccess = 3;
+                        $doneAnswer = count($data);
+                    ?>
+                    @for($i = 1; $i <= ($amountAccess-$doneAnswer); $i++)
+                    <div class="cont-body">
+                        <div>
+                            <p class="status">Belum Selesai</p>
+                            <p class="m-0">Selesai pada -</p>
+                        </div>
+                       
+                        <div>
+                            ---
+                        </div>
+                        <div style="border" >
+                            <form style="display: inline-block;width: 100%" action="/quiz/start/1" method="post">
+                                @csrf
+                                <button class="btn-attempt">Attempt Quiz</button>
+                            </form>
+                        </div>
+                    </div>
+                    @endfor 
                 </div>
+
+                {{-- @isset(Session::get('is_start') && $)
+                    
+                @endisset 
 
                 <form action="/quiz/start/1" method="post">
                     @csrf
                     <button class="btn-attempt">Attempt Quiz</button>
-                </form>
+                </form> --}}
 
             </div>
         </div>
 
-        <div class="peraturan">
+        {{-- <div class="peraturan">
             <h3>Deskripsi</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates nulla et itaque consectetur magnam natus veritatis, eos maiores sed blanditiis voluptate eligendi ullam atque accusantium quo quae! Corporis, veniam non?</p>
-        </div>
+        </div> --}}
     </div>
 
     

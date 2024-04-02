@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('answer_id');
             $table->foreignId('question_id');
             $table->foreignId('question_detail_id')->nullable();
+            $table->integer('number_question')->nullable();
             $table->boolean('is_correct')->nullable();
             $table->boolean('is_doubtful')->nullable();
             $table->timestamps();

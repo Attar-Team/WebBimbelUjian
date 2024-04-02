@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->enum('status', ['not finished','finished']);
             $table->dateTime('start_date')->nullable();
-            $table->integer('grade')->nullable();
+            $table->float('grade',8,2)->nullable();
             $table->timestamps();
         });
     }
