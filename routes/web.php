@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dasboard_userController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Leanding_pageController;
 use App\Http\Controllers\ExamController;
@@ -22,7 +23,13 @@ Route::get('/about', [Leanding_pageController::class,'about'])->name('about');
 Route::get('/paket', [Leanding_pageController::class,'paket'])->name('paket');
 Route::get('/detail_paket', [Leanding_pageController::class,'detail_paket'])->name('detail_paket');
 Route::get('/keranjang', [Leanding_pageController::class,'keranjang'])->name('keranjang');
-Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard');
+
+Route::get('/user/paket', [Dasboard_userController::class,'tampil_userpaket'])->name('user_paket');
+Route::get('/user/transaksi', [Dasboard_userController::class,'tampil_usertransaksi'])->name('user_transaksi');
+Route::get('/user/progres', [Dasboard_userController::class,'tampil_userprogres'])->name('user_progres');
+Route::get('/user/setting', [Dasboard_userController::class,'tampil_usersetting'])->name('user_setting');
+Route::get('/user/isi_paket', [Dasboard_userController::class,'tampil_userisipaket'])->name('user_isipaket');
+Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard_user');
 Route::get('/cobak',function(){
     return view('leanding_page.coba_checkbox');
 });

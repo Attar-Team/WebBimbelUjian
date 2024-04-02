@@ -6,20 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'Home')</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/keranjang.css">
-    <link rel="stylesheet" href="css/check_list.css">
-    <link rel="stylesheet" href="css/paket.css">
-    <link rel="stylesheet" href="css/detail_paket.css">
+    
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" href="{{asset('css/keranjang.css')}}">
+    <link rel="stylesheet" href="{{asset('css/check_list.css')}}">
+    <link rel="stylesheet" href="{{asset('css/paket.css')}}">
+    <link rel="stylesheet" href="{{asset('css/detail_paket.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dashboard_user.css')}}">
+    
 </head>
 <body>
     <nav>
         <a href="{{ route('home') }}" class="logo">Bumn<span>Muda.</span></a>
         <div class="links">
-            <a href="{{ route('home') }}">Home</a>
-            <a href="{{ route('about') }}">About</a>
-            <a href="{{ route('paket') }}">Paket</a>
-            <a class="belajar" href="">Pembelajaran saya</a>
+            <a class="@active('home')" href="{{ route('home') }}">Home</a>
+            <a class="@active('about')" href="{{ route('about') }}">About</a>
+            <a class="@active('paket')" href="{{ route('paket') }}">Paket</a>
+            <a class="belajar @active('user_paket')" href="{{ route('user_paket') }}">Pembelajaran saya</a>
         </div>
         <div class="button_header">
             <a href="{{ route('keranjang') }}"><i class='bx bx-cart' ></i></a>
@@ -29,7 +32,7 @@
         <div class="masuk_akun">
             <a href="{{ route('keranjang') }}"><i class='bx bx-cart' ></i></a>
             <p>Adza zarif</p>
-            <img src="image/zarif1.png" alt="">
+            <img src="{{asset('image/zarif1.png')}}" alt="">
         </div>
     </nav>
     

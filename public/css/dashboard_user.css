@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.dasboard{
+    display: flex;
+}
+
+.sidebar{
+    margin: 0 40px;
+    padding: 20px 10px 40px 20px;
+    background-color: #EEF5FF;
+    width: 400px;
+    height: 420px;
+    border-radius: 4px;
+    transition: 0.7s ease;
+}
+
+.sidebar_terbang{
+    margin: 0 40px;
+    padding: 20px 10px 40px 20px;
+    width: 400px;
+    height: 420px;
+    border-radius: 4px;
+    display: none;
+    transition: 0.9s ease;
+}
+
+.sidebar_terbang.active{
+
+    display: block;
+}
+
+.sidebar.active{
+    transition: 0.9s ease;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
+    top: 100px;
+    position: fixed;
+}
+
+.sidebar .user .akun_sidebar{
+    display: flex;
+    /* align-items: start; */
+}
+
+.sidebar .user .akun_sidebar .nama_user{
+    color: black;
+}
+
+.sidebar .user .akun_sidebar .nama_user h1{
+    font-size: 27px;
+}
+
+.sidebar .user .akun_sidebar .nama_user h2{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.sidebar .user .akun_sidebar img{
+    margin: 0 15px 0 8px;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
+
+.menu_item{
+    list-style: none;
+}
+
+.menu_item .item{
+    padding: 7px 10px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    transition: 0.3s ease-in;
+}
+
+.menu_item .item:hover{
+    background-color: #c7cfe6;
+}
+
+.menu_item .item i{
+    color: #8a8a8a;
+    font-size: 40px;
+    margin:0 20px;
+}
+
+.menu_item .item p{
+    color: #8a8a8a;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.menu_item .item.active{
+    background-color: #2E3D64;
+
+}
+
+.menu_item .item.active i{
+    color: white;
+}
+
+.menu_item .item.active p{
+    color: white;
+}
+
+.menu_user{
+    width: calc(100% - 480px);
+    padding: 0 40px 0 0;
+}
+
+.menu_user h1{
+    font-size: 37px;
+}
+
+.menu_user p{
+    margin-bottom: 20px;
+}
+
+.kotak{
+    width: 350px;
+    height: 150px;
+    border-radius: 4px;
+    background-color: #EEF5FF;
+}
+
+.contoh_pakets{
+    margin: 0 0 50px 1%;
+    transition: 0.4s ease;
+    border-radius: 5px;
+    width: 18vw;
+    min-width: 260px;
+}
+
+
+.contoh_pakets:hover{
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
+}
+
+.contoh_pakets img{
+    border-radius: 5px 5px 0 0;
+    width: 18vw;
+    min-width: 260px;
+}
+
+.contoh_pakets h1{
+    font-size: 20px;
+    /* max-width: 250px; */
+    margin: 0 0 10px 15px;
+}
+
+.contoh_pakets p{
+    margin: 0 0 0 20px;
+    font-size: 14px;
+}
+
+.contoh_pakets .keterangan_paket{
+    display: flex;
+    margin: 5px 5px;
+    align-items: center;
+}
+
+.contoh_pakets .keterangan_paket i{
+    font-size: 21px;
+    font-weight: 600;
+    color: #24FF00;
+}
+
+.contoh_pakets .keterangan_paket h2{
+    color: #24FF00;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.contoh_pakets .button_paket{
+    margin: 10px 5px;
+    /* max-width: 250px; */
+
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contoh_pakets .button_paket button{
+    padding: 7px 0;
+    font-size: 18px;
+    width: calc(18vw - 5px);
+    min-width: 240px;
+
+    border: 2px solid;
+    cursor: pointer;
+    background-color: #2E3D64;
+    color: white;
+    border-radius: 2.5px;
+    border-color: #2E3D64;
+    transition: 0.3s ease;
+}
+
+.contoh_pakets .button_paket button:hover{
+    border-color: #0093AC;
+    background-color: #0093AC;
+}
+
+
+
+
+@media screen and (width: 1366px) {
+    .contoh_pakets{
+        /* margin: 0 0 50px 1%; */
+        transition: 0.4s ease;
+        border-radius: 5px;
+        width: 16vw; 
+        min-width: 250px;
+    }
+
+    .contoh_pakets img{
+        border-radius: 5px 5px 0 0;
+        width: 16vw;
+        min-width: 250px;
+    }
+
+    
+}
+
+.menu_setting{
+    display: flex;
+    gap: 20px;
+}
+
+.menu_setting .kotak_setting{
+    background-color: #EEF5FF;
+    width: 40%;
+    padding: 30px 20px;
+    border-radius: 3px;
+}
+
+.menu_setting .kotak_setting img{
+    width: 100px;
+}
+
+.menu_setting .kotak_setting h1{
+    font-size: 35px;
+    color: #454545;
+}
+
+.menu_setting .kotak_setting p{
+
+    color: #696969;
+}
+
+.menu_setting .kotak_setting button{
+    padding: 10px 0;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 3px;
+    font-size: 21px;
+    background-color: #2E3D64;
+    border: none;
+    width: 100%;
+    transition: 0.4s ;
+}
+
+.menu_setting .kotak_setting button:hover{
+    background-color: #4c6dcf;
+}

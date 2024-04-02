@@ -21,4 +21,17 @@ window.addEventListener("scroll", function() {
 
     
   });
+
+//   document.addEventListener("DOMContentLoaded", function() {
+//     var links = document.querySelectorAll("nav .links a");
+//     links.forEach(function(link) {
+//         link.addEventListener("click", function(event) {
+            
+//             links.forEach(function(otherLink) {
+//                 otherLink.classList.remove("actives"); // Hapus kelas "active" dari semua tautan
+//             });
+//             link.classList.add("actives"); // Tambahkan kelas "active" ke tautan yang diklik
+//         });
+//     });
+// });
 //   });

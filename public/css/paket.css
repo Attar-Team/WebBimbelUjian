@@ -110,27 +110,6 @@
     min-width: 260px;
 }
 
-@media screen and (width: 1366px) {
-    .contoh_paket{
-        margin: 0 0 50px 1%;
-        transition: 0.4s ease;
-        border-radius: 5px;
-        width: 16vw;
-        min-width: 250px;
-    }
-
-    .contoh_paket img{
-        border-radius: 5px 5px 0 0;
-        width: 16vw;
-        min-width: 250px;
-    }
-
-    .paket_list.halo{
-        position: fixed;
-        top: 80px;
-    }
-    
-}
 
 .contoh_paket:hover{
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
@@ -198,3 +177,24 @@
 }
 
 
+@media screen and (width: 1366px) {
+    .contoh_paket{
+        margin: 0 0 50px 1%;
+        transition: 0.4s ease;
+        border-radius: 5px;
+        width: 16vw;
+        min-width: 250px;
+    }
+
+    .contoh_paket img{
+        border-radius: 5px 5px 0 0;
+        width: 16vw;
+        min-width: 250px;
+    }
+
+    .paket_list.halo{
+        position: fixed;
+        top: 80px;
+    }
+    
+}
