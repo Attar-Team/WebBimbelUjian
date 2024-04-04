@@ -66,7 +66,7 @@
                             <p class="m-0">Selesai pada {{ $item->updated_at }}</p>
                         </div>
                         <p class="m-0" style="font-weight: 500;font-size: 25px">{{ $item->grade }}</p>
-                        <a href="" class="btn btn-success">Pembahasan</a>
+                        <a href="/quiz/review/{{$item->id}}" class="btn btn-success">Pembahasan</a>
                     </div>
                     @endif
                    

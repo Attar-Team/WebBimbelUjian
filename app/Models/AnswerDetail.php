@@ -14,6 +14,7 @@ class AnswerDetail extends Model
         "answer_id",
         "question_id",
         "question_detail_id",
+        "number_question",
         "is_correct",
         "is_doubtful",
     ] ;

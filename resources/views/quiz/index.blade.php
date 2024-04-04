@@ -153,7 +153,7 @@ return false;
 
         var question_id = {{ $detailQuestion->id }}
         var answer_id = {{  Session::get("answerId") }}
-        var number_question = {{ $numberQuestion }}
+        var number_question = {{ $detailQuestion->nomor_soal }}
 
         $(document).ready(function() {
             ($(":input[type=radio]").click(function() {

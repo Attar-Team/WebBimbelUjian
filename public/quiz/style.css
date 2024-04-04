@@ -307,3 +307,96 @@ nav h2{
     background-color: #62FF01;
 }
 
+/* style untuk review */
+.review{
+    width: 1000px;
+    margin: -40px auto;
+    border-radius: 10px;
+}
+
+.review .content{
+    width: 1000px;
+    background-color: #fff;
+    padding: 15px;
+}
+.review .content .box{
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.review .content .box ol li{
+    list-style-type: lower-alpha;
+    z-index: 6;
+    padding: 5px;
+}
+.bg-benar{
+    border: 1px solid #55DB02 !important;
+    background-color: #EBFFE8 !important; 
+}
+.bg-salah{
+    border: 1px solid #E33131 !important;
+    background-color: #FFDEDE !important; 
+}
+.jawaban-benar{
+    background-color: #6af215;
+    padding: 5px;
+    position: relative;
+}
+.jawaban-benar::before{
+    content: '';
+    height: 20px;
+    width: 20px;
+    color: #000;
+    z-index: -1;
+    background-color: #55DB02;
+    border: 1px solid;
+    border-radius: 50px;
+    position: absolute;
+    left: -23px;
+    top: 7px;
+}
+.jawaban-benar::after{
+    content: '✓';
+    position: absolute;
+    right: 10px;
+    font-weight: bolder;
+    color: #000;
+}
+.jawaban-salah{
+    background-color: #ff9696;
+    padding: 5px;
+    position: relative;
+}
+.jawaban-salah::before{
+    content: '';
+    height: 20px;
+    width: 20px;
+    color: #000;
+    z-index: -1;
+    background-color: #ff9696;
+    border: 1px solid;
+    border-radius: 50px;
+    position: absolute;
+    left: -23px;
+    top: 7px;
+}
+.jawaban-salah::after{
+    content: 'X';
+    position: absolute;
+    right: 10px;
+    font-weight: bolder;
+    color: red;
+}
+.review .content .box .line{
+    width: 100%;
+    height: 1px;
+    background-color: #6af215;
+    margin-bottom: 10px;
+}
+
+/* .review .desc{
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+} */
+

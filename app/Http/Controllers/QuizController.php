@@ -83,6 +83,11 @@ class QuizController extends Controller
         ]);
     }
 
+    public function review($id)
+    {
+        return view("quiz.review");
+    }
+
     public function submitStart($exam_id)
     {
 
@@ -311,4 +316,6 @@ class QuizController extends Controller
 
     return redirect("/quiz/$exam->exam_id/start");
     }
+
+    
 }
