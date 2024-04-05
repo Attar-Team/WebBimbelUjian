@@ -85,7 +85,14 @@ class QuizController extends Controller
 
     public function review($id)
     {
-        return view("quiz.review");
+        $questionDetail = AnswerDetail::with('question')
+        ->with('questionDetail_questionId')
+        ->where('answer_id',$id)
+        ->orderBy('number_question','asc')->get();
+
+        return view("quiz.review",[
+            "questionDetail"=> $questionDetail
+        ]);
     }
 
     public function submitStart($exam_id)
@@ -311,7 +318,7 @@ class QuizController extends Controller
 
     //menghapus session
     Session::forget('answerId');
-    Session::forget('startId');
+    Session::forget('is_start');
     Session::forget('questions');
 
     return redirect("/quiz/$exam->exam_id/start");

@@ -51,14 +51,18 @@
                     
                     @foreach ($data as $item)
                     @if ($item->status == "not finished")
+                    @if (Session::get("is_start"))
                     <div class="cont-body">
                         <div>
                             <p class="status">Belum Selesai</p>
                             <p class="m-0">Selesai pada -</p>
                         </div>
                         <p class="m-0" style="font-weight: 500;font-size: 25px">---</p>
-                        <a href="" class="btn btn-warning">Lanjutkan mengeerjakan</a>
+                        <a href="/quiz/1" class="btn btn-warning">Lanjutkan mengeerjakan</a>
                     </div>
+                   
+                    @endif
+                 
                     @else
                     <div class="cont-body">
                         <div>
