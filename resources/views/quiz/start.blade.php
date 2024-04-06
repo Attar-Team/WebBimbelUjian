@@ -31,7 +31,7 @@
             <div class="desc">
                 <ul>
                     <li>Soal</li>
-                    <li>: 50 Soal</li>
+                    <li>: 4 Soal</li>
                 </ul>
                 <ul>
                     <li>Jangka Waktu</li>

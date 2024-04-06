@@ -316,6 +316,7 @@ nav h2{
 
 .review .content{
     width: 1000px;
+    border-radius: 10px;
     background-color: #fff;
     padding: 15px;
 }
@@ -340,6 +341,7 @@ nav h2{
 .jawaban-benar{
     background-color: #6af215;
     padding: 5px;
+    border-radius: 10px;
     position: relative;
 }
 .jawaban-benar::before{
@@ -365,6 +367,7 @@ nav h2{
 .jawaban-salah{
     background-color: #ff9696;
     padding: 5px;
+    border-radius: 10px;
     position: relative;
 }
 .jawaban-salah::before{
@@ -394,9 +397,84 @@ nav h2{
     margin-bottom: 10px;
 }
 
-/* .review .desc{
-    width: 300px;
-    height: 500px;
+.review .desc{
+    width: 1000px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 10px;
     background-color: #fff;
-} */
+    padding: 20px;
+}
+.review .desc .header-desc{
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.review .desc .header-desc h2{
+    font-weight: 600;
+}
+.review .desc .header-desc .grade{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.review .desc .header-desc .grade h3{
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #40a800;
+    font-weight: 700;
+}
+.review .desc .header-desc .grade h3 span{
+    font-size: 20px !important;
+    color: #000;
+}
+.review .desc .header-desc .grade p{
+    font-weight: 700;
+    font-size: 30px;
+}
+.review .desc .footer-desc{
+    display: flex;
+    justify-content: space-between;
+}
+.review .desc .footer-desc .jml-soal{
+    width: 310px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+}
+.review .desc .footer-desc .jml-soal h4{
+    font-size: 30px;
+    font-weight: 700;
+}
 
+.review .desc .footer-desc .jml-benar{
+    width: 310px;
+    text-align: center;
+    border: 1px solid #55DB02;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #62FF01;
+}
+.review .desc .footer-desc .jml-benar h4{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.review .desc .footer-desc .jml-salah{
+    width: 310px;
+    text-align: center;
+    border: 1px solid #E33131;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #ff9696;
+}
+.review .desc .footer-desc .jml-salah h4{
+    font-size: 30px;
+    font-weight: 700;
+}

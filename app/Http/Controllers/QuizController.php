@@ -85,13 +85,22 @@ class QuizController extends Controller
 
     public function review($id)
     {
+
+        $answer = Answer::find($id);
+
         $questionDetail = AnswerDetail::with('question')
         ->with('questionDetail_questionId')
         ->where('answer_id',$id)
         ->orderBy('number_question','asc')->get();
 
+        $jmlBenar = $questionDetail->where('is_correct', 1)->count();
+        $jmlSalah = $questionDetail->where('is_correct', 0)->count();
+        
         return view("quiz.review",[
-            "questionDetail"=> $questionDetail
+            "answer"=> $answer,
+            "questionDetail"=> $questionDetail,
+            "jumlahBenar"=> $jmlBenar,
+            "jumlahSalah"=> $jmlSalah
         ]);
     }
 
