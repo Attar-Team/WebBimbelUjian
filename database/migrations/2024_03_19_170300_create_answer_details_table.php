@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('answer_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('exam_id');
+            $table->foreignId('answer_id');
             $table->foreignId('question_id');
-            $table->foreignId('question_detail_id');
-            $table->boolean('is_correct');
-            $table->boolean('is_doubtful');
+            $table->foreignId('question_detail_id')->nullable();
+            $table->integer('number_question')->nullable();
+            $table->boolean('is_correct')->nullable();
+            $table->boolean('is_doubtful')->nullable();
             $table->timestamps();
         });
     }

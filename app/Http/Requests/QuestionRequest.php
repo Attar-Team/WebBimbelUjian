@@ -20,18 +20,20 @@ class QuestionRequest extends FormRequest
         return [
             "exam_id"=> "numeric|required",
             "question"=> "required",
-            "content_answer"=> "required",
+            "content_answer"=> "required|array",
+            "content_answer.*"=> "required",
             "review"=> "required",
-            "question_detail"=> "required",
+            // "question_detail"=> "required",
             "is_correct"=> "required",
         ];
     }
 
-    public function messages()
-{
-    return [
-        'question.required' => 'Field Soal harus di isi.',
-        'review.required' => 'Field review harus di isi.'
-    ];
-}
+//     public function messages()
+// {
+//     return [
+//         'question.required' => 'Field Soal harus di isi.',
+//         'review.required' => 'Field review harus di isi.',
+//         'review.*' => 'Field review harus di isi.'
+//     ];
+// }
 }

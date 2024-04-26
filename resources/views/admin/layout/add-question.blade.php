@@ -1,6 +1,8 @@
 @extends('admin.template.template-admin')
 @section('content')
-
+{{-- @php
+ dd(old('content_answer'));   
+@endphp --}}
     <div class="container-xxl flex-grow-1 container-p-y">
 
         <div class="nav-align-top mb-4">
@@ -36,7 +38,51 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="row mb-3 border py-3 rounded" style="background-color: #f2f2f2">
+                                    {{-- <div class="row mb-3 border py-3 rounded" style="background-color: #f2f2f2">
+                                        <label class="col-sm-2 col-form-label" for="basic-default-company">Opsi 1</label>
+                                        <div class="col">
+                                            <textarea name="content_answer[1]" id="mytextarea" cols="80" rows="8"></textarea>
+                                        </div>
+
+                                        <div class="col-md">
+                                            <small class="text-light fw-semibold">Jawaban benar</small>
+                                            <div class="form-check mt-3">
+                                                <input name="is_correct" class="form-check-input" type="radio"
+                                                    value="1" id="defaultRadio1" />
+                                                <label class="form-check-label" for="defaultRadio1"> Benar </label>
+                                            </div>
+
+                                        </div>
+                                    </div> --}}
+
+                                    <div class="inp-group" id="inp-group">
+
+                                        @forelse (old('content_answer') ?? [] as $item)
+                                        {{-- @dd($item); --}}
+                                        <div class="row mb-3 border py-3 rounded box-option" style="background-color: #f2f2f2">
+                                            <label class="col-sm-2 col-form-label" for="basic-default-company">Opsi {{ $loop->iteration }}</label>
+                                            <div class="col">
+                                                <textarea name="content_answer[{{$loop->iteration}}]" id="mytextarea" cols="80" rows="8">
+                                                    {!! $item !!}
+                                                </textarea>
+                                                @error($item)
+                                                <small style="color: red">* {{ $message }}</small>
+                                            @enderror
+                                             
+                                            </div>
+    
+                                            <div class="col-md">
+                                                <small class="text-light fw-semibold">Jawaban benar</small>
+                                                <div class="form-check mt-3">
+                                                    <input name="is_correct" class="form-check-input" type="radio"
+                                                        value="1" id="defaultRadio1" />
+                                                    <label class="form-check-label" for="defaultRadio1"> Benar </label>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        @empty
+                                                   <div class="row mb-3 border py-3 rounded box-option"  style="background-color: #f2f2f2">
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">Opsi 1</label>
                                         <div class="col">
                                             <textarea name="content_answer[1]" id="mytextarea" cols="80" rows="8"></textarea>
@@ -52,9 +98,7 @@
 
                                         </div>
                                     </div>
-
-                                    <div class="inp-group" id="inp-group">
-
+                                        @endforelse
                                     </div>
 
                                     <div class="row mb-3">
@@ -108,7 +152,8 @@
             var max_field = 5;
             var wraper = $(".inp-group");
             var addButton = $(".add-inp");
-            var x = 1;
+            var x = $(".box-option").length;
+            console.log(x);
             $(addButton).click(function(e) {
                 e.preventDefault();
                 if (x < max_field) {
