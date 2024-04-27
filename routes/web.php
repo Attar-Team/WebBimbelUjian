@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\QuestionController;
@@ -17,9 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard');
@@ -44,3 +42,9 @@ Route::get('/quiz/review/{id}',[QuizController::class,'review']);
 Route::get('/quiz/{exam_id}/start',[QuizController::class,'start'])->name('startQuiz');
 Route::get('/quiz/{number_question}',[QuizController::class,'index'])->name('quiz');
 Route::post('/quiz/start/{exam_id}',[QuizController::class,'submitStart']);
+
+//Route untuk menangani Course
+Route::get('/admin/course',[CourseController::class,'index'])->name('course.show');
+Route::get('/admin/course/create',[CourseController::class,'create']);
+Route::post('/admin/course/video',[CourseController::class,'storeVideo']);
+Route::post('/admin/course/bank-question',[CourseController::class,'storeBankQuestion']);
