@@ -86,9 +86,12 @@
                                     placeholder="Masukan Nama" />
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Masukan File PDF</label>
-                            <input class="form-control" type="file" name="file" id="formFile" />
+                      
+                        <div class="row mb-3">
+                            <label for="" class="col-sm-2 col-form-label">Masukan File PDF</label>
+                            <div class="col-sm-10">
+                                 <input class="form-control" type="file" name="file"/>
+                            </div>    
                         </div>
 
                         <div class="row mb-3">

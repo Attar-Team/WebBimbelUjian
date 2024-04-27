@@ -48,3 +48,6 @@ Route::get('/admin/course',[CourseController::class,'index'])->name('course.show
 Route::get('/admin/course/create',[CourseController::class,'create']);
 Route::post('/admin/course/video',[CourseController::class,'storeVideo']);
 Route::post('/admin/course/bank-question',[CourseController::class,'storeBankQuestion']);
+Route::get('/admin/course/{id}/edit',[CourseController::class,'edit'])->name('course.edit');
+Route::post('/admin/course/video/update/{id}',[CourseController::class,'updateVideo']);
+Route::post('/admin/course/bank-question/update/{id}',[CourseController::class,'updateBankQuestion']);

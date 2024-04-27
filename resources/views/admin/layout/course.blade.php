@@ -36,32 +36,46 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Tipe</th>
                                     <th>Isi</th>
                                     <th>Video</th>
-                                    <th>PDF</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 @foreach ($data as $item)
-                                    {{-- <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $item['name'] }}</td>
-                  <td>{{ $item['amount_question'] }}</td>
-                  <td>{{ $item['duration'] }} menit</td>
-                  <td class="d-flex gap-2">            
-                    <form action="/admin/exam/{{ $item['id'] }}" method="post">
-                      @csrf
-                      @method('delete')
-                      <button type="submit" onclick="return confirm('Apakah yakin untuk menghapus')" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                    </form>
-                    
-                    <a class="btn btn-warning" href="/admin/exam/{{ $item['id'] }}/edit" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a class="btn btn-success" href="/admin/exam/" role="button"><i class="fa-solid fa-circle-info"></i></a>
-                  </td>
-                </tr> --}}
+                                    @if ($item->type == 'videos')
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item['name'] }}</td>
+                                            <td>{{ $item['content'] }}</td>
+                                            <td>
+                                                <iframe width="360" height="200"
+                                                    src="https://www.youtube.com/embed/{{$item->url}}?si=EqJpei8DoO2Z_xSX"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerpolicy="strict-origin-when-cross-origin"
+                                                    allowfullscreen></iframe>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex gap-2">     
+                                                    <form action="/admin/exam/{{ $item['id'] }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit"
+                                                        onclick="return confirm('Apakah yakin untuk menghapus')"
+                                                        class="btn btn-danger"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                                    </form>
+                                                    
+                                                    <a class="btn btn-warning" href="/admin/course/{{ $item['id'] }}/edit"
+                                                    role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                    <a class="btn btn-success" href="/admin/exam/" role="button"><i
+                                                        class="fa-solid fa-circle-info"></i></a>
+                                                    </div>
+                                                    </td>
+                                                </tr>
+                                    @endif
                                 @endforeach
 
                             </tbody>
@@ -79,33 +93,42 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Tipe</th>
                                     <th>Isi</th>
-                                    <th>Video</th>
                                     <th>PDF</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                {{-- @foreach ($data as $item) --}}
-                                    {{-- <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $item['name'] }}</td>
-                  <td>{{ $item['amount_question'] }}</td>
-                  <td>{{ $item['duration'] }} menit</td>
-                  <td class="d-flex gap-2">            
-                    <form action="/admin/exam/{{ $item['id'] }}" method="post">
-                      @csrf
-                      @method('delete')
-                      <button type="submit" onclick="return confirm('Apakah yakin untuk menghapus')" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                    </form>
-                    
-                    <a class="btn btn-warning" href="/admin/exam/{{ $item['id'] }}/edit" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a class="btn btn-success" href="/admin/exam/" role="button"><i class="fa-solid fa-circle-info"></i></a>
-                  </td>
-                </tr> --}}
-                                {{-- @endforeach --}}
+                                <?php $no = 1; ?>
+                                @foreach ($data as $item)
+                                @if ($item->type == 'file pdf')
+                                    <tr>
+                                        <td>{{ $no }}</td>
+                                        <td>{{ $item['name'] }}</td>
+                                        <td>{{ $item['content'] }}</td>
+                                        <td>
+                                            <a href="{{ asset("storage/$item->url") }}" target="blank" >klik untuk donwload / lihat</a>
+                                        </td>
+                                        <td class="d-flex gap-2">
+                                            <form action="/admin/exam/{{ $item['id'] }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit"
+                                                    onclick="return confirm('Apakah yakin untuk menghapus')"
+                                                    class="btn btn-danger"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </form>
+
+                                            <a class="btn btn-warning" href="/admin/course/{{ $item['id'] }}/edit"
+                                                role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a class="btn btn-success" href="/admin/exam/" role="button"><i
+                                                    class="fa-solid fa-circle-info"></i></a>
+                                        </td>
+                                    </tr>
+                                    <?php $no++ ?>
+                                @endif
+                            @endforeach
 
                             </tbody>
 
