@@ -51,30 +51,27 @@
                                             <td>{{ $item['content'] }}</td>
                                             <td>
                                                 <iframe width="360" height="200"
-                                                    src="https://www.youtube.com/embed/{{$item->url}}?si=EqJpei8DoO2Z_xSX"
+                                                    src="https://www.youtube.com/embed/{{ $item->url }}?si=EqJpei8DoO2Z_xSX"
                                                     title="YouTube video player" frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                     referrerpolicy="strict-origin-when-cross-origin"
                                                     allowfullscreen></iframe>
                                             </td>
                                             <td>
-                                                <div class="d-flex gap-2">     
-                                                    <form action="/admin/exam/{{ $item['id'] }}" method="post">
+                                                <div class="d-flex gap-2">
+                                                    <form action="/admin/course/delete/{{ $item['id'] }}" method="post">
                                                         @csrf
-                                                        @method('delete')
                                                         <button type="submit"
-                                                        onclick="return confirm('Apakah yakin untuk menghapus')"
-                                                        class="btn btn-danger"><i
-                                                        class="fa-solid fa-trash-can"></i></button>
+                                                            onclick="return confirm('Apakah yakin untuk menghapus')"
+                                                            class="btn btn-danger"><i
+                                                                class="fa-solid fa-trash-can"></i></button>
                                                     </form>
-                                                    
+
                                                     <a class="btn btn-warning" href="/admin/course/{{ $item['id'] }}/edit"
-                                                    role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                    <a class="btn btn-success" href="/admin/exam/" role="button"><i
-                                                        class="fa-solid fa-circle-info"></i></a>
-                                                    </div>
-                                                    </td>
-                                                </tr>
+                                                        role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endif
                                 @endforeach
 
@@ -102,33 +99,33 @@
 
                                 <?php $no = 1; ?>
                                 @foreach ($data as $item)
-                                @if ($item->type == 'file pdf')
-                                    <tr>
-                                        <td>{{ $no }}</td>
-                                        <td>{{ $item['name'] }}</td>
-                                        <td>{{ $item['content'] }}</td>
-                                        <td>
-                                            <a href="{{ asset("storage/$item->url") }}" target="blank" >klik untuk donwload / lihat</a>
-                                        </td>
-                                        <td class="d-flex gap-2">
-                                            <form action="/admin/exam/{{ $item['id'] }}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit"
-                                                    onclick="return confirm('Apakah yakin untuk menghapus')"
-                                                    class="btn btn-danger"><i
-                                                        class="fa-solid fa-trash-can"></i></button>
-                                            </form>
+                                    @if ($item->type == 'file pdf')
+                                        <tr>
+                                            <td>{{ $no }}</td>
+                                            <td>{{ $item['name'] }}</td>
+                                            <td>{{ $item['content'] }}</td>
+                                            <td>
+                                                <a href="{{ asset("storage/$item->url") }}" target="blank">klik untuk
+                                                    donwload / lihat</a>
+                                            </td>
+                                            <td class="d-flex gap-2">
+                                                <form action="/admin/course/delete/{{ $item['id'] }}" method="post">
+                                                    @csrf
+                                                    <button type="submit"
+                                                        onclick="return confirm('Apakah yakin untuk menghapus')"
+                                                        class="btn btn-danger"><i
+                                                            class="fa-solid fa-trash-can"></i></button>
+                                                </form>
 
-                                            <a class="btn btn-warning" href="/admin/course/{{ $item['id'] }}/edit"
-                                                role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a class="btn btn-success" href="/admin/exam/" role="button"><i
-                                                    class="fa-solid fa-circle-info"></i></a>
-                                        </td>
-                                    </tr>
-                                    <?php $no++ ?>
-                                @endif
-                            @endforeach
+                                                <a class="btn btn-warning" href="/admin/course/{{ $item['id'] }}/edit"
+                                                    role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a class="btn btn-success" href="/admin/exam/" role="button"><i
+                                                        class="fa-solid fa-circle-info"></i></a>
+                                            </td>
+                                        </tr>
+                                        <?php $no++; ?>
+                                    @endif
+                                @endforeach
 
                             </tbody>
 

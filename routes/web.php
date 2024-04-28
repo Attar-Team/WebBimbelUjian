@@ -33,7 +33,7 @@ Route::get('/admin/question/{id}/edit',[QuestionController::class,'edit'])->name
 Route::get('/admin/question/{id}',[QuestionController::class,'show'])->name('showQuestion');
 Route::post('/admin/question/import',[QuestionController::class,'storeWithImport'])->name('storeWithQuestion');
 Route::post('/admin/question/update/{id}',[QuestionController::class,'update'])->name('updateQuestion');
-Route::post('/admin/question/delete/{id}',[QuestionController::class,'destroy'])->name('updateQuestion');
+Route::post('/admin/question/delete/{id}',[QuestionController::class,'destroy'])->name('destroy');
 
 //Route untuk menangani Quiz 
 Route::post('/quiz/finish',[QuizController::class,'submitFinish']);
@@ -51,3 +51,5 @@ Route::post('/admin/course/bank-question',[CourseController::class,'storeBankQue
 Route::get('/admin/course/{id}/edit',[CourseController::class,'edit'])->name('course.edit');
 Route::post('/admin/course/video/update/{id}',[CourseController::class,'updateVideo']);
 Route::post('/admin/course/bank-question/update/{id}',[CourseController::class,'updateBankQuestion']);
+Route::post('/admin/course/video',[CourseController::class,'storeVideo']);
+Route::post('/admin/course/delete/{id}',[CourseController::class,'destroy']);

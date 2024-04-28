@@ -112,4 +112,15 @@ class CourseController extends Controller
 
         return redirect()->route('course.show')->with('success','Data Berhasil Di Update');
     }
+
+    public function destroy($id)
+    {
+        $course = Course::find($id);
+        if(file_exists("storage/$course->url")){
+            File::delete("storage/$course->url");
+        }
+        $course->delete();
+        return redirect()->route('course.show')->with('success','Data Berhasil Di Hapus');
+
+    }
 }
