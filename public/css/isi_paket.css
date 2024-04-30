@@ -1,0 +1,71 @@
+
+
+.isi_paket {
+
+    text-align: center;
+padding: 40px 80px 0 80px;
+}
+
+
+.isi_paket h1{
+    /* margin-top: 30px; */
+    color: #2E3D64;
+
+}
+
+.isi_paket h3{
+    /* margin-top: 30px; */
+    text-align: start;
+    color: #2E3D64;
+    font-size: 27px;
+    margin-top: 110px;
+}
+
+.materi_isipaket{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: start;
+    /* gap: 1rem; */
+}
+
+.satumateri_isipaket{
+    width: 320px;
+    padding: 4px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.satumateri_isipaket:hover{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.gambar_isipaket{
+    border-radius: 4px;
+    height: 150px;
+    background-color: aliceblue;
+}
+
+
+
+.satumateri_isipaket h2{
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+.progres_isipaket{
+    justify-content: space-between;
+    display: flex;
+}
+
+.satumateri_isipaket progress{
+    width: 100%;
+}
+
+.deskripsi p{
+    text-align: start;
+}
+
+.deskripsi h3{
+    margin-top: 70px;
+}

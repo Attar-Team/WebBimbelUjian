@@ -57,7 +57,7 @@
           <div data-i18n="Analytics">Lihat Ujian</div>
         </a>
       </li>
-
+      
       <li class="menu-header pb-0 small text-uppercase">
         <span class="menu-header-text">Report</span>
       </li>
