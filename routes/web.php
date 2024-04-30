@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Dasboard_userController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Leanding_pageController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +48,23 @@ Route::get('/admin/question/{id}/edit',[QuestionController::class,'edit'])->name
 Route::get('/admin/question/{id}',[QuestionController::class,'show'])->name('showQuestion');
 Route::post('/admin/question/import',[QuestionController::class,'storeWithImport'])->name('storeWithQuestion');
 Route::post('/admin/question/update/{id}',[QuestionController::class,'update'])->name('updateQuestion');
-Route::post('/admin/question/delete/{id}',[QuestionController::class,'destroy'])->name('updateQuestion');
+Route::post('/admin/question/delete/{id}',[QuestionController::class,'destroy'])->name('destroy');
+
+//Route untuk menangani Quiz 
+Route::post('/quiz/finish',[QuizController::class,'submitFinish']);
+Route::get('/quiz/confirm',[QuizController::class,'confirm']);
+Route::get('/quiz/review/{id}',[QuizController::class,'review']);
+Route::get('/quiz/{exam_id}/start',[QuizController::class,'start'])->name('startQuiz');
+Route::get('/quiz/{number_question}',[QuizController::class,'index'])->name('quiz');
+Route::post('/quiz/start/{exam_id}',[QuizController::class,'submitStart']);
+
+//Route untuk menangani Course
+Route::get('/admin/course',[CourseController::class,'index'])->name('course.show');
+Route::get('/admin/course/create',[CourseController::class,'create']);
+Route::post('/admin/course/video',[CourseController::class,'storeVideo']);
+Route::post('/admin/course/bank-question',[CourseController::class,'storeBankQuestion']);
+Route::get('/admin/course/{id}/edit',[CourseController::class,'edit'])->name('course.edit');
+Route::post('/admin/course/video/update/{id}',[CourseController::class,'updateVideo']);
+Route::post('/admin/course/bank-question/update/{id}',[CourseController::class,'updateBankQuestion']);
+Route::post('/admin/course/video',[CourseController::class,'storeVideo']);
+Route::post('/admin/course/delete/{id}',[CourseController::class,'destroy']);
