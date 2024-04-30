@@ -144,14 +144,14 @@ nav .links .belajar{
 }
 
 .button_header button.login:hover{
-    background-color: #0093AC;
-    border-color: #0093AC;
+    background-color: #abb9db;
+    border-color: #abb9db;
 }
 
 .button_header button.singup:hover{
-    background-color: #0093AC;
+    background-color: #abb9db;
     color: white;
-    border-color: #0093AC;
+    border-color: #abb9db;
 }
 
 .masuk_akun {
@@ -263,14 +263,14 @@ header .left .button_left .contact{
 }
 
 header .left .button_left .belajar:hover{
-    background-color: #0093AC;
-    border-color: #0093AC;
+    background-color: #abb9db;
+    border-color: #abb9db;
 }
 
 header .left .button_left .contact:hover{
-    background-color: #0093AC;
+    background-color: #abb9db;
     color: white;
-    border-color: #0093AC;
+    border-color: #abb9db;
 }
 
 .title{
@@ -280,7 +280,7 @@ header .left .button_left .contact:hover{
 }
 
 .title h1{
-    padding-top: 30px;
+    padding-top: 20px;
     text-align: center;
     color: #2E3D64;
 }
@@ -376,12 +376,13 @@ header .left .button_left .contact:hover{
 
 .title .contohpaket{
     margin: 20px 80px 0 80px;
-    padding: 0 40px;
+    padding: 60px 40px 10px 40px;
+
     border-radius: 5px;
     background-color: white;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    /* align-items: center; */
+    /* justify-content: space-between; */
     transition: 0.5s ease;
 }
 
@@ -390,7 +391,7 @@ header .left .button_left .contact:hover{
 }
 
 .title .contohpaket .kiri_paket{
-    width: 500px;
+    width: 700px;
     
 }
 
@@ -442,72 +443,163 @@ header .left .button_left .contact:hover{
 }
 
 .title .contohpaket .kiri_paket button:hover{
-    background-color: #0093AC;
-    border-color: #0093AC;
+    background-color: #abb9db;
+    border-color: #abb9db;
 }
 
-.title .contohpaket .kanan_paket .macam_isipaket{
+.title .contohpaket .kanan_paket{
+padding-left: 40px;
+    /* justify-content: start; */
+}
+
+.title{
+
+}
+
+.title .halos{
+    padding: 0 80px;
     display: flex;
     align-items: center;
+}
+
+.halos img{
+    width: 730px;
+}
+
+.halos .kanan{
+    align-items: center;
+}
+
+.halos .kanan h1{
     
-    /* justify-content: center; */
-    background-color: #e2e2e2;
-    border-radius: 38px;
-    padding: 15px 20px;
-    transition: 0.5s ease;
+    text-align: end;
 }
 
-.title .contohpaket .kanan_paket .macam_isipaket:first-child{
-    background-color: #07205f;
-}
-
-.title .contohpaket .kanan_paket .macam_isipaket:not(:last-child){
-    margin-bottom: 10px;
-}
-
-.title .contohpaket .kanan_paket .macam_isipaket i{
-    font-size: 30px;
-    margin: 0 20px 0 0;
-    border-radius: 50%;
-    background-color: white;
-    padding: 6px;
-}
-
-.title .contohpaket .kanan_paket .macam_isipaket h1{
+.halos .kanan p{
+    text-align: end;
     padding: 0;
-    color: #000;
-    font-size: 17px;
-    font-weight: 400;
+    margin: 0;
+}
+
+.halos .kanan .mobile{
+    display: flex;
+    margin-top: 20px;
+    justify-content: end;
+    padding: 0;
     
 }
 
-.title .contohpaket .kanan_paket .macam_isipaket:first-child h1{
-    color: #ffffff;
+
+
+.halos .kanan .mobile .kiri_mobile{
+    margin: 0 40px 0 0 ;
 }
 
-/* .title .contohpaket .kanan_paket .macam_isipaket:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    background-color: #0093AC;
-} */
+.halos .kanan .mobile .kiri_mobile h2{
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.halos .kanan .mobile .kiri_mobile p{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.halos .kanan .mobile .kanan_mobile{
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #07205f;
+    margin: 0;
+    /* width: 300px; */
+    padding: 5px 15px;
+    gap: 10px;
+}
+
+.halos .kanan .mobile .kanan_mobile i:first-child{
+    color: greenyellow;
+    font-size: 45px;
+    margin: 0;
+    padding: 0;
+}
+
+.halos .kanan .mobile .kanan_mobile .kiw i{
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.halos .kanan .mobile .kanan_mobile .tulis_mobile h4{
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    padding: 0;
+    
+}
+
+.halos .kanan .mobile .kanan_mobile .tulis_mobile p{
+    color: white;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.halos .kanan .mobile .kanan_mobile p{
+    margin: 0;
+    padding: 0;
+    color: white;
+    margin-top: 40px;
+}
 
 .title .testi{
-    padding: 0 50px;
+    padding: 20px 80px 0 80px;
     display: flex;
-    
+    position: relative;
     align-items: center;
 }
 
-.title .testi i{
+
+
+.title .halo{
+    /* background-color: green; */
+    /* display: flex; */
+    /* z-index: 2; */
+    /* justify-content: space-between; */
+    padding: 0 30px;
+    position: relative;
+    /* align-items: center; */
+    /* height: 100%; */
+    /* width: 100%; */
+    /* padding: 0 calc(50px + 30px) 0 30px; */
+}
+
+.title .halo i{
+    top: 300px;
+    position: absolute;
+    z-index: 2;
     color: white;
     background-color: #2E3D64;
     border-radius: 3px;
     font-size: 50px;
     cursor: pointer;
     transition: .0.3s ease;
+
 }
 
-.title .testi i:hover{
-    background-color: #0093AC;
+.title .halo i:last-child{
+    right: 30px;
+}
+
+.title .halo i:hover{
+    background-color: #abb9db;
 }
 
 .title .testi img{
@@ -515,18 +607,26 @@ header .left .button_left .contact:hover{
     margin: 0 30px;
 }
 
+.title .testi .komentar{
+    text-align: left;
+}
+
 .title .testi .komentar i{
-    padding: 15px;
-    cursor: auto    ;
-}
-.title .testi .komentar i:hover{
+    
+    color: white;
     background-color: #2E3D64;
+    border-radius: 3px;
+    font-size: 50px;
+    padding: 20px;
+    cursor: pointer;
+    transition: .0.3s ease;
 }
+
 
 .title .testi .komentar p{
     text-align: left;
     margin: 25px 30px 0 0;
-    width: 650px;
+    width: 700px;
 }
 
 .list_testi{
@@ -540,6 +640,7 @@ header .left .button_left .contact:hover{
     position: absolute;
     display: flex;
     width: max-content;
+    align-items: center;
 }
 
 .title .testi .komentar h1{
@@ -550,6 +651,7 @@ header .left .button_left .contact:hover{
 footer {
     background-color: #2E3D64;
     margin:  0;
+
     padding: 5px 0;
     
 }
@@ -623,3 +725,54 @@ footer {
     font-weight: 400;
 }
 
+/* html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    } */
+    .swipp{
+        padding: 0 ;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 80vh;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .btn-testi{
+        padding: 30px;
+        background-color: #07205f;
+        transform: translateY(30px);
+
+    }
+
+    .btn-testi::after,
+    .btn-testi::before{
+        font-size: 30px;
+        color: white;
+    }

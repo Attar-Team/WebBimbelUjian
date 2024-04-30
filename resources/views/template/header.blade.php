@@ -8,10 +8,12 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
-    <link rel="stylesheet" href="{{asset('css/keranjang.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{asset('css/check_list.css')}}">
     <link rel="stylesheet" href="{{asset('css/paket.css')}}">
     <link rel="stylesheet" href="{{asset('css/detail_paket.css')}}">
+    <link rel="stylesheet" href="{{asset('css/scrollpaket-home.css')}}">
+    <link rel="stylesheet" href="{{asset('css/isi_paket.css')}}">
     <link rel="stylesheet" href="{{asset('css/dashboard_user.css')}}">
     
 </head>

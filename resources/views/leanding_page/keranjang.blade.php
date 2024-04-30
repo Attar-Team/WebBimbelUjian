@@ -1,5 +1,6 @@
 @extends('template.header')
 @section('title', 'Bumn Muda | Keranjang')
+<link rel="stylesheet" href="{{asset('css/keranjang.css')}}">
 @section('content')
 <script src="js/home.js"></script>
     <div class="keranjang cart_nonelogin ">

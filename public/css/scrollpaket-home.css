@@ -1,0 +1,123 @@
+.swipers {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slides {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+.contoh_paketss{
+    
+    text-align: start;
+    margin: 0 0 0 1%;
+    transition: 0.4s ease;
+    border-radius: 5px;
+    width: 17px;
+    min-width: 240px;
+}
+
+
+.contoh_paketss:hover{
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
+}
+
+.contoh_paketss img{
+    border-radius: 5px 5px 0 0;
+    width: 17px;
+    min-width: 240px;
+}
+
+.contoh_paketss h1{
+    text-align: start;
+    font-size: 18px;
+    /* max-width: 250px; */
+    margin: 0 0 10px 15px;
+}
+
+.contoh_paketss p{
+    text-align: start;
+    margin: 0 0 0 20px;
+    font-size: 12px;
+}
+
+.contoh_paketss .keterangan_paket{
+    display: flex;
+    margin: 5px 5px;
+    align-items: center;
+}
+
+.contoh_paketss .keterangan_paket i{
+    font-size: 21px;
+    font-weight: 600;
+    color: #24FF00;
+}
+
+.contoh_paketss .keterangan_paket h2{
+    color: #24FF00;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.contoh_paketss .button_paket{
+    margin: 10px 5px;
+    /* max-width: 250px; */
+
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contoh_paketss .button_paket button{
+    padding: 5px 0;
+    font-size: 18px;
+    width: 230px;
+    /* min-width: 240px; */
+
+    border: 2px solid;
+    cursor: pointer;
+    background-color: #2E3D64;
+    color: white;
+    border-radius: 2.5px;
+    border-color: #2E3D64;
+    transition: 0.3s ease;
+}
+
+.contoh_paketss .button_paket button:hover{
+    border-color: #0093AC;
+    background-color: #0093AC;
+}
+
+
+
+
+@media screen and (width: 1366px) {
+    .contoh_paketss{
+        /* margin: 0 0 50px 1%; */
+        transition: 0.4s ease;
+        border-radius: 5px;
+        width: 16vw; 
+        min-width: 250px;
+    }
+
+    .contoh_paketss img{
+        border-radius: 5px 5px 0 0;
+        width: 16vw;
+        min-width: 250px;
+    }
+
+    
+}

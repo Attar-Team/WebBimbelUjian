@@ -40,6 +40,7 @@
                     
                 </div>
             </div>
+            {{-- @foreach ($collection as $item) --}}
             <div class="grup_paket">
                 <div class="contoh_paket">
                     <img src="image/contoh_paket.png" alt="">
@@ -54,6 +55,8 @@
                         <a href=""><i class='bx bxs-cart-add'></i></a>
                     </div>
                 </div>
+            {{-- @endforeach --}}
+            
                 <div class="contoh_paket">
                     <img src="image/contoh_paket.png" alt="">
                     <h1>Paket Try Out BUMN 1</h1>
@@ -158,6 +161,7 @@
                         <a href=""><i class='bx bxs-cart-add'></i></a>
                     </div>
                 </div>
+                
             </div>
             
         </div>

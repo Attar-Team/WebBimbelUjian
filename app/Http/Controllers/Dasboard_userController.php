@@ -30,4 +30,8 @@ class Dasboard_userController extends Controller
         return view('user.layout.isi_paket');
     }
 
+    public function tampil_freebanksoal(){
+        return view('user.layout.Free_banksoal');
+    }
+
 }

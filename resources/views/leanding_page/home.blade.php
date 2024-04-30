@@ -4,9 +4,11 @@
 @section('title', 'BumnMuda. | Home')
 
 @section('content')
+
+    
     <script src="js/home.js"></script>
     <div class="image_left">
-        <img src="image/bg_halamanutama.png" alt="">
+        <img src="image/bg_halamanutama1.png" alt="">
     </div>
     <header>
         <div class="left">
@@ -80,51 +82,138 @@
                 </div>
                 <div class="garis"></div>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum necessitatibus deserunt nihil in asperiores id</p>
-                <button>Lihat Detail</button>
+                <a href="{{ route('paket') }}"><button>Lihat Detail</button></a>
             </div>
             <div class="kanan_paket">
-                <div class="macam_isipaket">
-                    <i class='bx bx-play'></i>
-                    <h1>7 Video Pembelajaran</h1>
-                </div>
-                <div class="macam_isipaket">
-                    <i class='bx bx-file'></i>
-                    <h1>7 Latihan soal</h1>
-                </div>
-                <div class="macam_isipaket">
-                    <i class='bx bx-task' ></i>
-                    <h1>7 Simulasi Ujian</h1>
+
+                    <div class="swipers mySwiper">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slides"><div class="contoh_paketss">
+                            <img src="{{ asset('image/contoh_paket.png') }}" alt="">
+                            <h1>Paket Try Out BUMN 1</h1>
+                            <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
+                            <p><span>•</span> Tes Ujian simulasi</p>
+                            <p><span>•</span> Tes Logika</p>
+                            <p><span>•</span> Paket Soal Lengkap</p>
+                            <div class="keterangan_paket">
+                                <i class='bx bx-check'></i>
+                                <h2>Telah dibeli</h2>
+                            </div>
+                            
+                            <div class="button_paket">
+                                <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
+                
+                            </div>
+                        </div>
+                          <div class="swiper-slides">Slide 2</div>
+                          <div class="swiper-slides">Slide 3</div>
+                          <div class="swiper-slides">Slide 4</div>
+                          <div class="swiper-slides">Slide 5</div>
+                          <div class="swiper-slides">Slide 6</div>
+                          <div class="swiper-slides">Slide 7</div>
+                          <div class="swiper-slides">Slide 8</div>
+                          <div class="swiper-slides">Slide 9</div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          freeMode: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+      </script>
+    <div class="title">
+        <h1>Tersedia dengan Mobile app</h1>
+        <div class="halos">
+            <img src="{{asset('image/mobile.png')}}" alt="">
+            <div class="kanan">
+                <h1>Karena Pelayanan Terbaik adalah prioritas kami</h1>
+                <p>Dapatkan juga versi mobile agar kemudahan pembelajaran bisa dilakukan dimana saja dan kapan saja. Dengan lebih dari 200Ribu download Di google playstore </p>
+                <div class="mobile">
+                    <div class="kiri_mobile">
+                        <h2>App Download</h2>
+                        <p>200Rb+</p>
+                    </div>
+                    <div class="kanan_mobile">
+                        <i class='bx bxl-android' ></i>
+                        <div class="tulis_mobile">
+                            <h4>avaible on</h4>
+                            <p>Android</p>
+                        </div>
+                        <div class="kiw"><i class='bx bxs-download'></i></div>
+                        <p>80,3 MB</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="title">
+        <div class="halo">
+            <i class='bx bx-chevrons-left kiri-testi' ></i>
+            <i class='bx bx-chevrons-right kanan-testi'></i>
+        </div>  
+        
         <h1>Testimoni Siswa</h1>
-        <div class="testi">
-            <i class='bx bx-chevrons-left' ></i>
-            <div class="list_testi">
-                <div class="macam_testi">
-                    <img src="image/zarif1.png" alt="">
-                    <div class="komentar">
-                        <i class='bx bxs-quote-left'></i>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum necessitatibus deserunt nihil in asperiores id.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum necessitatibus deserunt n</p>
-                        <h1>Adza Zarif Nur Iskandar ( Diterima di Telkom Indonesia )</h1>
-                    </div>
-                    </div>
-                <div class="macam_testi">
-                    <img src="image/zarif1.png" alt="">
-                    <div class="komentar">
-                        <i class='bx bxs-quote-left'></i>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum necessitatibus deserunt nihil in asperiores id.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum necessitatibus deserunt n</p>
-                        <h1>Adza Zarif Nur Iskandar ( Diterima di Telkom Indonesia )</h1>
-                    </div>
-                    </div>
+        
+        <div class="swipp">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testi">
+                <div class="list_testi">
+                    <div class="macam_testi">
+                        <img src="image/zarif1.png" alt="">
+                        <div class="komentar">
+                            <i class='bx bxs-quote-left'></i>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum necessitatibus deserunt nihil in asperiores id.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum necessitatibus deserunt n</p>
+                            <h1>Adza Zarif Nur Iskandar ( Diterima di Telkom Indonesia )</h1>
+                        </div>
+                        </div>
                 </div>
-                
-            <i class='bx bx-chevrons-right' ></i>
+            </div>
+        </div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+
+            </div>
+            
+            
+            <div class="swiper-pagination"></div>
         </div>
     </div>
+    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".kanan-testi",
+    prevEl: ".kiri-testi",
+  },
+});
+    </script>
     @include('template.footer')
 @endsection
 

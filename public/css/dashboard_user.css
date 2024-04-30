@@ -265,3 +265,106 @@
 .menu_setting .kotak_setting button:hover{
     background-color: #4c6dcf;
 }
+
+.paket_freebank{
+    padding: 0 180px;
+    margin: 25px 0;
+    /* background-color: #D2E5FF; */
+}
+
+.paket_freebank span{
+    border-radius: 15px;
+    padding: 5px 25px;
+    width: 150px;
+    background-color: #D2E5FF;
+}
+
+.freebank h1{
+    text-align: center;
+    color: #2E3D64;
+}
+
+.freebank h2{
+    font-size: 40px;
+    text-align: center;
+    color: #2E3D64;
+    
+}
+
+.freebank .garis{
+    height: 2px;
+    background-color: #c2c2c2;
+}
+
+.satupaket_pdf{
+    margin-top: 15px;
+    padding: 0 180px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* background-color: #c2c2c2; */
+}
+
+.satupaket_pdf i{
+    font-size: 14px;
+}
+
+.satupaket_pdf .kotak_pdf {
+    display: flex;
+    width: 100%;
+    margin-left: 40px;
+    align-items: center;
+    background-color: #E7F0FD;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.satupaket_pdf .kotak_pdf:hover{
+    background-color: #b6cae3;
+}
+
+.satupaket_pdf .kotak_pdf .download_kotak .keterangan_pdf{
+    align-items: center;
+    
+}
+
+.satupaket_pdf .kotak_pdf .download_kotak .keterangan_pdf h1{
+    font-size: 17px;
+    text-align: start;
+}
+
+.satupaket_pdf .kotak_pdf .download_kotak .keterangan_pdf h2{
+    font-size: 14px;
+    font-weight: 400;
+    color: #343434;
+    text-align: start;
+}
+
+.satupaket_pdf .kotak_pdf .download_kotak .keterangan_pdf p{
+    font-size: 14px;
+    color: #343434;
+    font-weight: 400;
+}
+
+.satupaket_pdf .kotak_pdf i{
+    font-size: 45px;
+    margin-right: 20px;
+    color: #C43B3B;
+}
+
+.satupaket_pdf .kotak_pdf .download_kotak{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.satupaket_pdf .kotak_pdf .download_kotak i{
+    color: #fff;
+    margin: 0;
+    background-color: #7FC17E;
+    padding: 15px;
+    font-size: 25px;
+    border-radius: 50%;
+}

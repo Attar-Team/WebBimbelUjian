@@ -29,6 +29,7 @@ Route::get('/user/transaksi', [Dasboard_userController::class,'tampil_usertransa
 Route::get('/user/progres', [Dasboard_userController::class,'tampil_userprogres'])->name('user_progres');
 Route::get('/user/setting', [Dasboard_userController::class,'tampil_usersetting'])->name('user_setting');
 Route::get('/user/isi_paket', [Dasboard_userController::class,'tampil_userisipaket'])->name('user_isipaket');
+Route::get('/user/freebank_soal', [Dasboard_userController::class,'tampil_freebanksoal'])->name('user_freebank_soal');
 Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard_user');
 Route::get('/cobak',function(){
     return view('leanding_page.coba_checkbox');

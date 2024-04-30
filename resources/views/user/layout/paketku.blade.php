@@ -1,6 +1,8 @@
 @extends('user.component.sidebar')
 @section('title', 'BumnMuda. | paketku')
+<link rel="stylesheet" href="{{asset('css/dashboard_user.css')}}">
 @section('tampilan_dashboard')
+
 <script src="{{ asset('js/dashboard_user.js') }}"></script>
     
     <div class="menu_user">
