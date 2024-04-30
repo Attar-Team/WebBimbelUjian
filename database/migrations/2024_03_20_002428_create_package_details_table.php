@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('package_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_id');
+            $table->foreignId('course_id')->nullable();
             $table->foreignId('package_id');
-            $table->foreignId('exam_id');
+            $table->foreignId('exam_id')->nullable();
+            $table->boolean('is_review')->nullable();
+            $table->boolean('amount_acces')->nullable();
             $table->timestamps();
         });
     }

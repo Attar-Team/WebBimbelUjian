@@ -25,7 +25,7 @@
         <span class="menu-header-text">Paket</span>
       </li>
       <li class="menu-item">
-        <a href="/users" class="menu-link">
+        <a href="/admin/package" class="menu-link">
           <i class="menu-icon tf-icons fa-solid fa-cubes"></i>
           <div data-i18n="Analytics">Paket</div>
         </a>

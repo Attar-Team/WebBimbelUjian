@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
@@ -53,3 +54,16 @@ Route::post('/admin/course/video/update/{id}',[CourseController::class,'updateVi
 Route::post('/admin/course/bank-question/update/{id}',[CourseController::class,'updateBankQuestion']);
 Route::post('/admin/course/video',[CourseController::class,'storeVideo']);
 Route::post('/admin/course/delete/{id}',[CourseController::class,'destroy']);
+
+Route::prefix('admin')->group(function () {
+    Route::prefix('package')->group(function () {
+        Route::get('/',[PackageController::class,'index'])->name('package.show');
+        Route::get('/create',[PackageController::class,'create'])->name('package.create');
+        Route::post('/create',[PackageController::class,'store']);
+    });
+});
+
+Route::get('/show-pdf/{id}', function($id) {
+    $url = "storage/uploads/bank_question/$id";
+    return response()->file($url);
+    })->name('show-pdf');
