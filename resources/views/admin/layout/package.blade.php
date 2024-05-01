@@ -1,3 +1,4 @@
+
 @extends('admin.template.template-admin')
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -35,9 +36,9 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item['name'] }}</td>
                             <td>{{ $item['type'] }}</td>
-                            <td>{{ $item['category'] }} menit</td>
-                            <td>{{ $item['price'] }} menit</td>
-                            <td>{{ $item['dicount'] }} menit</td>
+                            <td>{{ $item['category'] }}</td>
+                            <td>{{ $item['price'] }}</td>
+                            <td>{{ $item['discount'] }}</td>
                             <td class="d-flex gap-2">            
                               <form action="/admin/exam/{{ $item['id'] }}" method="post">
                                 @csrf
@@ -45,7 +46,7 @@
                                 <button type="submit" onclick="return confirm('Apakah yakin untuk menghapus')" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                               </form>
                               
-                              <a class="btn btn-warning" href="/admin/exam/{{ $item['id'] }}/edit" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                              <a class="btn btn-warning" href="/admin/package/{{ $item['id'] }}/edit" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
                               <a class="btn btn-success" href="/admin/exam/" role="button"><i class="fa-solid fa-circle-info"></i></a>
                             </td>
                           </tr>

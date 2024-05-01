@@ -1,11 +1,10 @@
 @extends('admin.template.template-admin')
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <form action="" method="POST">
+        <form method="post" action="/admin/package/create" enctype="multipart/form-data">
         <div class="col-xxl">
             <div class="card mb-4">
                 <div class="card-body">
-                    <form method="post" action="/admin/package/create" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>

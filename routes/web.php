@@ -59,7 +59,9 @@ Route::prefix('admin')->group(function () {
     Route::prefix('package')->group(function () {
         Route::get('/',[PackageController::class,'index'])->name('package.show');
         Route::get('/create',[PackageController::class,'create'])->name('package.create');
+        Route::get('/{id}/edit',[PackageController::class,'edit'])->name('package.edit');
         Route::post('/create',[PackageController::class,'store']);
+        Route::post('/{id}/update',[PackageController::class,'update']);
     });
 });
 
