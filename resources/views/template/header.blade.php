@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="{{asset('css/scrollpaket-home.css')}}">
     <link rel="stylesheet" href="{{asset('css/isi_paket.css')}}">
     <link rel="stylesheet" href="{{asset('css/dashboard_user.css')}}">
-    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <nav>
