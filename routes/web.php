@@ -27,11 +27,11 @@ Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dash
 Route::resource('/admin/exam', ExamController::class);
 
 //Route untuk menangani Question
-Route::get('/admin/question',[QuestionController::class,'index'])->name('viewQuestion');
-Route::get('/admin/question/create/{id}',[QuestionController::class,'create'])->name('createQuestion');
+Route::get('/admin/question',[QuestionController::class,'index'])->name('question.index');
+Route::get('/admin/question/create/{id}',[QuestionController::class,'create'])->name('question.show');
 Route::post('/admin/question',[QuestionController::class,'store'])->name('storeQuestion');
-Route::get('/admin/question/{id}/edit',[QuestionController::class,'edit'])->name('editQuestion');
-Route::get('/admin/question/{id}',[QuestionController::class,'show'])->name('showQuestion');
+Route::get('/admin/question/{id}/edit',[QuestionController::class,'edit'])->name('question.edit');
+Route::get('/admin/question/{id}',[QuestionController::class,'show'])->name('question.show');
 Route::post('/admin/question/import',[QuestionController::class,'storeWithImport'])->name('storeWithQuestion');
 Route::post('/admin/question/update/{id}',[QuestionController::class,'update'])->name('updateQuestion');
 Route::post('/admin/question/delete/{id}',[QuestionController::class,'destroy'])->name('destroy');
@@ -46,7 +46,7 @@ Route::post('/quiz/start/{exam_id}',[QuizController::class,'submitStart']);
 
 //Route untuk menangani Course
 Route::get('/admin/course',[CourseController::class,'index'])->name('course.show');
-Route::get('/admin/course/create',[CourseController::class,'create']);
+Route::get('/admin/course/create',[CourseController::class,'create'])->name('course.create');
 Route::post('/admin/course/video',[CourseController::class,'storeVideo']);
 Route::post('/admin/course/bank-question',[CourseController::class,'storeBankQuestion']);
 Route::get('/admin/course/{id}/edit',[CourseController::class,'edit'])->name('course.edit');
@@ -57,11 +57,13 @@ Route::post('/admin/course/delete/{id}',[CourseController::class,'destroy']);
 
 Route::prefix('admin')->group(function () {
     Route::prefix('package')->group(function () {
-        Route::get('/',[PackageController::class,'index'])->name('package.show');
+        Route::get('/',[PackageController::class,'index'])->name('package.index');
         Route::get('/create',[PackageController::class,'create'])->name('package.create');
         Route::get('/{id}/edit',[PackageController::class,'edit'])->name('package.edit');
+        Route::get('/{id}',[PackageController::class,'show'])->name('package.show');
         Route::post('/create',[PackageController::class,'store']);
         Route::post('/{id}/update',[PackageController::class,'update']);
+        Route::post('/{id}/delete',[PackageController::class,'destroy']);
     });
 });
 

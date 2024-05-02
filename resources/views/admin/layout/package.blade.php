@@ -40,14 +40,14 @@
                             <td>{{ $item['price'] }}</td>
                             <td>{{ $item['discount'] }}</td>
                             <td class="d-flex gap-2">            
-                              <form action="/admin/exam/{{ $item['id'] }}" method="post">
+                              <form action="/admin/package/{{ $item['id'] }}/delete" method="post">
+                                
                                 @csrf
-                                @method('delete')
                                 <button type="submit" onclick="return confirm('Apakah yakin untuk menghapus')" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                               </form>
                               
                               <a class="btn btn-warning" href="/admin/package/{{ $item['id'] }}/edit" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-                              <a class="btn btn-success" href="/admin/exam/" role="button"><i class="fa-solid fa-circle-info"></i></a>
+                              <a class="btn btn-success" href="/admin/package/{{ $item['id'] }}" role="button"><i class="fa-solid fa-circle-info"></i></a>
                             </td>
                           </tr>
                           @endforeach

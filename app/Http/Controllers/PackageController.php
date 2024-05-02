@@ -31,6 +31,19 @@ class PackageController extends Controller
             ]);
     }
 
+    public function show($id)
+    {
+        $package = Package::find($id);
+        $course = PackageDetail::join("courses","package_details.course_id","=","courses.id")
+        ->where('package_id', $id)->get();
+        
+        return view("admin.layout.show-package",[
+            "title"=> "Detail Paket",
+            "package"=> $package,
+            "course"=> $course
+        ]);
+    }
+
     public function store(PackageRequest $request)
     {
         $fileName = '';
@@ -72,7 +85,7 @@ class PackageController extends Controller
                 "course_id"=> $value,
             ]);
         }
-        return redirect()->route("package.show")->with("success","Data berhasil ditambahkan");
+        return redirect()->route("package.index")->with("success","Data berhasil ditambahkan");
     }
 
     public function edit($id)
@@ -173,6 +186,15 @@ class PackageController extends Controller
                 "course_id"=> $value,
             ]);
         }
-        return redirect()->route("package.show")->with("success","Data berhasil di update");
+        return redirect()->route("package.index")->with("success","Data berhasil di update");
+    }
+
+    public function destroy($id)
+    {
+        $detailPackage = PackageDetail::where("package_id", $id);
+        $package = Package::find($id);
+        $detailPackage->delete();
+        $package->delete();
+        return redirect()->route("package.index")->with("success","Data berhasil ditambahkan");
     }
 }

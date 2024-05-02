@@ -24,15 +24,15 @@
       <li class="menu-header pb-0 small text-uppercase">
         <span class="menu-header-text">Paket</span>
       </li>
-      <li class="menu-item">
+      <li class="menu-item @active('package.*')">
         <a href="/admin/package" class="menu-link">
           <i class="menu-icon tf-icons fa-solid fa-cubes"></i>
           <div data-i18n="Analytics">Paket</div>
         </a>
       </li>
-      <li class="menu-item">
+      <li class="menu-item @active('course.*')">
         <a href="/admin/course" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <i class="menu-icon tf-icons fa-solid fa-photo-film"></i>
           <div data-i18n="Analytics">kursus</div>
         </a>
       </li>
@@ -45,7 +45,7 @@
           <div data-i18n="Analytics">Ujian</div>
         </a>
       </li>
-      <li class="menu-item">
+      <li class="menu-item @active('question.*')">
         <a href="/admin/question" class="menu-link">
           <i class="menu-icon tf-icons fa-solid fa-list"></i>
           <div data-i18n="Analytics">Soal</div>
