@@ -72,10 +72,41 @@
   <body>
     <div id="pageLoader" class="page-loader" style="inset: 0; background-color: #ddd;display:flex;justify-content: center;align-items: center; position:fixed;z-index: 9999;">
       <!-- <img src="/image/logo 1.png" alt=""> -->
-      <div class="spinner-border  spinner-border-lg text-warning" role="status">
+      {{-- <div class="spinner-border  spinner-border-lg text-warning" role="status">
                           <span class="visually-hidden">Loading...</span>
-                        </div>
+                        </div> --}}
+                        <div class="loader"></div>
     </div>
+    
+    <style>
+      /* HTML: <div class="loader"></div> */
+.loader {
+  display: inline-flex;
+  gap: 5px;
+  animation: l3-0 1s infinite;
+  transform-origin: 50% calc(100% + 2.5px);
+}
+.loader:before,
+.loader:after {
+  content: "";
+  width: 35px;
+  aspect-ratio: 1;
+  box-shadow: 0 0 0 3px inset #000;
+}
+.loader:after {
+  transform-origin: -2.5px calc(100% + 2.5px);
+  animation: l3-1 1s infinite;
+}
+@keyframes l3-1 {
+  50%,
+  100% {transform:rotate(180deg)}
+}
+@keyframes l3-0 {
+  0%,
+  50%  {transform:rotate(0deg)}
+  100% {transform:rotate(90deg)}
+}
+    </style>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -142,6 +173,29 @@
     </div>
     <!-- / Layout wrapper -->
 
+
+    <script>
+          function rupiah(e){
+      e.value = formatRupiah(e.value);
+    }
+      /* Fungsi */
+function formatRupiah(angka, prefix)
+{
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split    = number_string.split(','),
+        sisa     = split[0].length % 3,
+        rupiah     = split[0].substr(0, sisa),
+        ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+        
+    if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+    
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+}
+    </script>
 
     <!-- Core JS -->
     <!-- build:js assets-admin/vendor-admin/js/core.js -->
