@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <div class="title bgbiru" >
+    <div class="title bgbiru">
         <h1 style="color: #fff">Program yang kami sediakan</h1>
         <p style="color: #fff">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae
             voluptate ea, expedita
@@ -111,7 +111,7 @@
                                     <h2>Telah dibeli</h2>
                                 </div>
 
-                               
+
                                 <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
 
                             </div>
@@ -293,6 +293,11 @@
             slidesPerView: 3,
             spaceBetween: 30,
             freeMode: true,
+            loop: true,
+            autoplay: {
+                delay: 1000,
+                disableOnInteraction: false,
+            },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
