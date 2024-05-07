@@ -98,82 +98,36 @@
 
                 <div class="swiper-paket mySwiperPaket">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide width-paket">
-                            <div class="contoh_paketss">
-                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                <h1>Paket Try Out BUMN 1</h1>
-                                <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
-                                <p><span>•</span> Tes Ujian simulasi</p>
-                                <p><span>•</span> Tes Logika</p>
-                                <p><span>•</span> Paket Soal Lengkap</p>
-                                <div class="keterangan_paket">
-                                    <i class='bx bx-check'></i>
-                                    <h2>Telah dibeli</h2>
+                        @foreach ($packages as $package)
+                            @if ($package->type = 'BUMN')
+                                <div class="swiper-slide width-paket">
+                                    <div class="contoh_paketss">
+                                        <img src="{{ asset('image/contoh_paket.png') }}" alt="">
+                                        <h1>{{ $package['name'] }}</h1>
+                                        @foreach ($package->packageDetail as $item)
+                                            <?php
+                                            $courseName = $item->course->name ?? '';
+                                            $examName = $item->exam->name ?? '';
+                                            ?>
+                                            @if ($courseName != '')
+                                                <p><span>•</span> {{ $item->course->name }}</p>
+                                            @endif
+                                            @if ($examName != '')
+                                                <p><span>•</span> {{ $item->exam->name }}</p>
+                                            @endif
+                                        @endforeach
+                                        <div class="keterangan_paket">
+                                            {{-- <i class='bx bx-check'></i>
+                                        <h2>Telah dibeli</h2> --}}
+                                        </div>
+
+
+                                        <a href="{{ route('detail_paket',$package->id) }}"><button>Detail Paket</button></a>
+
+                                    </div>
                                 </div>
-
-
-                                <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
-
-                            </div>
-                        </div>
-                        <div class="swiper-slide width-paket">
-                            <div class="contoh_paketss">
-                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                <h1>Paket Try Out BUMN 1</h1>
-                                <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
-                                <p><span>•</span> Tes Ujian simulasi</p>
-                                <p><span>•</span> Tes Logika</p>
-                                <p><span>•</span> Paket Soal Lengkap</p>
-                                <div class="keterangan_paket">
-                                    <i class='bx bx-check'></i>
-                                    <h2>Telah dibeli</h2>
-                                </div>
-
-                                <div class="button_paket">
-                                    <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide width-paket">
-                            <div class="contoh_paketss">
-                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                <h1>Paket Try Out BUMN 1</h1>
-                                <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
-                                <p><span>•</span> Tes Ujian simulasi</p>
-                                <p><span>•</span> Tes Logika</p>
-                                <p><span>•</span> Paket Soal Lengkap</p>
-                                <div class="keterangan_paket">
-                                    <i class='bx bx-check'></i>
-                                    <h2>Telah dibeli</h2>
-                                </div>
-
-                                <div class="button_paket">
-                                    <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide width-paket">
-                            <div class="contoh_paketss">
-                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                <h1>Paket Try Out BUMN 1</h1>
-                                <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
-                                <p><span>•</span> Tes Ujian simulasi</p>
-                                <p><span>•</span> Tes Logika</p>
-                                <p><span>•</span> Paket Soal Lengkap</p>
-                                <div class="keterangan_paket">
-                                    <i class='bx bx-check'></i>
-                                    <h2>Telah dibeli</h2>
-                                </div>
-
-                                <div class="button_paket">
-                                    <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
-
-                                </div>
-                            </div>
-                        </div>
-
+                            @endif
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -201,82 +155,36 @@
 
                 <div class="swiper-paket mySwiperPaket">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide width-paket">
-                            <div class="contoh_paketss">
-                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                <h1>Paket Try Out BUMN 1</h1>
-                                <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
-                                <p><span>•</span> Tes Ujian simulasi</p>
-                                <p><span>•</span> Tes Logika</p>
-                                <p><span>•</span> Paket Soal Lengkap</p>
-                                <div class="keterangan_paket">
-                                    <i class='bx bx-check'></i>
-                                    <h2>Telah dibeli</h2>
-                                </div>
+                        @foreach ($packages as $package)
+                        @if ($package->type == 'CPNS')
+                            <div class="swiper-slide width-paket">
+                                <div class="contoh_paketss">
+                                    <img src="{{ asset('image/contoh_paket.png') }}" alt="">
+                                    <h1>{{ $package['name'] }}</h1>
+                                    @foreach ($package->packageDetail as $item)
+                                        <?php
+                                        $courseName = $item->course->name ?? '';
+                                        $examName = $item->exam->name ?? '';
+                                        ?>
+                                        @if ($courseName != '')
+                                            <p><span>•</span> {{ $item->course->name }}</p>
+                                        @endif
+                                        @if ($examName != '')
+                                            <p><span>•</span> {{ $item->exam->name }}</p>
+                                        @endif
+                                    @endforeach
+                                    <div class="keterangan_paket">
+                                        {{-- <i class='bx bx-check'></i>
+                                    <h2>Telah dibeli</h2> --}}
+                                    </div>
 
-                                {{-- <div class="button_paket"> --}}
-                                <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
 
-                                {{-- </div> --}}
-                            </div>
-                        </div>
-                        <div class="swiper-slide width-paket">
-                            <div class="contoh_paketss">
-                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                <h1>Paket Try Out BUMN 1</h1>
-                                <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
-                                <p><span>•</span> Tes Ujian simulasi</p>
-                                <p><span>•</span> Tes Logika</p>
-                                <p><span>•</span> Paket Soal Lengkap</p>
-                                <div class="keterangan_paket">
-                                    <i class='bx bx-check'></i>
-                                    <h2>Telah dibeli</h2>
-                                </div>
-
-                                <div class="button_paket">
                                     <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
 
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide width-paket">
-                            <div class="contoh_paketss">
-                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                <h1>Paket Try Out BUMN 1</h1>
-                                <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
-                                <p><span>•</span> Tes Ujian simulasi</p>
-                                <p><span>•</span> Tes Logika</p>
-                                <p><span>•</span> Paket Soal Lengkap</p>
-                                <div class="keterangan_paket">
-                                    <i class='bx bx-check'></i>
-                                    <h2>Telah dibeli</h2>
-                                </div>
-
-                                <div class="button_paket">
-                                    <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide width-paket">
-                            <div class="contoh_paketss">
-                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                <h1>Paket Try Out BUMN 1</h1>
-                                <p><span>•</span> Tes Kemampuan Dasar (TKD)</p>
-                                <p><span>•</span> Tes Ujian simulasi</p>
-                                <p><span>•</span> Tes Logika</p>
-                                <p><span>•</span> Paket Soal Lengkap</p>
-                                <div class="keterangan_paket">
-                                    <i class='bx bx-check'></i>
-                                    <h2>Telah dibeli</h2>
-                                </div>
-
-                                <div class="button_paket">
-                                    <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
-
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+                    @endforeach
 
                     </div>
                     <div class="swiper-pagination"></div>
@@ -360,8 +268,43 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">
+                        <div class="testi">
+                            <div class="list_testi">
+                                <div class="macam_testi">
+                                    <img src="image/zarif1.png" alt="">
+                                    <div class="komentar">
+                                        <i class='bx bxs-quote-left'></i>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta,
+                                            repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum
+                                            necessitatibus deserunt nihil in asperiores id.Lorem ipsum, dolor sit amet
+                                            consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita
+                                            eveniet eius velit tempora dolorum necessitatibus deserunt n</p>
+                                        <h1>Adza Zarif Nur Iskandar ( Diterima di Telkom Indonesia )</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <div class="testi">
+                            <div class="list_testi">
+                                <div class="macam_testi">
+                                    <img src="image/zarif1.png" alt="">
+                                    <div class="komentar">
+                                        <i class='bx bxs-quote-left'></i>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta,
+                                            repudiandae voluptate ea, expedita eveniet eius velit tempora dolorum
+                                            necessitatibus deserunt nihil in asperiores id.Lorem ipsum, dolor sit amet
+                                            consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea, expedita
+                                            eveniet eius velit tempora dolorum necessitatibus deserunt n</p>
+                                        <h1>Adza Zarif Nur Iskandar ( Diterima di Telkom Indonesia )</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 

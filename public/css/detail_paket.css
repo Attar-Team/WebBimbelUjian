@@ -65,14 +65,13 @@
     margin-left: 3%;
     transition: 0.7s ease;
     border-radius: 7px;
-    /* position: fixed; */
+    position: fixed;
+        right: 50px; 
+     top: 100px;
 }
 
 
 .detail_paketkanan.active{
-    right: 83px;
-    top: 100px;
-    position: fixed;
     background-color: #ebeffa;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

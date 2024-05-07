@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Package;
 use Illuminate\Http\Request;
 
 class Leanding_pageController extends Controller
 {
     public function home(){
-        return view('leanding_page.home');
+        $packages = Package::all();
+        return view('leanding_page.home',[
+            'packages'=> $packages
+        ]);
     }
 
     public function about(){
