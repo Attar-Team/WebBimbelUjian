@@ -13,7 +13,7 @@ class PackageDetail extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function exam() : BelongsTo
+    public function Exam() : BelongsTo
     {
         return $this->BelongsTo(Exam::class,'exam_id');
     }
