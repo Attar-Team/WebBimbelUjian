@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
+use App\Models\Package;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +27,6 @@ Route::post('/preview-excel',[QuestionController::class,'preview']);
 //Route untuk menangani quiz
 Route::post('/quiz/answer',[QuizController::class,'apiAnswer']);
 Route::post('/quiz/doubtful',[QuizController::class,'apiDoubtful']);
+
+Route::get('/package',[PackageController::class,'apiPackage']);
+Route::get('/package/{id}',[PackageController::class,'apiPackageById']);
