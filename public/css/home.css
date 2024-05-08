@@ -5,8 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
+    text-decoration: none !important;
 }
-
+:root{
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.2);
+}
 a{
     text-decoration: none;
     color: #000;
@@ -35,7 +38,7 @@ nav.active{
     /* padding: 0px; */
     z-index: 10;
     width: 100%;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
     background-color: white;
 }
 
@@ -186,7 +189,7 @@ nav .links .belajar{
 
 header{
     padding: 0 80px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 130px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -209,7 +212,7 @@ header .left{
 }
 
 header img{
-    width: 500px;
+    width: 750px;
 }
 
 header .left h1{
@@ -228,6 +231,7 @@ header .left h1 span{
 header .left h2{
     color: #2E3D64;
     font-size: 30px;
+    margin-bottom: 20px;
 }
 
 header .left h2 span{
@@ -240,7 +244,7 @@ header .left p{
 }
 
 header .left .button_left{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 header .left .button_left button{
@@ -276,7 +280,7 @@ header .left .button_left .contact:hover{
 .title{
     height: 100vh;
     width: 100%;
-
+    /* padding: 40px 0; */
 }
 
 .title h1{
@@ -294,24 +298,26 @@ header .left .button_left .contact:hover{
     margin-top: 60px;
     padding: 0 80px;
     display: flex;
+    gap: 10px;
+   justify-content: space-between;
 }
 
 .keunggulan img {
-    width: 450px;
+    width: 550px;
 }
 
 
 .keunggulan .bagiankiri_keunggulan{
-    width: 800px;
+    width: 650px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
     align-items: center;
-    justify-content: center;
 }
 
 .keunggulan .list{
     width: 300px;
-    margin-right: 50px;
 }
 
 .keunggulan .list .judul_keunggulan{
@@ -330,52 +336,59 @@ header .left .button_left .contact:hover{
     font-size: 25px;
 }
 
+/* .title{
+    padding: 0px 0;
+} */
 .keunggulan .list p{
     margin: 10px 0;
     text-align: left;
 }
 
 .bgbiru{
-    background-color: #ebf1ff;
+    background-color: #2E3D64;
 }
 
-.bgbiru h1{
-    /*   */
+.active-title{
+    background-color: #aef3ff !important;
 }
 
 .title .kelas {
     padding: 0 80px;
-    
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .title .kelas .macam_kelas{
     margin-top: 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: #2E3D64;
+    justify-content: space-around;
+    background-color: #fff;
     border-radius: 5px;
+    cursor: pointer;
     height: 100px;
-    width: 300px;
+    width: 47%;
 }
 
 .title .kelas .macam_kelas h1{
     font-weight: 600;
-    color: white;
-    background-color: #2E3D64;
-    width: 150px;
+    color: #2E3D64;
+    /* background-color: #fff; */
+    /* width: 150px; */
     margin: 0;
     padding: 0;
+    
 }
 
 .title .kelas .macam_kelas i{
-    color: #B4D4FF;
-    margin: auto;
+    color: #2E3D64;
+    /* margin: auto; */
     font-size: 80px;
 }
 
 .title .contohpaket{
-    margin: 20px 80px 0 80px;
+    margin: 40px 80px 0 80px;
     padding: 60px 40px 10px 40px;
 
     border-radius: 5px;
@@ -387,12 +400,11 @@ header .left .button_left .contact:hover{
 }
 
 .title .contohpaket:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    box-shadow: var(--box-shadow);
 }
 
 .title .contohpaket .kiri_paket{
-    width: 700px;
-    
+    width: 550px;
 }
 
 .title .contohpaket .kiri_paket h1{
@@ -449,12 +461,13 @@ header .left .button_left .contact:hover{
 
 .title .contohpaket .kanan_paket{
 padding-left: 40px;
+position: relative;
+width: 500px;
+      height: 100%;
     /* justify-content: start; */
 }
 
-.title{
 
-}
 
 .title .halos{
     padding: 0 80px;
@@ -647,7 +660,48 @@ padding-left: 40px;
     font-size: 20px;
     color: #000;
 }
+footer{
+    background-color: #2E3D64;
+    color: #fff;
+}
+footer .footer{
+    padding: 100px 150px 60px 150px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .footer .box{
+    width: 300px;
+}
+footer .footer .box .sosial a{
+    color: #000;
+    /* padding: 15px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 50px;
+    font-size: 20px;
+    width: 50px;
+    margin-right: 10px;
+    background-color: #ddd;
+}
 
+footer .footer .box a{
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+}
+footer .footer .box a:hover{
+    transform: translateX(10px);
+}
+
+footer .copyright{
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+}
+/* 
 footer {
     background-color: #2E3D64;
     margin:  0;
@@ -723,7 +777,7 @@ footer {
     text-align: center;
     font-size: 15px;
     font-weight: 400;
-}
+} */
 
 /* html,
     body {

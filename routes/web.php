@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Leanding_pageController::class,'home'])->name('home');
 Route::get('/about', [Leanding_pageController::class,'about'])->name('about');
 Route::get('/paket', [Leanding_pageController::class,'paket'])->name('paket');
-Route::get('/detail_paket', [Leanding_pageController::class,'detail_paket'])->name('detail_paket');
+Route::get('/detail_paket/{id}', [Leanding_pageController::class,'detail_paket'])->name('detail_paket');
 Route::get('/keranjang', [Leanding_pageController::class,'keranjang'])->name('keranjang');
 
 Route::get('/user/paket', [Dasboard_userController::class,'tampil_userpaket'])->name('user_paket');

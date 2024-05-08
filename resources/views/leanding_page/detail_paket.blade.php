@@ -1,11 +1,11 @@
 @extends('template.header')
 @section('title', 'Bumn Muda | Detail Paket')
 @section('content')
-    <script src="js/home.js"></script>
-    <script src="js/detail_paket.js"></script>
+    <script src="/js/home.js"></script>
+    <script src="/js/detail_paket.js"></script>
     <div class="detail_paket">
         <div class="detail_paketkiri">
-            <img src="image/contoh_paket.png" alt="">
+            <img src="/image/contoh_paket.png" alt="">
             <div class="keterangan_detailpaket">
                 <div class="ket">
                     <i class='bx bxs-user-detail'></i>
@@ -22,7 +22,7 @@
             </div>
                 <h1>Mentor</h1>
                 <div class="mentor">
-                    <img src="image/zarif1.png" alt="">
+                    <img src="/image/zarif1.png" alt="">
                     <div class="nama_mentor">
                         <h2>Admin</h2>
                         <p>Pelatih Bumn dan CPNS</p>
