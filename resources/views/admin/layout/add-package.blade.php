@@ -55,6 +55,17 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Deskripsi</label>
+                            <div class="col-sm-10">
+                                <textarea name="description" id="mytextarea" cols="102" rows="8">{{ old('question') }}</textarea>
+                                @error('question')
+                                    <small style="color: red">* {{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Foto</label>
                             <input class="form-control" name="file" type="file" id="formFile" />
