@@ -21,6 +21,7 @@ class PackageRequest extends FormRequest
             "name"=> "required",
             "category"=> "required",
             "type"=> "required|string",
+            "description"=> "required",
             "price"=> "required",
             "discount"=> "required",
             "file"=> "required",
