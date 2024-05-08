@@ -18,8 +18,4 @@ class PackageDetail extends Model
         return $this->BelongsTo(Course::class,'course_id');
     }
 
-    public function Exam() : BelongsTo
-    {
-        return $this->BelongsTo(Exam::class,'exam_id');
-    }
 }
