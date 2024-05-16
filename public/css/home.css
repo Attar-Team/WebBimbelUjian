@@ -20,7 +20,7 @@ img{
 }
 
 body{
-
+    scroll-behavior: smooth;
     background-color: white;
 }
 
@@ -31,10 +31,14 @@ nav{
     justify-content: space-between;
     height: 80px;
     transition: 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 nav.active{
-    position: fixed;
+    
     /* padding: 0px; */
     z-index: 10;
     width: 100%;
@@ -42,13 +46,13 @@ nav.active{
     background-color: white;
 }
 
-nav a.logo{
+a.logo{
     font-size: 33px;
     font-weight: 700;
     color: #2E3D64;
 }
 
-nav a.logo span{
+a.logo span{
     color: #0093AC;
 }
 
@@ -60,6 +64,7 @@ nav .links a{
     font-weight: 400;
     display: inline-block;
     text-decoration: none;
+    color: #000;
     transition: 0.4s ease-in;
 }
 
@@ -189,6 +194,7 @@ nav .links .belajar{
 
 header{
     padding: 0 80px;
+    margin-top: 40px;
     height: calc(100vh - 130px);
     display: flex;
     align-items: center;
@@ -283,6 +289,7 @@ header .left .button_left .contact:hover{
     /* padding: 40px 0; */
 }
 
+
 .title h1{
     padding-top: 20px;
     text-align: center;
@@ -352,14 +359,27 @@ header .left .button_left .contact:hover{
     background-color: #aef3ff !important;
 }
 
-.title .kelas {
+.program{
+    padding: 100px 0;
+    width: 100%;
+}
+.program h1{
+    text-align: center;
+}
+.program .des{
+    text-align: center;
+    margin: auto;
+    width: 800px;
+    margin-top: 10px;
+}
+.program .kelas {
     padding: 0 80px;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-.title .kelas .macam_kelas{
+.program .kelas .macam_kelas{
     margin-top: 30px;
     display: flex;
     align-items: center;
@@ -371,7 +391,7 @@ header .left .button_left .contact:hover{
     width: 47%;
 }
 
-.title .kelas .macam_kelas h1{
+.program .kelas .macam_kelas h1{
     font-weight: 600;
     color: #2E3D64;
     /* background-color: #fff; */
@@ -381,16 +401,15 @@ header .left .button_left .contact:hover{
     
 }
 
-.title .kelas .macam_kelas i{
+.program .kelas .macam_kelas i{
     color: #2E3D64;
     /* margin: auto; */
     font-size: 80px;
 }
 
-.title .contohpaket{
+.program .contohpaket{
     margin: 40px 80px 0 80px;
-    padding: 60px 40px 10px 40px;
-
+    padding: 60px 40px 40px 40px;
     border-radius: 5px;
     background-color: white;
     display: flex;
@@ -399,49 +418,49 @@ header .left .button_left .contact:hover{
     transition: 0.5s ease;
 }
 
-.title .contohpaket:hover{
+.program .contohpaket:hover{
     box-shadow: var(--box-shadow);
 }
 
-.title .contohpaket .kiri_paket{
+.program .contohpaket .kiri_paket{
     width: 550px;
 }
 
-.title .contohpaket .kiri_paket h1{
+.program .contohpaket .kiri_paket h1{
     padding: 15px 0 0 0;
     text-align: left;
     font-weight: 500;
     color: #000;
 }
 
-.title .contohpaket .kiri_paket .keteranganpaket{
+.program .contohpaket .kiri_paket .keteranganpaket{
     display: flex;
 }
 
-.title .contohpaket .kiri_paket .keteranganpaket i{
+.program .contohpaket .kiri_paket .keteranganpaket i{
     font-size: 25px;
     margin-top: 10px;
     color: #2E3D64;
 }
 
-.title .contohpaket .kiri_paket .keteranganpaket p{
+.program .contohpaket .kiri_paket .keteranganpaket p{
     margin: 10px 0 0 10px;
 
 }
 
-.title .contohpaket .kiri_paket .garis{
+.program .contohpaket .kiri_paket .garis{
     height: 2px;
     background-color: #f3f3f3;
     margin: 20px 0;
 }
 
-.title .contohpaket .kiri_paket p{
+.program .contohpaket .kiri_paket p{
     text-align: left;
     font-size: 15px;
     margin: 0 0 10px 0;
 }
 
-.title .contohpaket .kiri_paket button{
+.program .contohpaket .kiri_paket button{
     border: 1px solid;
     border-radius: 3px;
     background-color: #2E3D64;
@@ -454,12 +473,12 @@ header .left .button_left .contact:hover{
     transition: .0.3s ease;
 }
 
-.title .contohpaket .kiri_paket button:hover{
+.program .contohpaket .kiri_paket button:hover{
     background-color: #abb9db;
     border-color: #abb9db;
 }
 
-.title .contohpaket .kanan_paket{
+.program .contohpaket .kanan_paket{
 padding-left: 40px;
 position: relative;
 width: 500px;
@@ -467,7 +486,18 @@ width: 500px;
     /* justify-content: start; */
 }
 
-
+.program .contohpaket .kanan_paket .discount{
+    position: relative;
+    display: inline;
+}
+.program .contohpaket .kanan_paket .discount::before{
+    content: "";
+    width: 100%;
+    top: 8px;
+    position: absolute;
+    height: 2px;
+    background-color: red;
+}
 
 .title .halos{
     padding: 0 80px;
