@@ -24,4 +24,9 @@ class PackageDetail extends Model
         return $this->BelongsTo(Exam::class,'exam_id');
     }
 
+    public function order() :HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
 }

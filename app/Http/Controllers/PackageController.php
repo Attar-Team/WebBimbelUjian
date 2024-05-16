@@ -57,8 +57,8 @@ class PackageController extends Controller
             "type"=> $request->type,
             "description"=> $request->description,
             "category"=> $request->category,
-            "price"=> $request->price,
-            "discount"=> $request->discount,
+            "price"=> str_replace('.', '', $request->price),
+            "discount"=> str_replace('.', '', $request->discount),
             "photo"=> $fileName,
         ]);
 

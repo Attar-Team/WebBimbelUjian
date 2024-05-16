@@ -8,9 +8,28 @@ use Illuminate\Http\Request;
 class Leanding_pageController extends Controller
 {
     public function home(){
-        $packages = Package::all();
+        $packages = Package::withCount('order')
+        ->get()
+        ->map(function ($package) {
+            $package->id_package = $package->id;
+            return $package;
+        });
+        // dd($packages);
+        $countPackageBumn = $packages->where("type","BUMN")->count();
+        $countPackageCpns = $packages->where("type","CPNS")->count();
+        
+        $countOrderBUMN = Package::rightJoin('orders','orders.package_id','=','packages.id')
+        ->where('packages.type','BUMN')->count('orders.id');
+
+        $countOrderCPNS = Package::rightJoin('orders','orders.package_id','=','packages.id')
+        ->where('packages.type','CPNS')->count('orders.id');
+        
         return view('leanding_page.home',[
-            'packages'=> $packages
+            'packages'=> $packages,
+            'countOrderBUMN'=> $countOrderBUMN,
+            'countOrderCPNS'=> $countOrderCPNS,
+            'countPackageBumn'=> $countPackageBumn,
+            'countPackageCpns'=> $countPackageCpns
         ]);
     }
 
@@ -26,7 +45,36 @@ class Leanding_pageController extends Controller
         return view('leanding_page.keranjang');
     }
 
-    public function detail_paket(){
-        return view('leanding_page.detail_paket');
+    public function detail_paket($id){
+        $package = Package::find($id);
+        $countExam = 0;
+        $countVideo = 0;
+        $countBankSoal = 0;
+        foreach ($package->packageDetail as $item){
+        
+        $courseName = $item->course->name ?? '';
+        $examName = $item->exam->name ?? '';
+       
+       
+
+        if ($courseName != ''){
+            if ($item->course->type == "file pdf")  {
+                $countBankSoal++;
+            }else{
+                $countVideo++;
+            }
+        }
+        if ($examName != ''){
+            $countExam++;
+        }
+
+        }
+        
+        return view('leanding_page.detail_paket',[
+            'package'=> $package,
+            'countExam'=> $countExam,
+            'countVideo'=> $countVideo,
+            'countBankSoal'=> $countBankSoal
+        ]);
     }
 }
