@@ -3,6 +3,7 @@
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\TransactionController;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,6 @@ Route::post('/quiz/doubtful',[QuizController::class,'apiDoubtful']);
 
 Route::get('/package',[PackageController::class,'apiPackage']);
 Route::get('/package/{id}',[PackageController::class,'apiPackageById']);
+
+Route::post('/getToken', [TransactionController::class,'getToken']);
+Route::post('/midtrans-callback',[TransactionController::class,'callback']);

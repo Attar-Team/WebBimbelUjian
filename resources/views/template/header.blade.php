@@ -8,14 +8,14 @@
     <title>@yield('title', 'Home')</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
-    <link rel="stylesheet" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="{{asset('css/check_list.css')}}">
-    <link rel="stylesheet" href="{{asset('css/paket.css')}}">
-    <link rel="stylesheet" href="{{asset('css/detail_paket.css')}}">
-    <link rel="stylesheet" href="{{asset('css/scrollpaket-home.css')}}">
-    <link rel="stylesheet" href="{{asset('css/isi_paket.css')}}">
-    <link rel="stylesheet" href="{{asset('css/dashboard_user.css')}}">
+    <link rel="stylesheet" href="/css/check_list.css">
+    <link rel="stylesheet" href="/css/paket.css">
+    <link rel="stylesheet" href="/css/detail_paket.css">
+    <link rel="stylesheet" href="/css/scrollpaket-home.css">
+    <link rel="stylesheet" href="/css/isi_paket.css">
+    <link rel="stylesheet" href="/css/dashboard_user.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

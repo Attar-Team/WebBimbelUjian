@@ -8,6 +8,7 @@ use App\Http\Controllers\ExamController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ Route::get('/about', [Leanding_pageController::class,'about'])->name('about');
 Route::get('/paket', [Leanding_pageController::class,'paket'])->name('paket');
 Route::get('/detail_paket/{id}', [Leanding_pageController::class,'detail_paket'])->name('detail_paket');
 Route::get('/keranjang', [Leanding_pageController::class,'keranjang'])->name('keranjang');
+
+Route::get('/order/{id}', [TransactionController::class, 'index']);
 
 Route::get('/user/paket', [Dasboard_userController::class,'tampil_userpaket'])->name('user_paket');
 Route::get('/user/transaksi', [Dasboard_userController::class,'tampil_usertransaksi'])->name('user_transaksi');

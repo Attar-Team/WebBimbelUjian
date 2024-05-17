@@ -10,6 +10,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Order extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+
+    protected $fillable = [
+        'id','user_id','package_id','date','gross_amount'
+    ];
     
 
     public function package() :BelongsTo
