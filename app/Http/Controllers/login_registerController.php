@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 // use Auth;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\HasApiTokens;
@@ -40,6 +41,46 @@ class login_registerController extends Controller
                 'data' => null
             ]);
         }
+    }
+
+    public function apiinsert_akun_google(Request $request){
+        
+        $user = new User;
+
+        $rules = [
+            'social_id' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'no_telp' => 'nullable',
+            'image' => 'nullable',
+            'role' => 'required',
+            'password' => 'required',
+        ];
+
+        $validasi = Validator::make($request->all(), $rules);
+        if($validasi->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal Memasukan data',
+                'data' => $validasi->errors()
+            ]);
+        }
+
+        $user->social_id = $request->uid;
+        $user->name = $request->displayName;
+        $user->email = $request->email;
+        $user->no_telp = $request->no_telp;
+        $user->image = $request->image;
+        $user->role = $request->role;
+        $user->password = $request->password;
+
+        $post = $user->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil menambahkan data',
+
+        ]);
     }
 
     public function show_login(){
