@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\login_registerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/users',[login_registerController::class, 'index']);
+Route::post('/login',[login_registerController::class, 'apilogin']);
