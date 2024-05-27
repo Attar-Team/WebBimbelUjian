@@ -55,9 +55,7 @@ class TransactionController extends Controller
                 'phone' => '08111222333'
             ),
         );
-
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-
         return response()->json(['token'=> $snapToken]);
     }
 
@@ -72,7 +70,6 @@ class TransactionController extends Controller
                     "date"=> $request->transaction_time,
                     "payment_type"=> $request->payment_type,
                 ]);
-
             }
         }
     }
