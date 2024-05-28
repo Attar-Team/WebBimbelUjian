@@ -1,8 +1,8 @@
 <footer>
     <div class="footer">
         <div class="box">
-            <img class="mb-3" src="image/Logo (2).png" width="200px" alt="">
-            <h2>Rahmatan Travel</h2>
+            {{-- <img class="mb-3" src="image/Logo (2).png" width="200px" alt=""> --}}
+            <a href="{{ route('home') }}" class="logo">Bumn<span>Muda.</span></a>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus quis cupiditate aliquam excepturi
                 illum
                 quaerat impedit ex maiores omnis veniam officia facilis quibusdam voluptas praesentium tenetur
@@ -18,7 +18,7 @@
             </div>
             <div class="d-flex align-items-center mb-2">
                 <i class="fa-solid fa-envelope me-3"></i>
-                <p class="m-0">rahmatantravel@gmail.com</p>
+                <p class="m-0">example@gmail.com</p>
             </div>
             <div class="d-flex align-items-center mb-2">
                 <i class="fa-solid fa-location-dot me-3"></i>
@@ -64,6 +64,12 @@
         </div>
     </div>
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+{{-- <script src="/js/*.js"></script> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

@@ -4,8 +4,10 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Models\Package;
+use App\Http\Controllers\login_registerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,6 @@ Route::post('/quiz/doubtful',[QuizController::class,'apiDoubtful']);
 
 Route::get('/package',[PackageController::class,'apiPackage']);
 Route::get('/package/{id}',[PackageController::class,'apiPackageById']);
+Route::get('/users',[login_registerController::class, 'index']);
+Route::post('/login',[login_registerController::class, 'apilogin']);
+Route::post('/insert_after_login_google',[login_registerController::class, 'apiinsert_akun_google']);
