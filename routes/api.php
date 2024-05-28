@@ -5,8 +5,10 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\TransactionController;
 use App\Models\Package;
+use App\Http\Controllers\login_registerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,6 @@ Route::get('/package/{id}',[PackageController::class,'apiPackageById']);
 
 Route::post('/getToken', [TransactionController::class,'getToken']);
 Route::post('/midtrans-callback',[TransactionController::class,'callback']);
+Route::get('/users',[login_registerController::class, 'index']);
+Route::post('/login',[login_registerController::class, 'apilogin']);
+Route::post('/insert_after_login_google',[login_registerController::class, 'apiinsert_akun_google']);

@@ -8,7 +8,11 @@ use App\Http\Controllers\ExamController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
+<<<<<<< HEAD
 use App\Http\Controllers\TransactionController;
+=======
+use App\Http\Controllers\login_registerController;
+>>>>>>> main
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,3 +93,10 @@ Route::get('/show-pdf/{id}', function($id) {
     $url = "storage/uploads/bank_question/$id";
     return response()->file($url);
     })->name('show-pdf');
+Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard');
+Route::get('/login', [login_registerController::class,'show_login'])->name('login');
+Route::post('/google/login', [login_registerController::class,'Googlelogins'])->name('Googlelogin');
+
+Route::post('/google/login/test', function () {
+    return response()->json(['message' => 'Route is working']);
+});
