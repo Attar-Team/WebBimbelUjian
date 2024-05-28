@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    text-decoration: none !important;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+img{
+    object-fit: cover;
+}
+
+body{
+    scroll-behavior: smooth;
+    background-color: white;
+}
+
+nav{
+    height: 80px;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: #2E3D64;
+    cursor: pointer;
+}
+
+nav .logo span{
+    color: #0093AC;
+}
+
+nav .link_nav a{
+    font-size: 18px;
+}
+
+nav .link_nav a:not(:last-child){
+    margin-right: 20px;
+}
+
+.content_login .gambar_login{
+    position: fixed;
+    top: 0;
+    width: 660px;
+    z-index: -1;
+}
+
+.content_login {
+    display: flex;
+    height: calc(100vh - 160px);
+}
+
+.content_login .login_kiri{
+    width: 860px;
+}
+
+.content_login .login_kanan{
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.content_login .login_kanan h1{
+    margin-bottom: 40px;
+    font-size: 50px;
+}
+
+
+.content_login .login_kanan .input{
+    width: 450px;
+    text-align: start;
+}
+
+.content_login .login_kanan .input input{
+    padding: 0 10px;
+    width: 100%;
+    height: 55px;
+    border: solid 1px;
+    border-radius: 12px;
+    border-color: grey;
+}
+
+.content_login .login_kanan .input label{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.content_login .login_kanan .input{
+    margin-bottom: 15px;
+}
+
+.content_login .login_kanan .login{
+    width: 100%;
+    margin-top: 30px;
+    height: 55px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    background-color: #2E3D64;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.content_login .login_kanan .login:hover{
+    background-color: #667499;
+}
+
+.content_login .login_kanan h2{
+    font-size: 16px;
+    margin-top: 4px;
+    text-align: end;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.content_login .login_kanan h2:hover{
+    color: #7e7e7e;
+}
+
+.content_login .login_kanan img{
+
+    width: 320px;
+    margin: 20px 0;
+}
+
+
+.content_login .login_kanan .google{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 7px;
+    background-color: #2E3D64;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.content_login .login_kanan .google .logo_google{
+    width: 20px;
+    margin-right: 10px;
+}
+
+.content_login .login_kanan .google:hover{
+    background-color: #667499;
+}
