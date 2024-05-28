@@ -22,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/users',[login_registerController::class, 'index']);
 Route::post('/login',[login_registerController::class, 'apilogin']);
+Route::post('/register',[login_registerController::class, 'api_register']);
+Route::put('/login/{id}',[login_registerController::class, 'api_editprofile']);
 Route::post('/insert_after_login_google',[login_registerController::class, 'apiinsert_akun_google']);

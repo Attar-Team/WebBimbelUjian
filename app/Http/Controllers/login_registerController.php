@@ -83,6 +83,82 @@ class login_registerController extends Controller
         ]);
     }
 
+    public function api_editprofile(Request $request,  $id){
+        $user = User::find($id);
+
+        if(empty($user)){
+            return response()->json([
+                'status' => false,
+                'message' => 'data tidak ditemukan'
+            ], 404);
+        }
+
+        $rules = [
+            'name' => 'required',
+            'no_telp' => 'required',
+            'image' => 'required',
+        ];
+
+        $validasi = Validator::make($request->all(), $rules);
+        if($validasi->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal Melakukan update profile',
+                'data' => $validasi->errors()
+            ]);
+        }
+
+        $user->name = $request->name;
+        $user->no_telp = $request->no_telp;
+        $user->image = $request->image;
+
+        $post = $user->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil melakukan update profile',
+
+        ]);
+
+    }
+
+    public function api_register(Request $request){
+        $user = new User;
+
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|email',
+            'no_telp' => 'nullable',
+            'image' => 'nullable',
+            'role' => 'required',
+            'password' => 'required',
+        ];
+
+        $validasi = Validator::make($request->all(), $rules);
+        if($validasi->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal Memasukan data',
+                'data' => $validasi->errors()
+            ]);
+        }
+
+        $user->name = $request->displayName;
+        $user->email = $request->email;
+        $user->no_telp = $request->no_telp;
+        $user->image = $request->image;
+        $user->role = $request->role;
+        $user->password = $request->password;
+
+        $post = $user->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil menambahkan data',
+
+        ]);
+    }
+
     public function show_login(){
         return view('login_register.layout.login');
     }
