@@ -143,7 +143,7 @@ class login_registerController extends Controller
             ]);
         }
 
-        $user->name = $request->displayName;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->no_telp = $request->no_telp;
         $user->image = $request->image;
