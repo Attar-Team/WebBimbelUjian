@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('package_id');
             $table->dateTime('date');
-            $table->integer('total_payment');
-            $table->string('token');
+            $table->integer('gross_amount');
+            $table->string('payment_type');
+            $table->string('bank_name')->nullable();
+            $table->string('number_va')->nullable();
             $table->timestamps();
         });
     }

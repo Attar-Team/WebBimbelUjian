@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->enum('type', ['BUMN','CPNS']);
-            $table->enum('category', ['try out','kursus']);
+            $table->enum('category', ['try-out','kursus']);
             $table->integer('price');
             $table->integer('discount');
+            $table->string('photo');
+            $table->text('description');
             $table->timestamps();
         });
     }

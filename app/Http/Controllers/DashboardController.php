@@ -13,6 +13,8 @@ class DashboardController extends Controller
         // $data = DB::table("paket")->get();
         // $data = Paket::all();
         // dd($data);
-        return view("admin.layout.dashboard");
+        return view("admin.layout.dashboard",[
+            "title"=> "Dashboard"
+        ]);
     }
 }

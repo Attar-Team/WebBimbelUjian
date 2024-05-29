@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\login_registerController;
+use App\Http\Controllers\PackageController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
+use App\Models\Package;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +29,11 @@ Route::post('/login',[login_registerController::class, 'apilogin']);
 Route::post('/register',[login_registerController::class, 'api_register']);
 Route::put('/login/{id}',[login_registerController::class, 'api_editprofile']);
 Route::post('/insert_after_login_google',[login_registerController::class, 'apiinsert_akun_google']);
+Route::post('/preview-excel',[QuestionController::class,'preview']);
+
+//Route untuk menangani quiz
+Route::post('/quiz/answer',[QuizController::class,'apiAnswer']);
+Route::post('/quiz/doubtful',[QuizController::class,'apiDoubtful']);
+
+Route::get('/package',[PackageController::class,'apiPackage']);
+Route::get('/package/{id}',[PackageController::class,'apiPackageById']);
