@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiMobileController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
@@ -35,3 +36,10 @@ Route::get('/package/{id}',[PackageController::class,'apiPackageById']);
 Route::get('/users',[login_registerController::class, 'index']);
 Route::post('/login',[login_registerController::class, 'apilogin']);
 Route::post('/insert_after_login_google',[login_registerController::class, 'apiinsert_akun_google']);
+
+
+Route::post('/order',[ApiMobileController::class, 'order']);
+Route::post('/transaction',[ApiMobileController::class, 'transaction']);
+
+Route::get('/purchased-package/{id}',[ApiMobileController::class, 'purchasedPackage']);
+
