@@ -14,4 +14,5 @@ class OrderDetail extends Model
     {
         return $this->belongsTo(Order::class);
     }
+    protected $guarded = ['id'] ;
 }

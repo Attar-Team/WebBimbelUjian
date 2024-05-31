@@ -18,11 +18,11 @@ class Leanding_pageController extends Controller
         $countPackageBumn = $packages->where("type","BUMN")->count();
         $countPackageCpns = $packages->where("type","CPNS")->count();
         
-        $countOrderBUMN = Package::rightJoin('orders','orders.package_id','=','packages.id')
-        ->where('packages.type','BUMN')->count('orders.id');
+        $countOrderBUMN = Package::rightJoin('order_details','order_details.package_id','=','packages.id')
+        ->where('packages.type','BUMN')->count('order_details.id');
 
-        $countOrderCPNS = Package::rightJoin('orders','orders.package_id','=','packages.id')
-        ->where('packages.type','CPNS')->count('orders.id');
+        $countOrderCPNS = Package::rightJoin('order_details','order_details.package_id','=','packages.id')
+        ->where('packages.type','CPNS')->count('order_details.id');
         
         return view('leanding_page.home',[
             'packages'=> $packages,

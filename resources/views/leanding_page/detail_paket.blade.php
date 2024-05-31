@@ -147,7 +147,7 @@
             </div>
 
             <button class="masuk_keranjang">Masukkan keranjang</button>
-            <button class="beli_detailpaket">Beli Paket</button>
+            <a href="/order/{{ $package->id }}"><button class="beli_detailpaket">Beli Paket</button></a>
         </div>
     </div>
     <script src="/js/home.js"></script>
