@@ -21,6 +21,7 @@ img{
 
 body{
     scroll-behavior: smooth;
+    overflow-x: hidden;
     background-color: white;
 }
 

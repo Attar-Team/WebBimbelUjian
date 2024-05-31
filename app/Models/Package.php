@@ -18,6 +18,6 @@ class Package extends Model
 
     public function order(): HasMany
     {
-        return $this->hasMany(Order::class, 'package_id');
+        return $this->hasMany(OrderDetail::class, 'package_id');
     }
 }
