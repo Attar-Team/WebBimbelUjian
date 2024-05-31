@@ -32,8 +32,8 @@ Route::post('/preview-excel',[QuestionController::class,'preview']);
 Route::post('/quiz/answer',[QuizController::class,'apiAnswer']);
 Route::post('/quiz/doubtful',[QuizController::class,'apiDoubtful']);
 
-Route::get('/package',[PackageController::class,'apiPackage']);
-Route::get('/package/{id}',[PackageController::class,'apiPackageById']);
+Route::get('/package',[ApiMobileController::class,'apiPackage']);
+Route::get('/package/{id}',[ApiMobileController::class,'apiPackageById']);
 
 Route::post('/getToken', [TransactionController::class,'getToken']);
 Route::post('/midtrans-callback',[TransactionController::class,'callback']);
@@ -47,4 +47,5 @@ Route::post('/order',[ApiMobileController::class, 'order']);
 Route::post('/transaction',[ApiMobileController::class, 'transaction']);
 
 Route::get('/purchased-package/{id}',[ApiMobileController::class, 'purchasedPackage']);
+Route::get('/history-transaction/{id}',[ApiMobileController::class, 'purchasedPackage']);
 

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\Exam;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Package;
+use App\Models\PackageDetail;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -95,6 +98,108 @@ class ApiMobileController extends Controller
             "status"=> 200,
             "message"=> "success",
             "data" => $data
+        ]);
+    }
+
+
+    public function historyTransaction($id)
+    {
+        $data = Order::where("user_id", $id)->get();
+
+        return response()->json([
+            "status"=> 200,
+            "message"=> "success",
+            "data"=> $data
+        ]);
+    }
+
+    public function apiPackage()
+    {
+        $packages = Package::all();
+        $package = array_map(function($package){
+            return [
+                "id"=> $package['id'],
+                'name'=> $package['name'],
+                'type'=> $package['type'],
+                'category'=> $package['category'],
+                'price'=> $package['price'],
+                'discount'=> $package['discount'],
+                'description'=> $package['description'],
+                'photo'=> $package['photo'],
+                'list_package'=> array_map(function($detailPackage){
+                    $exam = Exam::where('id', $detailPackage['exam_id'])->get();
+                    foreach ($exam as $item){
+                        return [
+                            'id'=> $detailPackage['id'],
+                            'id_detail'=> $item->id,
+                            'jenis'=> 'exam',
+                            'name'=> $item->name,
+                            'is_review' => $detailPackage['is_review'],
+                            'amount_acces'=> $detailPackage['amount_acces'],
+                        ];
+                    }
+                    $exam = Course::where('id', $detailPackage['course_id'])->get();
+                    foreach ($exam as $item){
+                        return [
+                            'id'=> $detailPackage['id'],
+                            'id_detail'=> $item->id,
+                            'jenis'=> 'course',
+                            'name'=> $item->name,
+                            'type_course'=> $item->type,
+                            'url'=> $item->url,
+                        ];
+                    }
+                }, PackageDetail::where("package_id",$package['id'])->get()->toArray()),
+            ];
+        },$packages->toArray());
+        return response()->json([
+            "status"=> 200,
+            "message"=> "success",
+            "data"=> $package
+        ]);
+    }
+
+    public function apiPackageById($id)
+    {
+        $packages = Package::where("id", $id)->get();
+        $package = array_map(function($package){
+            return [
+                "id"=> $package['id'],
+                'name'=> $package['name'],
+                'type'=> $package['type'],
+                'category'=> $package['category'],
+                'price'=> $package['price'],
+                'discount'=> $package['discount'],
+                'description'=> $package['description'],
+                'photo'=> $package['photo'],
+                'list_package'=> array_map(function($detailPackage){
+                    $exam = Exam::where('id', $detailPackage['exam_id'])->get();
+                    foreach ($exam as $item){
+                        return [
+                            'id'=> $detailPackage['id'],
+                            'id_course'=> $item->id,
+                            'name'=> $item->name,
+                            'is_review' => $detailPackage['is_review'],
+                            'amount_acces'=> $detailPackage['amount_acces'],
+                        ];
+                    }
+                    $exam = Course::where('id', $detailPackage['course_id'])->get();
+                    foreach ($exam as $item){
+                        return [
+                            'id'=> $detailPackage['id'],
+                            'id_course'=> $item->id,
+                            'name'=> $item->name,
+                            'is_review' => $detailPackage['is_review'],
+                            'amount_acces'=> $detailPackage['amount_acces'],
+                        ];
+                    }
+                }, PackageDetail::where("package_id",$package['id'])->get()->toArray()),
+            ];
+        },$packages->toArray());
+        return response()->json([
+            "status"=> 200,
+            "message"=> "success",
+            "data"=> $package
         ]);
     }
 }
