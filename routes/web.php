@@ -8,11 +8,8 @@ use App\Http\Controllers\ExamController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
-<<<<<<< HEAD
 use App\Http\Controllers\TransactionController;
-=======
 use App\Http\Controllers\login_registerController;
->>>>>>> main
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -99,4 +96,9 @@ Route::post('/google/login', [login_registerController::class,'Googlelogins'])->
 
 Route::post('/google/login/test', function () {
     return response()->json(['message' => 'Route is working']);
+});
+
+
+Route::get('/success-payment', function(){
+    return view('leanding_page.success-payment');
 });

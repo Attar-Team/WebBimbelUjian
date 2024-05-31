@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->string('id')->unique();
             $table->foreignId('user_id');
-            $table->foreignId('package_id');
             $table->dateTime('date');
             $table->integer('gross_amount');
+            $table->enum('status', ['paid','unpaid'])->default('unpaid');
             $table->timestamps();
             $table->primary('id');
         });

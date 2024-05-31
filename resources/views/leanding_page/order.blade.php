@@ -8,9 +8,8 @@
     <title>Bumn Muda</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
-    <script type="text/javascript"
-    src="https://app.sandbox.midtrans.com/snap/snap.js"
-    data-client-key="{{ config("midtrans.client_key") }}"></script>
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ config('midtrans.client_key') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/detail_paket.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -42,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" value="{{ $package->id }}" id="id">
+        <input type="hidden" name="package[]" value="{{ $package->id }}">
         <div class="card py-3 px-5 w-100">
             <h1 class="mb-3">Ringkasan</h1>
             <div class="d-flex" style="justify-content:space-between">
@@ -62,10 +61,16 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#bayar').click(function() {
-            
-                var id = $('#id').val();
+                // Buat array kosong untuk menyimpan nilai-nilai
+                var packageValues = [];
+
+                // Iterasi melalui setiap elemen input tersembunyi dengan nama 'package[]'
+                $('input[name="package[]"]').each(function() {
+                    // Tambahkan nilai dari input tersebut ke dalam array
+                    packageValues.push($(this).val());
+                });
                 const data = {
-                    id: id,
+                    package_id: packageValues,
                 }
                 var token = "";
                 $.ajax({
@@ -73,13 +78,13 @@
                     method: "post",
                     data: data,
                     success(res) {
+                        console.log(res.res)
                         console.log(res.token)
                         token = res.token;
                         window.snap.pay(token, {
                             onSuccess: function(result) {
                                 /* You may add your own implementation here */
-                                alert("payment success!");
-                                console.log(result);
+                                window.location.assign("http://127.0.0.1:8000/success-payment")
                             },
                             onPending: function(result) {
                                 /* You may add your own implementation here */
@@ -94,7 +99,8 @@
                             onClose: function() {
                                 /* You may add your own implementation here */
                                 alert(
-                                    'you closed the popup without finishing the payment');
+                                    'you closed the popup without finishing the payment'
+                                    );
                             }
                         })
                     },
