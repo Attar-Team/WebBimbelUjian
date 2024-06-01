@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 // use Auth;
 use Illuminate\Support\Facades\Auth;
@@ -152,4 +153,37 @@ class login_registerController extends Controller
         //     ]);
         // }   
     }
+
+    public function authenticate(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            if(Auth::user()->role == "admin"){
+            return redirect()->intended('/admin/dashboard');
+            }else{
+                return redirect()->intended('/');
+            }
+        }
+ 
+        return back()->withErrors([
+            'err' => 'Email dan Password salah',
+        ])->onlyInput('err');
+    }
+
+    public function logout(Request $request): RedirectResponse
+{
+    Auth::logout();
+ 
+    $request->session()->invalidate();
+ 
+    $request->session()->regenerateToken();
+ 
+    return redirect('/');
+}
 }

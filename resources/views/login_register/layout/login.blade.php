@@ -7,18 +7,24 @@
         </div>
         <div class="login_kanan">
             <div class="content_kanan">
-            <h1>Sign in</h1>
-            <div class="input">
-                <label for="email">Email</label>
-                <br>
-                <input id="email" placeholder="Masukkan username" type="text">
-            </div>                
-            <div class="input">
-                <label for="password">Password</label>
-                <br>
-                <input id="password" placeholder="Masukkan password" type="text">
-            </div>
-            <button class="login">Login</button>
+                @error('err')
+                    <p>{{ $message }}</p>
+                @enderror
+                <form action="/login" method="POST">
+                    @csrf
+                    <h1>Sign in</h1>
+                    <div class="input">
+                        <label for="email">Email</label>
+                        <br>
+                        <input id="email" name="email" placeholder="Masukkan username" type="text">
+                    </div>                
+                    <div class="input">
+                        <label for="password">Password</label>
+                        <br>
+                        <input id="password" name="password" placeholder="Masukkan password" type="text">
+                    </div>
+                    <button type="submit" class="login">Login</button>
+                </form>
             <h2>Forgot your password?</h2>
             <img src="{{ asset('image/tulisan_login.png') }}" alt="">
             <br>
