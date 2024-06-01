@@ -93,6 +93,9 @@ Route::get('/show-pdf/{id}', function($id) {
 Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard');
 Route::get('/login', [login_registerController::class,'show_login'])->name('login');
 Route::post('/google/login', [login_registerController::class,'Googlelogins'])->name('Googlelogin');
+Route::post('/login', [login_registerController::class,'authenticate'])->name('authenticate');
+Route::post('/logout', [login_registerController::class,'logout'])->name('logout');
+
 
 Route::post('/google/login/test', function () {
     return response()->json(['message' => 'Route is working']);
