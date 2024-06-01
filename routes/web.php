@@ -9,7 +9,7 @@ use App\Http\Controllers\ExamController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
-use App\Http\Controllers\login_registerController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
