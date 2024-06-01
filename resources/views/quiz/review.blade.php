@@ -56,13 +56,13 @@
                         @if ($item->is_correct == 1)
                             @foreach ($item->questionDetail_questionId as $option)
                                 <li class="<?= $item->question_detail_id == $option->id ? 'jawaban-benar' : '' ?> ">
-                                    {{ $option->content_answer }}</li>
+                                    {!! $option->content_answer !!}</li>
                             @endforeach
                         @else
                             @foreach ($item->questionDetail_questionId as $option)
                                 <li
                                     class="<?= $option->id == $item->question_detail_id ? 'jawaban-salah' : '' ?> <?= $option->correct_answer == 1 ? 'jawaban-benar' : '' ?> ">
-                                    {{ $option->content_answer }}</li>
+                                    {!! $option->content_answer !!}</li>
                             @endforeach
                         @endif
 
@@ -70,7 +70,7 @@
 
                     <div class="line"></div>
                     <h5>Pembahasan</h5>
-                    <p>{{ $item->question->review }}</p>
+                    <p>{!! $item->question->review !!}</p>
                 </div>
             @endforeach
 
