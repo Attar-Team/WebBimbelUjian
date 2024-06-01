@@ -5,7 +5,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Models\Package;
-use App\Http\Controllers\login_registerController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

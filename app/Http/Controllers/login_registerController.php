@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 // use Auth;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\HasApiTokens;
 
 class login_registerController extends Controller
@@ -73,7 +74,7 @@ class login_registerController extends Controller
         $user->no_telp = $request->no_telp;
         $user->image = $request->image;
         $user->role = $request->role;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
 
         $post = $user->save();
 
@@ -130,7 +131,7 @@ class login_registerController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'no_telp' => 'nullable',
-            'image' => 'nullable',
+            'image' => 'nullable|image',
             'role' => 'required',
             'password' => 'required',
         ];
@@ -143,13 +144,15 @@ class login_registerController extends Controller
                 'data' => $validasi->errors()
             ]);
         }
+        $namafoto = $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('img', $namafoto);
 
         $user->name = $request->name;
         $user->email = $request->email;
         $user->no_telp = $request->no_telp;
-        $user->image = $request->image;
+        $user->image = $namafoto;
         $user->role = $request->role;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
 
         $post = $user->save();
 
