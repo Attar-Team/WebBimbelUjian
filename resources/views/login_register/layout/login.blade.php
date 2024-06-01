@@ -7,26 +7,33 @@
         </div>
         <div class="login_kanan">
             <div class="content_kanan">
-            <h1>Sign in</h1>
-            <div class="input">
-                <label for="email">Email</label>
-                <br>
-                <input id="email" placeholder="Masukkan username" type="text">
-            </div>                
-            <div class="input">
-                <label for="password">Password</label>
-                <br>
-                <input id="password" placeholder="Masukkan password" type="text">
-            </div>
-            <button class="login">Login</button>
+                @error('err')
+                    <p>{{ $message }}</p>
+                @enderror
+                <form action="/login" method="POST">
+                    @csrf
+                    <h1>Sign in</h1>
+                    <div class="input">
+                        <label for="email">Email</label>
+                        <br>
+                        <input id="email" name="email" placeholder="Masukkan username" type="text">
+                    </div>                
+                    <div class="input">
+                        <label for="password">Password</label>
+                        <br>
+                        <input id="password" name="password" placeholder="Masukkan password" type="text">
+                    </div>
+                    <button type="submit" class="login">Login</button>
+                </form>
             <h2>Forgot your password?</h2>
             <img src="{{ asset('image/tulisan_login.png') }}" alt="">
             <br>
             
                 <button type="submit" id="btnGoogle" class="google"><img class="logo_google" src="{{ asset('image/logo_google.png') }}" alt="">Masuk / Daftar dengan google</button>
             
-            
+                
             </div>
+            
             
             
         </div>
@@ -44,7 +51,7 @@
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
-    apiKey: "AIzaSyDkQcZJYixXPbrBlCPNQC4MqfbBRjJ2vSg",
+    apiKey: "{{ $api_key }}",
     authDomain: "projectbumn-c9d2e.firebaseapp.com",
     databaseURL: "https://projectbumn-c9d2e-default-rtdb.firebaseio.com",
     projectId: "projectbumn-c9d2e",
