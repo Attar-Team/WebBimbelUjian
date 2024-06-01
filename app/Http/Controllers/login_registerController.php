@@ -85,7 +85,11 @@ class login_registerController extends Controller
     }
 
     public function show_login(){
-        return view('login_register.layout.login');
+
+        $firebaseapikey = config('services.firebase.api_key');
+        return view('login_register.layout.login',[
+            'api_key'=> $firebaseapikey,
+        ]);
     }
 
     public function Googlelogins(Request $request){
