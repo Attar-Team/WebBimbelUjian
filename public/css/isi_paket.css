@@ -2,6 +2,7 @@
 
 .isi_paket {
 
+    margin-top: 100px;
     text-align: center;
 padding: 40px 80px 0 80px;
 }
@@ -18,19 +19,19 @@ padding: 40px 80px 0 80px;
     text-align: start;
     color: #2E3D64;
     font-size: 27px;
-    margin-top: 110px;
+    margin-top: 50px;
 }
 
 .materi_isipaket{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    
     text-align: start;
-    /* gap: 1rem; */
+    gap: 17px;
 }
 
 .satumateri_isipaket{
-    width: 320px;
+    width: 300px;
     padding: 4px;
     transition: 0.5s ease;
     cursor: pointer;
@@ -43,7 +44,8 @@ padding: 40px 80px 0 80px;
 .gambar_isipaket{
     border-radius: 4px;
     height: 150px;
-    background-color: aliceblue;
+    margin-bottom: 10px;
+    background-color: #ddd;
 }
 
 

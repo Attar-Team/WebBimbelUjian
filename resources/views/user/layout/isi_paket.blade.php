@@ -9,7 +9,76 @@
         <h3>Materi</h3>
         <div class="materi_isipaket">
             
-            <div class="satumateri_isipaket">
+            @php
+            $video = '';
+            $file = '';
+            $exam_check = '';
+            @endphp
+            @foreach ($package_details as $package_detail)   
+            @php
+            
+                $course = $package_detail->course->name ?? '';
+                if($course != ''){
+                    if($package_detail->course->type == "videos"){
+                        $video =  'videos';
+                    }
+                    if($package_detail->course->type == "file pdf"){
+                        $file =  'file pdf';
+                    }
+                }
+                $exam = $package_detail->Exam->name ?? '';
+                if($exam != ''){
+                    $exam_check = $package_detail->Exam->name;
+                }
+               
+            @endphp
+             @endforeach
+             @if ($exam_check != '')
+             <a href="{{ route('user_freebank_soal', $package_id) }}">
+                <div class="satumateri_isipaket">
+                    
+                    <div class="gambar_isipaket"><img src="" alt=""></div>
+                    <h2>Simulasi Ujian </h2>
+                    <div class="progres_isipaket">
+                        <p>progres kamu</p>
+                        <p>40%</p>
+                    </div>
+                    <progress id="file" value="32" max="100"> 32% </progress>
+                </div>
+                </a>
+             @endif
+             @if ($video != '')
+             <a href="{{ route('user_freebank_soal', $package_id) }}">
+                <div class="satumateri_isipaket">
+                    
+                    <div class="gambar_isipaket"><img src="" alt=""></div>
+                    <h2>Video </h2>
+                    <div class="progres_isipaket">
+                        <p>progres kamu</p>
+                        <p>40%</p>
+                    </div>
+                    <progress id="file" value="32" max="100"> 32% </progress>
+                </div>
+                </a>
+             @endif
+             @if ($file != '')
+             <a href="{{ route('user_freebank_soal', $package_id) }}">
+                <div class="satumateri_isipaket">
+                    
+                    <div class="gambar_isipaket"><img src="" alt=""></div>
+                    <h2>Bank Soal </h2>
+                    <div class="progres_isipaket">
+                        <p>progres kamu</p>
+                        <p>40%</p>
+                    </div>
+                    <progress id="file" value="32" max="100"> 32% </progress>
+                </div>
+                </a>
+             @endif
+            
+           
+
+            {{-- <div class="satumateri_isipaket">
                 
                 <div class="gambar_isipaket"><img src="" alt=""></div>
                 <h2>video pembelajaran</h2>
@@ -39,7 +108,7 @@
                 </div>
                 <progress id="file" value="32" max="100"> 32% </progress>
             </div>
-            <a href="{{ route('user_freebank_soal') }}">
+            <a href="{{ route('user_freebank_soal', $package_id) }}">
             <div class="satumateri_isipaket">
                 
                 <div class="gambar_isipaket"><img src="" alt=""></div>
@@ -50,7 +119,7 @@
                 </div>
                 <progress id="file" value="32" max="100"> 32% </progress>
             </div>
-            </a>
+            </a> --}}
         </div>
         
         <div class="deskripsi">

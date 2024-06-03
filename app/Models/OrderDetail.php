@@ -10,9 +10,14 @@ class OrderDetail extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'] ;
     public function order() :BelongsTo
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Order::class,'order_id');
     }
-    protected $guarded = ['id'] ;
+
+    public function package() : BelongsTo
+    {
+        return $this->belongsTo(Package::class,'package_id');
+    }
 }

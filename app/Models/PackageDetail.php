@@ -16,7 +16,7 @@ class PackageDetail extends Model
 
     public function course() : BelongsTo
     {
-        return $this->BelongsTo(Course::class,'course_id');
+        return $this->BelongsTo(Course::class,'course_id','id');
     }
 
     public function Exam() : BelongsTo

@@ -143,6 +143,7 @@
     border-radius: 5px;
     width: 18vw;
     min-width: 260px;
+    border: 1px solid #ddd;
 }
 
 
@@ -165,6 +166,7 @@
 .contoh_pakets p{
     margin: 0 0 0 20px;
     font-size: 14px;
+    
 }
 
 .contoh_pakets .keterangan_paket{
@@ -281,7 +283,7 @@
 
 .paket_freebank{
     padding: 0 180px;
-    margin: 25px 0;
+    /* margin: 25px 0; */
     /* background-color: #D2E5FF; */
 }
 
@@ -328,9 +330,9 @@
     margin-left: 40px;
     align-items: center;
     background-color: #E7F0FD;
-    cursor: pointer;
+    
     border-radius: 5px;
-    padding: 5px 20px;
+    padding: 10px 20px;
 }
 
 .satupaket_pdf .kotak_pdf:hover{
