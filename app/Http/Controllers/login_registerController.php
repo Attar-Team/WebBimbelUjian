@@ -145,7 +145,7 @@ class login_registerController extends Controller
             ]);
         }
         $namafoto = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('img', $namafoto);
+        $request->file('image')->storeAs('public/img', $namafoto);
 
         $user->name = $request->name;
         $user->email = $request->email;
