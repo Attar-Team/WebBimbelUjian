@@ -32,6 +32,13 @@ class Dasboard_userController extends Controller
          ]);
     }
     
+public function tampil_uservideo(){
+    return view('user.layout.menu_video');
+}
+public function tampil_userujian(){
+    return view('user.layout.menu_ujian');
+}
+
     public function tampil_userprogres(){
         return view('user.layout.progress');
     }

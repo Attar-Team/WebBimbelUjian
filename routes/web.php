@@ -31,6 +31,8 @@ Route::get('/keranjang', [Leanding_pageController::class,'keranjang'])->name('ke
 
 Route::get('/order/{id}', [TransactionController::class, 'index']);
 
+Route::get('/user/ujian', [Dasboard_userController::class,'tampil_userujian'])->name('user_ujian');
+Route::get('/user/video', [Dasboard_userController::class,'tampil_uservideo'])->name('user_video');
 Route::get('/user/paket', [Dasboard_userController::class,'tampil_userpaket'])->name('user_paket');
 Route::get('/user/transaksi', [Dasboard_userController::class,'tampil_usertransaksi'])->name('user_transaksi');
 Route::get('/user/progres', [Dasboard_userController::class,'tampil_userprogres'])->name('user_progres');

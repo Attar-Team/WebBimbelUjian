@@ -282,6 +282,7 @@
 }
 
 .paket_freebank{
+    margin-top: 20px;
     padding: 0 180px;
     /* margin: 25px 0; */
     /* background-color: #D2E5FF; */
@@ -330,7 +331,7 @@
     margin-left: 40px;
     align-items: center;
     background-color: #E7F0FD;
-    
+    cursor: pointer;
     border-radius: 5px;
     padding: 10px 20px;
 }
@@ -362,8 +363,8 @@
     font-weight: 400;
 }
 
-.satupaket_pdf .kotak_pdf i{
-    font-size: 45px;
+.satupaket_pdf .kotak_pdf i img{
+    width: 50px;
     margin-right: 20px;
     color: #C43B3B;
 }
@@ -375,11 +376,11 @@
     justify-content: space-between;
 }
 
-.satupaket_pdf .kotak_pdf .download_kotak i{
+.satupaket_pdf .kotak_pdf .download_kotak a img{
     color: #fff;
     margin: 0;
     background-color: #7FC17E;
-    padding: 15px;
-    font-size: 25px;
+    /* padding: 15px; */
+    width: 50px;
     border-radius: 50%;
 }
