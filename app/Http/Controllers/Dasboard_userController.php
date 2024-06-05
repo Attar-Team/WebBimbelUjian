@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Package;
 use App\Models\PackageDetail;
+use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -58,7 +59,10 @@ public function tampil_userujian($id){
     }
 
     public function tampil_usertransaksi(){
-        return view('user.layout.transaksi');
+        $order = Order::where('user_id',1)->get();
+        return view('user.layout.transaksi',[
+            "order" => $order
+        ]);
     }
 
     public function tampil_userisipaket($id){
