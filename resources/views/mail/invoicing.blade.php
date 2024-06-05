@@ -1,11 +1,17 @@
+Hallo {{ $name }}, Terima kasih telah melakukan pembelian paket.
+Lihat detail bisa dilihat dibawah ini
+@php
+use App\Util\FormatRupiah;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konfirmasi Pembayaran</title>
+    
     <style>
-
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         body {
@@ -18,47 +24,55 @@
             align-items: center;
             /* height: 100vh; */
         }
+
         .container {
             width: 90%;
             max-width: 800px;
             background: #f4f4f9;
-            
+
             border-radius: 10px;
             overflow: hidden;
         }
+
         .header {
             background-color: #f4f4f9;
             /* height: 90px; */
             /* padding: 20px; */
-            
+
             border-bottom: 2px solid #dee2e6;
         }
-        .header h1{
+
+        .header h1 {
             text-align: center;
             padding-top: 20px;
             font-size: 30px;
             color: #2E3D64;
         }
-        .header h1 span{
+
+        .header h1 span {
             color: #0093AC;
         }
+
         .content {
-            background-color: #fff; 
+            background-color: #fff;
             border-radius: 7px 7px 0 0;
             border-top: 6px solid #2E3D64;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            
+
             text-align: center;
         }
+
         .content h2 {
             color: #2E3D64;
             margin-bottom: 10px;
         }
+
         .content p {
             color: #666;
             margin-bottom: 20px;
         }
+
         .content a {
             display: inline-block;
             background: #2E3D64;
@@ -69,28 +83,30 @@
             margin-bottom: 20px;
         }
 
-        .content a:hover{
+        .content a:hover {
             background: #4a5d8c;
         }
+
         .package {
-            background-color: #fff; 
+            background-color: #fff;
             margin-top: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             border-top: 2px solid #dee2e6;
             border-bottom: 2px solid #dee2e6;
         }
+
         .package h3 {
             color: #333;
             margin-bottom: 10px;
         }
 
-        .package .deskripsi{
+        .package .deskripsi {
             display: flex;
             align-items: center;
         }
 
-        .package .deskripsi .gambar{
+        .package .deskripsi .gambar {
             width: 240px;
             height: 110px;
             margin-right: 20px;
@@ -104,14 +120,15 @@
             /* margin-bottom: 5px; */
         }
 
-        
+
         .contact {
-            
-            
+
+
             display: flex;
             justify-content: space-between;
             margin-top: 10px;
         }
+
         .contact div {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             flex: 1;
@@ -123,7 +140,7 @@
             cursor: pointer;
         }
 
-        .contact div:hover{
+        .contact div:hover {
             background-color: #f4f4f4;
         }
 
@@ -131,31 +148,45 @@
             color: #343a40;
             text-decoration: none;
         }
+
         .summary {
             margin-top: 20px;
-            background-color: #fff; 
+            background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
+
         .summary table {
             width: 100%;
             border-collapse: collapse;
         }
-        .summary table th, .summary table td {
+
+        .summary table th,
+        .summary table td {
             padding: 10px;
             text-align: left;
             border-bottom: 1px solid #dee2e6;
         }
+
         .summary table th {
             background: #f4f4f9;
             color: #333;
         }
+
         .summary table td {
             text-align: end;
             color: #666;
         }
+
+        .package thead th{
+            padding: 15px
+        }
+        .package tbody tr td{
+            padding: 15px
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -163,17 +194,33 @@
         </div>
         <div class="content">
             <h2>Pembayaran Anda berhasil dikonfirmasi!</h2>
-            <p>Halo {{ $name }},<br>Sebagai referensi, ID Pesanan Anda adalah 1267126917. Silakan gunakan layanan mandiri kami untuk mendownload dan melihat pesanan Anda</p>
-            <a href="#">Download Struk Pembayaran</a>
+            <p>Halo {{ $name }},<br>Sebagai referensi, ID Pesanan Anda adalah {{ $order_id }}. Terima kasih sudah melakukan pembelian
+                paket kami</p>
+            {{-- <a href="#">Download Struk Pembayaran</a> --}}
         </div>
+
         <div class="package">
-          @foreach ($name_package as $item)    
-          <div class="deskripsi">
-            <p>Nama Paket</p>
-            <p>{{ $item['name_packag'] }}</p>
-          </div>
-          @endforeach
-            <p><strong>Tanggal Pemesanan:</strong> Senin, 19 Juni 2024</p>
+            <table>
+                <thead>
+                    <th>No</th>
+                    <th>Nama paket</th>
+                    <th>Diskon</th>
+                    <th>Harga</th>
+                </thead>
+                <tbody>
+                    @foreach ($name_package as $item)    
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item['name_packag'] }}</td>
+                        <td>{{ $item['discount'] }}</td>
+                        <td>{{ $item['price'] }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+
+            <p><strong>Tanggal Pemesanan: </strong> {{ $date }}</p>
             <h4>Hubungi Admin</h4>
             <p>Untuk pertanyaan terkait properti, silakan hubungi properti secara langsung.</p>
             <div class="contact">
@@ -189,15 +236,25 @@
             <h3>Pesanan Anda sudah dibayar dan dikonfirmasi</h3>
             <table>
                 <tr>
-                    <th>Paket</th>
-                    <td>IDR 140.000</td>
+                    <th>Sub Total</th>
+                    <td>IDR {{ FormatRupiah::Rupiah($sub_total ) }}</td>
+                </tr>
+                <tr>
+                    <th>Diskon</th>
+                    <td>IDR {{ FormatRupiah::Rupiah($discount ) }}</td>
                 </tr>
                 <tr>
                     <th>Total Harga</th>
-                    <td>IDR {{ $gross_amount }}</td>
+                    <td>IDR {{ FormatRupiah::Rupiah($sub_total - $discount ) }}</td>
+                </tr>
+
+                <tr>
+                    <th>Total Dibayar</th>
+                    <td>IDR {{ FormatRupiah::Rupiah($gross_amount ) }}</td>
                 </tr>
             </table>
         </div>
     </div>
 </body>
+
 </html>
