@@ -36,9 +36,6 @@
           <div data-i18n="Analytics">kursus</div>
         </a>
       </li>
-      <li class="menu-header pb-0 small text-uppercase">
-        <span class="menu-header-text">Ujian</span>
-      </li>
       <li class="menu-item @active('exam.*')">
         <a href="/admin/exam" class="menu-link">
           <i class="menu-icon tf-icons fa-solid fa-pen-to-square"></i>
@@ -55,6 +52,15 @@
         <a href="/users" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Lihat Ujian</div>
+        </a>
+      </li>
+      <li class="menu-header pb-0 small text-uppercase">
+        <span class="menu-header-text">Order</span>
+      </li>
+      <li class="menu-item @active('order.*')">
+        <a href="/admin/order" class="menu-link">
+          <i class="menu-icon tf-icons fa-solid fa-pen-to-square"></i>
+          <div data-i18n="Analytics">Pemesanan</div>
         </a>
       </li>
       

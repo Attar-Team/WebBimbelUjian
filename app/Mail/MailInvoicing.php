@@ -19,11 +19,19 @@ class MailInvoicing extends Mailable
     private $name;
     private $name_package = [];
     private $gross_amount;
-    public function __construct($name, $name_package, $gross_amount)
+    private $date;
+    private $order_id;
+    private $discount;
+    private $sub_total;
+    public function __construct($name, $name_package, $gross_amount, $date, $order_id, $discount, $sub_total)
     {
         $this->name = $name;
         $this->name_package = $name_package;
         $this->gross_amount = $gross_amount;
+        $this->date = $date;
+        $this->order_id = $order_id;
+        $this->discount = $discount;
+        $this->sub_total = $sub_total;
     }
 
     /**
@@ -46,7 +54,11 @@ class MailInvoicing extends Mailable
             with: [
                 'name'=> $this->name,
                 'name_package'=> $this->name_package,
-                'gross_amount'=> $this->gross_amount
+                'gross_amount'=> $this->gross_amount,
+                'date'=> $this->date,
+                'order_id'=> $this->order_id,
+                'discount'=> $this->discount,
+                'sub_total'=> $this->sub_total,
             ]
         );
     }

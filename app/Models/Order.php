@@ -28,4 +28,9 @@ class Order extends Model
     {
         return $this->HasMany(OrderDetail::class,'order_id','id');
     }
+
+    public function user() : BelongsTo
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

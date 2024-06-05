@@ -10,6 +10,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\login_registerController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,7 +87,12 @@ Route::prefix('admin')->group(function () {
         Route::post('/{id}/update',[PackageController::class,'update']);
         Route::post('/{id}/delete',[PackageController::class,'destroy']);
     });
+
+    Route::prefix('order')->group(function () {
+        Route::get('/',[OrderController::class,'index'])->name('order.index');
+    });
 });
+
 
 Route::get('/show-pdf/{id}', function($id) {
     $url = "storage/uploads/bank_question/$id";
