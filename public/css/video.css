@@ -10,21 +10,22 @@
     margin-top: 100px;
     padding-left: 20px;
     display: flex;
-    
+    justify-content: end;
 }
 
 .sidebarngambang{
-    height: 500px;
-    width: 400px;
+    /* height: 500px; */
+    width: 500px;
 }
 
 .sidebars{
     /* display: none; */
     position: fixed;
     height: 500px;
-    width: 400px;
+    left: 0;
+    width: 350px;
     background-color: white;
-    padding: 15px 40px 15px 15px;
+    padding: 15px 15px 15px 15px;
     border-radius: 10px;
     transition: 0.3s ease;
     /* box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2); */
@@ -36,7 +37,7 @@
 
 .sidemenus{
     overflow-y: auto;
-    width: 385px;
+    /* width: 385px; */
     height: 420px;
     padding-right: 15px;
 }
@@ -118,10 +119,11 @@
 
 .containers .kanan{
     padding: 0 35px;
+    min-width:  1020px;
 }
 
 .containers iframe{
-    width:  1020px;
+    min-width:  1020px;
     height: 576px;
     border-radius: 20px;
 }

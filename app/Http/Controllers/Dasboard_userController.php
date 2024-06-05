@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Package;
 use App\Models\PackageDetail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class Dasboard_userController extends Controller
@@ -32,11 +33,20 @@ class Dasboard_userController extends Controller
          ]);
     }
     
-public function tampil_uservideo(){
-    return view('user.layout.menu_video');
+public function tampil_uservideo($id){
+    $package_detail = PackageDetail::where('package_id', $id)->get();
+    return view('user.layout.menu_video',[
+        'package_details'=> $package_detail
+    ]);
 }
-public function tampil_userujian(){
-    return view('user.layout.menu_ujian');
+public function tampil_userujian($id){
+    $package_detail = PackageDetail::withCount(['answer'=> function (Builder $query) {
+        $query->where('user_id',1);
+    }])
+    ->where('package_id', $id)->get();
+    return view('user.layout.menu_ujian',[
+        'package_details'=> $package_detail
+    ]);
 }
 
     public function tampil_userprogres(){

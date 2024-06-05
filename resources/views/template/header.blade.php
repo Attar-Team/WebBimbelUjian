@@ -30,7 +30,7 @@
             <a class="@active('home')" href="{{ route('home') }}">Home</a>
             <a class="@active('about')" href="{{ route('about') }}">About</a>
             <a class="@active('paket')" href="{{ route('paket') }}">Paket</a>
-            <a class="belajar @active('user_paket')" href="{{ route('user_paket') }}">Pembelajaran saya</a>
+            <a class="belajar @active('user-paket.*')" href="{{ route('user-paket.index') }}">Pembelajaran saya</a>
         </div>
         <div class="button_header">
             <a href="{{ route('keranjang') }}"><i class='bx bx-cart' ></i></a>

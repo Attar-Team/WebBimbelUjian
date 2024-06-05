@@ -1,8 +1,13 @@
-@extends('template.header')
-@section('title', 'BumnMuda. | Freebank_Soal')
-@section('content')
-    <div class="freebank">
-        <h1 style="margin-top: 100px">Paket Tryout 1 kategori BUMN</h1>
+@extends('user.component.sidebar')
+@section('title', 'BumnMuda. | paketku')
+<link rel="stylesheet" href="{{ asset('css/dashboard_user.css') }}">
+@section('tampilan_dashboard')
+<script src="{{ asset('js/dashboard_user.js') }}"></script>
+
+    <script src="{{ asset('js/home.js') }}"></script>
+    <div class="menu_user">
+    <div class="freebank" class="border">
+        <h1>Paket Tryout 1 kategori BUMN</h1>
         <h2>Free Bank Soal</h2>
         <div class="garis"></div>
         <div class="paket_freebank"><span>Paket Pdf</span> </div>
@@ -23,7 +28,7 @@
                                     <h2 class="m-0">241 Halaman</h2>
                                     <p class="m-0">23 MB</p>
                                 </div>
-                                <a href="{{ asset("storage/".$package_detail->course->url) }}" target="blank"><i class='bx bxs-download'></i></a>
+                                <a href="{{ asset("storage/".$package_detail->course->url) }}" target="blank"><i class='bx bxs-download' style="font-size: 30px"></i></a>
                             </div>
                         </div>
                     </div>
@@ -35,5 +40,6 @@
 
         </script>
 
+    </div>
     </div>
 @endsection

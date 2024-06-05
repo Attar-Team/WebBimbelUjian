@@ -1,8 +1,12 @@
-@extends('template.header')
-@section('title', 'BumnMuda. | isi paketku')
-@section('content')
+@extends('user.component.sidebar')
+@section('title', 'BumnMuda. | paketku')
+<link rel="stylesheet" href="{{ asset('css/dashboard_user.css') }}">
+@section('tampilan_dashboard')
+<script src="{{ asset('js/dashboard_user.js') }}"></script>
+
     <script src="{{ asset('js/home.js') }}"></script>
-    <div class="isi_paket">
+    <div class="menu_user">
+    <div class="isi_paket" style="margin-top: 0px">
         <h1>Paket Tryout 1 Kategori BUMN</h1>
         <h2>Wah ada calon BUMN Muda nih...</h2>
         <p>Ayo segera pelajari apa aja sih yang dipersiapkan agar bisa jadi bumn muda</p>
@@ -34,7 +38,7 @@
             @endphp
              @endforeach
              @if ($exam_check != '')
-             <a href="{{ route('user_freebank_soal', $package_id) }}">
+             <a href="{{ route('user-paket.ujian', $package_id) }}">
                 <div class="satumateri_isipaket">
                     
                     <div class="gambar_isipaket"><img src="" alt=""></div>
@@ -48,7 +52,7 @@
                 </a>
              @endif
              @if ($video != '')
-             <a href="{{ route('user_freebank_soal', $package_id) }}">
+             <a href="{{ route('user-paket.video', $package_id) }}">
                 <div class="satumateri_isipaket">
                     
                     <div class="gambar_isipaket"><img src="" alt=""></div>
@@ -126,6 +130,7 @@
             <h3>Deskripsi</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, ullam? Illo corrupti rem tenetur temporibus debitis, perferendis nihil expedita architecto! Id eos eligendi saepe voluptas cumque mollitia ex aut inventore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum cumque distinctio deserunt, optio quos laudantium dolor voluptatibus velit voluptatem quis illum! Pariatur, ea doloribus explicabo eos iste possimus mollitia nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consectetur quaerat quasi dolorem voluptas, consequatur provident magni laborum repudiandae quam? Nemo, error? Asperiores praesentium repellendus minima, fugit obcaecati quis nemo.</p>
             </div>
+    </div>
     </div>
 
     

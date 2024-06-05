@@ -29,4 +29,9 @@ class PackageDetail extends Model
         return $this->hasMany(Order::class);
     }
 
+    public function answer() :HasMany
+    {
+        return $this->hasMany(Answer::class,'exam_id','exam_id');
+    }
+
 }

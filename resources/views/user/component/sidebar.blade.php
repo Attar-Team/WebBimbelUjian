@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li class="menu_item">
-                        <a class="item @active('user_paket')"  href="{{ route('user_paket') }}">
+                        <a class="item @active('user-paket.index')"  href="{{ route('user-paket.index') }}">
                             <i class='bx bxs-briefcase-alt-2'></i>
                             <p>Paketku</p>
                         </a>
