@@ -18,12 +18,12 @@ class AccessPackage
     {
         $id = $request->route('id');
         $order = Order::where("user_id", $request->user()->id)->get();
-        foreach ($order as $item) {
-            
+        foreach ($order->order_details as $item) {
+            if($item->package_id == $id) {
+                return $next($request);
+            }
         }
-        foreach ($order as $key => $value) {
-
-        }
-        return $next($request);
+        abort(403, 'Anda tidak memiliki hak mengakses laman tersebut!');
+        // return $next($request);
     }
 }
