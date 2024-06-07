@@ -19,8 +19,18 @@ class Order extends Model
     ];
     
 
-    public function package() :BelongsTo
+    // public function package() :HasMany
+    // {
+    //     return $this->HasMany(Package::class, 'package_id');
+    // }
+
+    public function order_details() : HasMany
     {
-        return $this->belongsTo(Package::class, 'package_id');
+        return $this->HasMany(OrderDetail::class,'order_id','id');
+    }
+
+    public function user() : BelongsTo
+    {
+        return $this->belongsTo(User::class,'user_id');
     }
 }

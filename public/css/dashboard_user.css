@@ -2,19 +2,25 @@
 
 .dasboard{
     display: flex;
+    justify-content: end;
+    margin-top: 100px;
+    /* position: relative; */
 }
 
 .sidebar{
-    margin: 0 40px;
-    padding: 20px 10px 40px 20px;
-    background-color: #EEF5FF;
+    top: 100px;
+    left: 50px;
+    padding: 20px 20px 40px 20px;
+    background-color: #2E3D64;
+    color: #fff;
+    position: fixed;
     width: 400px;
-    height: 420px;
+    /* height: 420px; */
     border-radius: 4px;
     transition: 0.7s ease;
 }
 
-.sidebar_terbang{
+/* .sidebar_terbang{
     margin: 0 40px;
     padding: 20px 10px 40px 20px;
     width: 400px;
@@ -27,22 +33,23 @@
 .sidebar_terbang.active{
 
     display: block;
-}
+} */
 
 .sidebar.active{
     transition: 0.9s ease;
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2);
     top: 100px;
-    position: fixed;
+    /* position: fixed; */
 }
 
 .sidebar .user .akun_sidebar{
     display: flex;
+    align-items: center;
     /* align-items: start; */
 }
 
 .sidebar .user .akun_sidebar .nama_user{
-    color: black;
+    color: #fff;
 }
 
 .sidebar .user .akun_sidebar .nama_user h1{
@@ -67,7 +74,7 @@
 }
 
 .menu_item .item{
-    padding: 7px 10px;
+    padding: 7px 0px;
     margin-top: 20px;
     display: flex;
     align-items: center;
@@ -78,30 +85,36 @@
 .menu_item .item:hover{
     background-color: #c7cfe6;
 }
-
+.menu_item .item:hover p{
+    color: #2E3D64;
+}
+.menu_item .item:hover i{
+    color: #2E3D64;
+}
 .menu_item .item i{
-    color: #8a8a8a;
+    color: #fff;
     font-size: 40px;
     margin:0 20px;
 }
 
 .menu_item .item p{
-    color: #8a8a8a;
+    color: #fff;
     font-size: 20px;
     font-weight: 500;
+    margin: 0;
 }
 
 .menu_item .item.active{
-    background-color: #2E3D64;
-
+    background-color: #f1f1f1;
 }
 
 .menu_item .item.active i{
     color: white;
+    color: #000;
 }
 
 .menu_item .item.active p{
-    color: white;
+    color: #000;
 }
 
 .menu_user{
@@ -130,6 +143,7 @@
     border-radius: 5px;
     width: 18vw;
     min-width: 260px;
+    border: 1px solid #ddd;
 }
 
 
@@ -152,6 +166,7 @@
 .contoh_pakets p{
     margin: 0 0 0 20px;
     font-size: 14px;
+    
 }
 
 .contoh_pakets .keterangan_paket{
@@ -267,8 +282,9 @@
 }
 
 .paket_freebank{
+    margin-top: 20px;
     padding: 0 180px;
-    margin: 25px 0;
+    /* margin: 25px 0; */
     /* background-color: #D2E5FF; */
 }
 
@@ -298,7 +314,7 @@
 
 .satupaket_pdf{
     margin-top: 15px;
-    padding: 0 180px;
+    padding: 0 100px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -317,7 +333,7 @@
     background-color: #E7F0FD;
     cursor: pointer;
     border-radius: 5px;
-    padding: 5px 20px;
+    padding: 10px 20px;
 }
 
 .satupaket_pdf .kotak_pdf:hover{
@@ -347,8 +363,8 @@
     font-weight: 400;
 }
 
-.satupaket_pdf .kotak_pdf i{
-    font-size: 45px;
+.satupaket_pdf .kotak_pdf i img{
+    width: 50px;
     margin-right: 20px;
     color: #C43B3B;
 }
@@ -360,11 +376,11 @@
     justify-content: space-between;
 }
 
-.satupaket_pdf .kotak_pdf .download_kotak i{
+.satupaket_pdf .kotak_pdf .download_kotak a img{
     color: #fff;
     margin: 0;
     background-color: #7FC17E;
-    padding: 15px;
-    font-size: 25px;
+    /* padding: 15px; */
+    width: 50px;
     border-radius: 50%;
 }

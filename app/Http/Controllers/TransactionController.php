@@ -18,8 +18,34 @@ class TransactionController extends Controller
 {
     public function index($id)
     {
+        $package = Package::find($id);
+        $countExam = 0;
+        $countVideo = 0;
+        $countBankSoal = 0;
+        foreach ($package->packageDetail as $item){
+        
+        $courseName = $item->course->name ?? '';
+        $examName = $item->exam->name ?? '';
+       
+       
+
+        if ($courseName != ''){
+            if ($item->course->type == "file pdf")  {
+                $countBankSoal++;
+            }else{
+                $countVideo++;
+            }
+        }
+        if ($examName != ''){
+            $countExam++;
+        }
+
+        }
         return view("leanding_page.order", [
-            "package"=> Package::find($id)
+            'package'=> $package,
+            'countExam'=> $countExam,
+            'countVideo'=> $countVideo,
+            'countBankSoal'=> $countBankSoal
         ]);
     }
 
@@ -31,19 +57,15 @@ class TransactionController extends Controller
         $itemDetailInvoicing = [];
         foreach($request->package_id as $value){
             $package = Package::find($value);
+            $price = $package->price - $package->discount;
             array_push($itemDetail, [
                 "name"=> $package->name,
-                "price"=> $package->price,
+                "price"=> $price,
                 "quantity"=> 1,
                 "id"=> $package->id,
             ]);
-            array_push($itemDetailInvoicing,  [
-                "item_id" => $package->id,
-                "description" => $package->name,
-                "quantity" => 1,
-                "price" => $package->price,
-            ]);
-            $gross_amount += $package->price;
+
+            $gross_amount += $price;
         }
         // return response()->json(['token'=> $itemDetail]);
         $order = Order::create([
@@ -151,15 +173,22 @@ class TransactionController extends Controller
 
                 $name_package = [];
 
+                $result_discount = 0;
+                $sub_total = 0;
                 foreach($orderDetail as $detail){
                     $package = Package::find($detail->package_id);
                     array_push( $name_package, [
                         "name_packag"=> $package->name,
+                        "price"=> $package->price,
+                        "discount"=> $package->discount,
                     ]);
+
+                    $sub_total += $package->price;
+                    $result_discount += $package->discount;
                 }
 
                     //kirim email
-             Mail::to('adzazarf@gmail.com')->send(new MailInvoicing($user->name, $name_package, $request->gross_amount));
+                    Mail::to('adzazarf@gmail.com')->send(new MailInvoicing($user->name, $name_package, $request->gross_amount,$request->transaction_time,$request->order_id,$result_discount,$sub_total));
 
                      //update status
                      

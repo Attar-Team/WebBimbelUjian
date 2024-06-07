@@ -32,8 +32,7 @@ Route::post('/preview-excel',[QuestionController::class,'preview']);
 Route::post('/quiz/answer',[QuizController::class,'apiAnswer']);
 Route::post('/quiz/doubtful',[QuizController::class,'apiDoubtful']);
 
-Route::get('/package',[ApiMobileController::class,'apiPackage']);
-Route::get('/package/{id}',[ApiMobileController::class,'apiPackageById']);
+
 
 Route::post('/getToken', [TransactionController::class,'getToken']);
 Route::post('/midtrans-callback',[TransactionController::class,'callback']);

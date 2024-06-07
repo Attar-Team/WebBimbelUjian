@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class Leanding_pageController extends Controller
 {
     public function home(){
-        $packages = Package::withCount('order')
+        $packages = Package::withCount('order_detail')
         ->get()
         ->map(function ($package) {
             $package->id_package = $package->id;
