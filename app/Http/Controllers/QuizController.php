@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Answer;
 use App\Models\AnswerDetail;
+use App\Models\Exam;
+use App\Models\PackageDetail;
 use App\Models\Question;
 use App\Models\QuestionDetail;
 use Illuminate\Http\Request;
@@ -70,16 +72,20 @@ class QuizController extends Controller
         ]);
     }
 
-    public function start($exam_id)
+    public function start($id)
     {
-        // $answer = Answer::where("exam_id", $exam_id)
+        
+        // $answer = Answer::where("exam_id", $id)
         // ->where('user_id', Auth::user()->id)->get();
 
-        $answer = Answer::where("exam_id", $exam_id)
-        ->where('user_id', 2)->get();
+        $package_detail = PackageDetail::find($id);
+        $answer = Answer::where("exam_id", $package_detail->exam_id)
+        ->where('user_id', 1)->get();
+
 
         return view("quiz.start",[
             "data"=> $answer,
+            "package_detail"=> $package_detail
         ]);
     }
 
@@ -111,14 +117,22 @@ class QuizController extends Controller
         $answer = Answer::create([
             "exam_id"=> $exam_id,
             // "user_id"=> Auth::user()->id,
-            "user_id"=> 2,
+            "user_id"=> 1,
             "status"=> "not finished",
             "start_date"=> now()
         ]);
-
-        //mengambil data soal
+        $exam = Exam::find($exam_id);
+        if($exam->is_random === 1){
+            //mengambil data soal
+            $question = Question::select('questions.id','questions.question','questions.photo','is_correct','is_doubtful','questions.exam_id')
+            ->leftJoin('answer_details','questions.id','=','answer_details.id')->where('questions.exam_id','=',$exam_id)->inRandomOrder()->limit($exam->amount_question)->get();
+        }else{
+            //mengambil data soal
         $question = Question::select('questions.id','questions.question','questions.photo','is_correct','is_doubtful','questions.exam_id')
-        ->leftJoin('answer_details','questions.id','=','answer_details.id')->where('questions.exam_id','=',$exam_id)->inRandomOrder()->get();
+        ->leftJoin('answer_details','questions.id','=','answer_details.id')->where('questions.exam_id','=',$exam_id)->limit($exam->amount_question)->get();
+        }
+
+        
 
         $question = $question->map(function ($item,$test) {
             $item->nomor_soal = $test+=1;

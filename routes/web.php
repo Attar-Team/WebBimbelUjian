@@ -33,17 +33,21 @@ Route::get('/keranjang', [Leanding_pageController::class,'keranjang'])->name('ke
 Route::get('/order/{id}', [TransactionController::class, 'index']);
 
 
+Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard_user');
+
 Route::get('/cobak',function(){
     return view('leanding_page.coba_checkbox');
 });
 
 Route::middleware(['auth','role:user'])->group(function () {
-    Route::get('/user/paket', [Dasboard_userController::class,'tampil_userpaket'])->name('user_paket');
+    Route::get('/user/ujian/{id}', [Dasboard_userController::class,'tampil_userujian'])->name('user-paket.ujian');
+    Route::get('/user/video/{id}', [Dasboard_userController::class,'tampil_uservideo'])->name('user-paket.video');
+    Route::get('/user/paket', [Dasboard_userController::class,'tampil_userpaket'])->name('user-paket.index');
     Route::get('/user/transaksi', [Dasboard_userController::class,'tampil_usertransaksi'])->name('user_transaksi');
     Route::get('/user/progres', [Dasboard_userController::class,'tampil_userprogres'])->name('user_progres');
     Route::get('/user/setting', [Dasboard_userController::class,'tampil_usersetting'])->name('user_setting');
-    Route::get('/user/isi_paket', [Dasboard_userController::class,'tampil_userisipaket'])->name('user_isipaket');
-    Route::get('/user/freebank_soal', [Dasboard_userController::class,'tampil_freebanksoal'])->name('user_freebank_soal');
+    Route::get('/user/isi_paket/{id}', [Dasboard_userController::class,'tampil_userisipaket'])->name('user_isipaket');
+    Route::get('/user/freebank_soal/{id}', [Dasboard_userController::class,'tampil_freebanksoal'])->name('user_freebank_soal');
     // Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard_user');
 });
 
@@ -52,7 +56,7 @@ Route::middleware(['auth','role:user'])->group(function () {
 Route::post('/quiz/finish',[QuizController::class,'submitFinish']);
 Route::get('/quiz/confirm',[QuizController::class,'confirm']);
 Route::get('/quiz/review/{id}',[QuizController::class,'review']);
-Route::get('/quiz/{exam_id}/start',[QuizController::class,'start'])->name('startQuiz');
+Route::get('/quiz/{id}/start',[QuizController::class,'start'])->name('startQuiz');
 Route::get('/quiz/{number_question}',[QuizController::class,'index'])->name('quiz');
 Route::post('/quiz/start/{exam_id}',[QuizController::class,'submitStart']);
 

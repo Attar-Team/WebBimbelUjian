@@ -122,7 +122,7 @@ nav .links .belajar{
 
 .button_header{
 
-    display: none;
+    /* display: none; */
     align-items: center;
     justify-content: center;
 }
@@ -164,7 +164,7 @@ nav .links .belajar{
 }
 
 .masuk_akun {
-    display: flex;
+    display: none;
     align-items: center;
 }
 

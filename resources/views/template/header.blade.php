@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/scrollpaket-home.css">
     <link rel="stylesheet" href="/css/isi_paket.css">
     <link rel="stylesheet" href="/css/dashboard_user.css">
+    <link rel="stylesheet" href="{{ asset('css/video.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -29,7 +30,7 @@
             <a class="@active('home')" href="{{ route('home') }}">Home</a>
             <a class="@active('about')" href="{{ route('about') }}">About</a>
             <a class="@active('paket')" href="{{ route('paket') }}">Paket</a>
-            <a class="belajar @active('user_paket')" href="{{ route('user_paket') }}">Pembelajaran saya</a>
+            <a class="belajar @active('user-paket.*')" href="{{ route('user-paket.index') }}">Pembelajaran saya</a>
         </div>
         <div class="button_header">
             <a href="{{ route('keranjang') }}"><i class='bx bx-cart' ></i></a>

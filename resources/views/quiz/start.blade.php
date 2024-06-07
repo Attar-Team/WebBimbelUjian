@@ -25,21 +25,17 @@
     </nav>
 
     <div class="start">
-        <h2>Tes Kemampuan Dasar (TKD)</h2>
+        <h2>{{ $package_detail->Exam->name }}</h2>
         <div class="body-start">
             <img src="{{ asset('quiz/image/image 3.png') }}" alt="">
             <div class="desc">
                 <ul>
                     <li>Soal</li>
-                    <li>: 4 Soal</li>
+                    <li>: {{ $package_detail->Exam->amount_question }} Soal</li>
                 </ul>
                 <ul>
                     <li>Jangka Waktu</li>
-                    <li>: 2 jam</li>
-                </ul>
-                <ul>
-                    <li>Jenis Soal</li>
-                    <li>: Pilihan ganda</li>
+                    <li>: {{ $package_detail->Exam->duration }} menit</li>
                 </ul>
 
                 <div class="cont">
@@ -58,7 +54,7 @@
                             <p class="m-0">Selesai pada -</p>
                         </div>
                         <p class="m-0" style="font-weight: 500;font-size: 25px">---</p>
-                        <a href="/quiz/1" class="btn btn-warning">Lanjutkan mengeerjakan</a>
+                        <a href="/quiz/{{$package_detail->exam_id}}" class="btn btn-warning">Lanjutkan mengeerjakan</a>
                     </div>
                    
                     @endif
@@ -70,14 +66,19 @@
                             <p class="m-0">Selesai pada {{ $item->updated_at }}</p>
                         </div>
                         <p class="m-0" style="font-weight: 500;font-size: 25px">{{ $item->grade }}</p>
-                        <a href="/quiz/review/{{$item->id}}" class="btn btn-success">Pembahasan</a>
+                        @if ($package_detail->is_review === 1)
+                        <a href="/quiz/review/{{$item->id}}" class="btn btn-success">Pembahasan</a>                    
+                        @else
+                        <a href="/quiz/review/{{$item->id}}" class="btn btn-success disabled">Pembahasan</a>                    
+                            
+                        @endif
                     </div>
                     @endif
                    
                    @endforeach
 
                     <?php
-                        $amountAccess = 3;
+                        $amountAccess = $package_detail->amount_acces;
                         $doneAnswer = count($data);
                     ?>
                     @for($i = 1; $i <= ($amountAccess-$doneAnswer); $i++)
@@ -91,7 +92,7 @@
                             ---
                         </div>
                         <div style="border" >
-                            <form style="display: inline-block;width: 100%" action="/quiz/start/1" method="post">
+                            <form style="display: inline-block;width: 100%" action="/quiz/start/{{$package_detail->exam_id}}" method="post">
                                 @csrf
                                 <button class="btn-attempt">Attempt Quiz</button>
                             </form>
