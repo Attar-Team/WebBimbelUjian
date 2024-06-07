@@ -105,7 +105,11 @@ class ApiMobileController extends Controller
     public function historyTransaction($id)
     {
         $data = Order::where("user_id", $id)->get();
-
+        $package_id = [];
+        foreach($data->package_details as $item){
+            array_push($package_id,$item->package_id);
+        }
+        $data->add(['package_id'=>$package_id]);
         return response()->json([
             "status"=> 200,
             "message"=> "success",

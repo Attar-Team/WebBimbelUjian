@@ -47,5 +47,5 @@ Route::post('/order',[ApiMobileController::class, 'order']);
 Route::post('/transaction',[ApiMobileController::class, 'transaction']);
 
 Route::get('/purchased-package/{id}',[ApiMobileController::class, 'purchasedPackage']);
-Route::get('/history-transaction/{id}',[ApiMobileController::class, 'purchasedPackage']);
+Route::get('/history-transaction/{id}',[ApiMobileController::class, 'historyTransaction']);
 
