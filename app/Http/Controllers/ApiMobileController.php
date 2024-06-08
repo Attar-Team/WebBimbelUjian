@@ -8,10 +8,12 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Package;
 use App\Models\PackageDetail;
+use App\Models\Question;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Concerns\ToArray;
 
 class ApiMobileController extends Controller
 {
@@ -105,15 +107,24 @@ class ApiMobileController extends Controller
     public function historyTransaction($id)
     {
         $data = Order::where("user_id", $id)->get();
-        $package_id = [];
-        foreach($data->package_details as $item){
-            array_push($package_id,$item->package_id);
-        }
-        $data->add(['package_id'=>$package_id]);
+        $package = [];
+
+        $asd = array_map(function($item){
+            return [
+                "id"=> $item['id'],
+                "user_id"=> 1,
+                "date"=> $item['date'],
+                "gross_amount"=> $item['gross_amount'],
+                "status"=> $item['status'],
+                "package_id" => array_map(function($detail){
+                    return $detail['package_id'];
+                },OrderDetail::where('order_id', $item['id'])->get()->toArray())
+            ];
+        },$data->toArray());
         return response()->json([
-            "status"=> 200,
-            "message"=> "success",
-            "data"=> $data
+                "status"=> 200,
+                "message"=> "success",
+                "data"=> $asd
         ]);
     }
 
@@ -204,6 +215,17 @@ class ApiMobileController extends Controller
             "status"=> 200,
             "message"=> "success",
             "data"=> $package
+        ]);
+    }
+
+    public function question($id)
+    {
+        $question = Question::where('exam_id','=',$id)->get();
+
+        return response()->json([
+            'status'=> 200,
+            'message'=> 'success',
+            'data'=> $question
         ]);
     }
 }
