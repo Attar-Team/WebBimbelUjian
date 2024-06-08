@@ -9,6 +9,7 @@ use App\Models\OrderDetail;
 use App\Models\Package;
 use App\Models\PackageDetail;
 use App\Models\Question;
+use App\Models\QuestionDetail;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -222,10 +223,33 @@ class ApiMobileController extends Controller
     {
         $question = Question::where('exam_id','=',$id)->get();
 
+        $data = array_map(function($item){
+            return [
+                'question_id'=> $item['id'],
+                'question'=> $item['question'],
+                'question_detail'=> array_map(function($detail){
+                    return [
+                        'id_content'=> $detail['id'],
+                        'content_answer'=> $detail['content_answer'],
+                    ];
+                },QuestionDetail::where('question_id',$item['id'])->get()->toArray()),
+            ];
+        },$question->toArray());
+
         return response()->json([
             'status'=> 200,
             'message'=> 'success',
-            'data'=> $question
+            'data'=> $data
+        ]);
+    }
+
+    public function exam($id)
+    {
+        $exam = Exam::find( $id );
+        return response()->json([
+            'status'=> 200,
+            'message'=> 'success',
+            'data'=> $exam
         ]);
     }
 }

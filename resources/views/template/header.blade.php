@@ -30,19 +30,52 @@
             <a class="@active('home')" href="{{ route('home') }}">Home</a>
             <a class="@active('about')" href="{{ route('about') }}">About</a>
             <a class="@active('paket')" href="{{ route('paket') }}">Paket</a>
+            @auth
             <a class="belajar @active('user-paket.*')" href="{{ route('user-paket.index') }}">Pembelajaran saya</a>
+            @endauth
         </div>
+        @guest
         <div class="button_header">
-            <a href="{{ route('keranjang') }}"><i class='bx bx-cart' ></i></a>
-            <a href=""><button class="login">Login</button></a>
+            <a href="{{ route('login') }}"><button class="login">Login</button></a>
             <button class="singup">Sing up</button>
-        </div>
+        </div> 
+        @endguest
+        @auth
         <div class="masuk_akun">
-            <a href="{{ route('keranjang') }}"><i class='bx bx-cart' ></i></a>
-            <p>Adza zarif</p>
-            <img src="{{asset('image/zarif1.png')}}" alt="">
+            <a href="{{ route('keranjang') }}"><i class='bx bx-cart'></i></a>
+            <p class="m-0 me-2">Adza zarif</p>
+            <div class="profile-dropdown" >
+                <img src="{{asset('image/zarif1.png')}}" alt="" id="profile-image">
+                <div id="dropdown-menu" class="dropdown-content">
+                    <a href="">Profile</a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button class="btn" type="submit">Logout</button>
+                      </form>
+                </div>
+            </div>
         </div>
+        @endauth
     </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const profileImage = document.getElementById('profile-image');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    
+    profileImage.addEventListener('click', function() {
+        dropdownMenu.classList.toggle('showw');
+    });
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('#profile-image')) {
+            if (dropdownMenu.classList.contains('showw')) {
+                dropdownMenu.classList.remove('showw');
+            }
+        }
+    };
+    });
+    </script>
 
         @yield('content')
 
