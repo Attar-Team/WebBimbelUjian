@@ -66,11 +66,12 @@ public function tampil_userujian($id){
     }
 
     public function tampil_userisipaket($id){
-        // $packages = Package::with('packageDetail')->find($id);
+        $packages = Package::find($id);
         $package_detail = PackageDetail::where('package_id', $id)->get();
         return view('user.layout.isi_paket',[
             'package_details'=> $package_detail,
-            'package_id' => $id
+            'package_id' => $id,
+            'package'=> $packages
         ]);
     }
 

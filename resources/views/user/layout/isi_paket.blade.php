@@ -7,7 +7,7 @@
     <script src="{{ asset('js/home.js') }}"></script>
     <div class="menu_user">
     <div class="isi_paket" style="margin-top: 0px">
-        <h1>Paket Tryout 1 Kategori BUMN</h1>
+        <h1>{{ $package->name }}</h1>
         <h2>Wah ada calon BUMN Muda nih...</h2>
         <p>Ayo segera pelajari apa aja sih yang dipersiapkan agar bisa jadi bumn muda</p>
         <h3>Materi</h3>
@@ -41,13 +41,10 @@
              <a href="{{ route('user-paket.ujian', $package_id) }}">
                 <div class="satumateri_isipaket">
                     
-                    <div class="gambar_isipaket"><img src="" alt=""></div>
+                    <img src="{{ asset('image/gambar_exam.png') }}" width="280px" alt="">
                     <h2>Simulasi Ujian </h2>
-                    <div class="progres_isipaket">
-                        <p>progres kamu</p>
-                        <p>40%</p>
-                    </div>
-                    <progress id="file" value="32" max="100"> 32% </progress>
+                  
+                    
                 </div>
                 </a>
              @endif
@@ -55,13 +52,10 @@
              <a href="{{ route('user-paket.video', $package_id) }}">
                 <div class="satumateri_isipaket">
                     
-                    <div class="gambar_isipaket"><img src="" alt=""></div>
+                    <img src="{{ asset('image/gambar_video.png') }}" width="280px" alt="">
                     <h2>Video </h2>
-                    <div class="progres_isipaket">
-                        <p>progres kamu</p>
-                        <p>40%</p>
-                    </div>
-                    <progress id="file" value="32" max="100"> 32% </progress>
+                  
+                    
                 </div>
                 </a>
              @endif
@@ -69,13 +63,10 @@
              <a href="{{ route('user_freebank_soal', $package_id) }}">
                 <div class="satumateri_isipaket">
                     
-                    <div class="gambar_isipaket"><img src="" alt=""></div>
+                    <img src="{{ asset('image/gambar_banksoal.png') }}" width="280px" alt="">
                     <h2>Bank Soal </h2>
-                    <div class="progres_isipaket">
-                        <p>progres kamu</p>
-                        <p>40%</p>
-                    </div>
-                    <progress id="file" value="32" max="100"> 32% </progress>
+                  
+                    
                 </div>
                 </a>
              @endif

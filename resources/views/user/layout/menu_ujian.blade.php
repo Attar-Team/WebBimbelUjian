@@ -1,8 +1,13 @@
-@extends('template.header')
-@section('title', 'BumnMuda. | Ujian')
-@section('content')
+@extends('user.component.sidebar')
+@section('title', 'BumnMuda. | paketku')
+<link rel="stylesheet" href="{{ asset('css/dashboard_user.css') }}">
+@section('tampilan_dashboard')
+<script src="{{ asset('js/dashboard_user.js') }}"></script>
+
+    <script src="{{ asset('js/home.js') }}"></script>
+    <div class="menu_user">
     <div class="freebank">
-        <h1 style="margin-top: 100px">Paket Tryout 1 kategori BUMN</h1>
+        <h1>Paket Tryout 1 kategori BUMN</h1>
         <h2>Tryout/ Latihan Soal</h2>
         <div class="garis"></div>
         <div class="paket_freebank"><span>Soal Ujian</span> </div>

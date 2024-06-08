@@ -46,7 +46,7 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/transaksi', [Dasboard_userController::class,'tampil_usertransaksi'])->name('user_transaksi');
     Route::get('/user/progres', [Dasboard_userController::class,'tampil_userprogres'])->name('user_progres');
     Route::get('/user/setting', [Dasboard_userController::class,'tampil_usersetting'])->name('user_setting');
-    Route::get('/user/isi_paket/{id}', [Dasboard_userController::class,'tampil_userisipaket'])->name('user_isipaket');
+    Route::get('/user/isi_paket/{id}', [Dasboard_userController::class,'tampil_userisipaket'])->middleware('acces_package')->name('user_isipaket');
     Route::get('/user/freebank_soal/{id}', [Dasboard_userController::class,'tampil_freebanksoal'])->name('user_freebank_soal');
     // Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('dashboard_user');
 });
