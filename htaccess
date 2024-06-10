@@ -1,0 +1,9 @@
+# HTID:22448267: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:22448267:
+
+RewriteEngine on
+
+# Aturan yang Sudah Ada
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^([\s\S]*)$ public/$1 [L,NC,QSA]

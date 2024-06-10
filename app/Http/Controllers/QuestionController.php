@@ -55,7 +55,7 @@ public function index()
              ]);
         }
 
-       return redirect()->route("viewQuestion")->with("success","Data Soal berhasil ditambahkan");
+       return redirect()->route("question.index")->with("success","Data Soal berhasil ditambahkan");
     }
     
     public function storeWithImport(Request $request)

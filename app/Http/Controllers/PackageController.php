@@ -9,11 +9,13 @@ use App\Models\Package;
 use App\Models\PackageDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Maatwebsite\Excel\Concerns\ToArray;
 
 class PackageController extends Controller
 {
     public function index()
     {
+        $packages = Package::all(); 
         return view("admin.layout.package",[
             "title"=> "Paket",
             "data"=> Package::all()
@@ -53,37 +55,44 @@ class PackageController extends Controller
         $package = Package::create([
             "name"=> $request->name,
             "type"=> $request->type,
+            "description"=> $request->description,
             "category"=> $request->category,
-            "price"=> $request->price,
-            "discount"=> $request->discount,
+            "price"=> str_replace('.', '', $request->price),
+            "discount"=> str_replace('.', '', $request->discount),
             "photo"=> $fileName,
         ]);
 
-        foreach($request->question as $key => $value){
-            foreach($request->is_review as $review){
-                $is_review = false;
-                if($review == $value){
-                    $is_review = true;
+        if(($request->question ?? 0) > 0 ){
+            foreach($request->question as $key => $value){
+                foreach($request->is_review as $review){
+                    $is_review = false;
+                    if($review == $value){
+                        $is_review = true;
+                    }
                 }
+                PackageDetail::create([
+                    "package_id"=> $package->id,
+                    "exam_id"=> $value,
+                    "is_review"=> $is_review,
+                    "amount_acces"=> $request->acces[$key],
+                ]);
             }
-            PackageDetail::create([
-                "package_id"=> $package->id,
-                "exam_id"=> $value,
-                "is_review"=> $is_review,
-                "amount_acces"=> $request->acces[$key],
-            ]);
         }
-        foreach($request->video as $key => $value){
-            PackageDetail::create([
-                "package_id"=> $package->id,
-                "course_id"=> $value,
-            ]);
+        if(count($request->video?? 0) > 0 ){
+            foreach($request->video as $key => $value){
+                PackageDetail::create([
+                    "package_id"=> $package->id,
+                    "course_id"=> $value,
+                ]);
+            }
         }
-        foreach($request->pdf as $key => $value){
-            PackageDetail::create([
-                "package_id"=> $package->id,
-                "course_id"=> $value,
-            ]);
+        if(count($request->pdf?? 0) > 0 ){
+            foreach($request->pdf as $key => $value){
+                PackageDetail::create([
+                    "package_id"=> $package->id,
+                    "course_id"=> $value,
+                ]);
+            }
         }
         return redirect()->route("package.index")->with("success","Data berhasil ditambahkan");
     }
@@ -131,6 +140,7 @@ class PackageController extends Controller
             "type"=> "required|string",
             "price"=> "required",
             "discount"=> "required",
+            "description"=> "required",
             "file"=> 'mimes:jpg,bmp,png',
             "file_asli"=> "required",
             "is_review"=> "array",
@@ -155,6 +165,7 @@ class PackageController extends Controller
         $package->name = $request->name;
         $package->type = $request->type;
         $package->category = $request->category;
+        $package->description = $request->description;
         $package->price = str_replace('.', '', $request->price) ;
         $package->photo = $path;
         $package->discount = str_replace('.', '', $request->discount) ;
@@ -197,4 +208,7 @@ class PackageController extends Controller
         $package->delete();
         return redirect()->route("package.index")->with("success","Data berhasil ditambahkan");
     }
+    
+
+    
 }

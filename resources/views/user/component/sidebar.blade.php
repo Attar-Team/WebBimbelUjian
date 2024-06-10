@@ -2,7 +2,7 @@
 @section('css',"{{asset('css/dashboard_user.css')}}")
 @section('content')
     <div class="dasboard">
-    <div class="sidebar_terbang"></div>
+    {{-- <div class="sidebar_terbang"></div> --}}
     <div class="sidebar">
         <div class="user">
             <div class="akun_sidebar">
@@ -12,7 +12,7 @@
                 <h2>Cita - cita</h2>
             </div>
             </div>
-                <ul>
+                <ul class="p-0">
                     <li class="menu_item">
                         <a class="item @active('user_transaksi')"  href="{{ route('user_transaksi') }}">
                             <i class='bx bxs-shopping-bag-alt'></i>
@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li class="menu_item">
-                        <a class="item @active('user_paket')"  href="{{ route('user_paket') }}">
+                        <a class="item @active('user-paket.index')"  href="{{ route('user-paket.index') }}">
                             <i class='bx bxs-briefcase-alt-2'></i>
                             <p>Paketku</p>
                         </a>
