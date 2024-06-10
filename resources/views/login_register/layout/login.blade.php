@@ -31,8 +31,9 @@
             
                 <button type="submit" id="btnGoogle" class="google"><img class="logo_google" src="{{ asset('image/logo_google.png') }}" alt="">Masuk / Daftar dengan google</button>
             
-            
+                
             </div>
+            
             
             
         </div>
