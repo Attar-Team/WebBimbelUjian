@@ -21,6 +21,7 @@ img{
 
 body{
     scroll-behavior: smooth;
+    overflow-x: hidden;
     background-color: white;
 }
 
@@ -121,7 +122,7 @@ nav .links .belajar{
 
 .button_header{
 
-    display: none;
+    /* display: none; */
     align-items: center;
     justify-content: center;
 }
@@ -163,8 +164,8 @@ nav .links .belajar{
 }
 
 .masuk_akun {
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 .masuk_akun a i{
@@ -859,4 +860,36 @@ footer {
     .btn-testi::before{
         font-size: 30px;
         color: white;
+    }
+
+    .profile-dropdown {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+    
+    #dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    
+    #dropdown-menu a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        border-bottom: 1px solid #ddd;
+        display: block;
+    }
+    
+    #dropdown-menu a:hover {
+        background-color: #ddd;
+    }
+    
+    .showw {
+        display: block !important;
     }

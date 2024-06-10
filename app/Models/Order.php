@@ -10,10 +10,27 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Order extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+
+    protected $fillable = [
+        'id','user_id','package_id','date','gross_amount'
+    ];
     
 
-    public function package() :BelongsTo
+    // public function package() :HasMany
+    // {
+    //     return $this->HasMany(Package::class, 'package_id');
+    // }
+
+    public function order_details() : HasMany
     {
-        return $this->belongsTo(Package::class, 'package_id');
+        return $this->HasMany(OrderDetail::class,'order_id','id');
+    }
+
+    public function user() : BelongsTo
+    {
+        return $this->belongsTo(User::class,'user_id');
     }
 }

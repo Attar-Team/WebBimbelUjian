@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->string('id')->unique();
-            $table->foreignId('user_id');
-            $table->dateTime('date');
-            $table->integer('gross_amount');
-            $table->enum('status', ['paid','unpaid'])->default('unpaid');
+        Schema::create('order_details', function (Blueprint $table) {
+            $table->id();
+            $table->string('order_id');
+            $table->foreignId('package_id');
             $table->timestamps();
-            $table->primary('id');
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('order_details');
     }
 };

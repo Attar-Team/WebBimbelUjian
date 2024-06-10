@@ -494,7 +494,7 @@
     incomeChartConfig = {
       series: [
         {
-          data: [24, 21, 30, 22, 42, 26, 35, 29]
+          data: [10, 21, 30, 22, 42, 26, 35, 29]
         }
       ],
       chart: {
