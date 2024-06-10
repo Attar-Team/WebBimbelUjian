@@ -102,9 +102,9 @@ Route::middleware(['auth','role:admin'])->group(function () {
             Route::post('/video',[CourseController::class,'storeVideo']);
             Route::post('/delete/{id}',[CourseController::class,'destroy']);
         });
+        Route::resource('/user',UserController::class);
     });
 
-    Route::resource('/user',UserController::class);
 });
 
 
