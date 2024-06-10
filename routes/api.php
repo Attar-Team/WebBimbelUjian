@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\ApiMobileController;
+use App\Http\Controllers\login_registerController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\TransactionController;
 use App\Models\Package;
-use App\Http\Controllers\login_registerController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +30,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
           "message"=> "success",
           "data"=> $data
       ]);
+    
+
 });
 
+Route::get('/users',[login_registerController::class, 'index']);
+Route::post('/login',[login_registerController::class, 'apilogin']);
+Route::post('/register',[login_registerController::class, 'api_register']);
+Route::put('/edit_profile/{id}',[login_registerController::class, 'api_editprofile']);
+Route::post('/insert_after_login_google',[login_registerController::class, 'apiinsert_akun_google']);
 Route::post('/preview-excel',[QuestionController::class,'preview']);
 
 //Route untuk menangani quiz

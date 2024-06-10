@@ -3,14 +3,14 @@
 use App\Http\Controllers\Dasboard_userController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\login_registerController;
 use App\Http\Controllers\Leanding_pageController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\login_registerController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 

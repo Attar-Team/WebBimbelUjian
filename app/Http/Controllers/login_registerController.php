@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 // use Auth;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\HasApiTokens;
 
 class login_registerController extends Controller
@@ -73,7 +74,85 @@ class login_registerController extends Controller
         $user->no_telp = $request->no_telp;
         $user->image = $request->image;
         $user->role = $request->role;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
+
+        $post = $user->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil menambahkan data',
+
+        ]);
+    }
+
+    public function api_editprofile(Request $request,  $id){
+        $user = User::find($id);
+
+        if(empty($user)){
+            return response()->json([
+                'status' => false,
+                'message' => 'data tidak ditemukan'
+            ], 404);
+        }
+
+        $rules = [
+            'name' => 'required',
+            'no_telp' => 'required',
+            'image' => 'required',
+        ];
+
+        $validasi = Validator::make($request->all(), $rules);
+        if($validasi->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal Melakukan update profile',
+                'data' => $validasi->errors()
+            ]);
+        }
+
+        $user->name = $request->name;
+        $user->no_telp = $request->no_telp;
+        $user->image = $request->image;
+
+        $post = $user->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil melakukan update profile',
+
+        ]);
+
+    }
+
+    public function api_register(Request $request){
+        $user = new User;
+
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|email',
+            'no_telp' => 'nullable',
+            'image' => 'nullable|image',
+            'role' => 'required',
+            'password' => 'required',
+        ];
+
+        $validasi = Validator::make($request->all(), $rules);
+        if($validasi->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal Memasukan data',
+                'data' => $validasi->errors()
+            ]);
+        }
+        $namafoto = $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public/img', $namafoto);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->no_telp = $request->no_telp;
+        $user->image = $namafoto;
+        $user->role = $request->role;
+        $user->password = Hash::make($request->password);
 
         $post = $user->save();
 
