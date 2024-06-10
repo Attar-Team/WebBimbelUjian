@@ -63,3 +63,5 @@ Route::get('/history-transaction/{id}',[ApiMobileController::class, 'historyTran
 
 Route::get('question/{id}',[ApiMobileController::class,'question']);
 Route::get('exam/{id}',[ApiMobileController::class,'exam']);
+
+Route::post('answer',[ApiMobileController::class,'answer']);

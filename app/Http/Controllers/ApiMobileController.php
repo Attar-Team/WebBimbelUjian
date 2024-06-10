@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Course;
 use App\Models\Exam;
 use App\Models\Order;
@@ -250,6 +251,22 @@ class ApiMobileController extends Controller
             'status'=> 200,
             'message'=> 'success',
             'data'=> $exam
+        ]);
+    }
+    
+    public function answer(Request $request)
+    {
+        $answer = Answer::create([
+            'exam_id'=> $request->exam_id,
+            'user_id'=> $request->user_id,
+            "status"=> "not finished",
+            "start_date"=> now()
+        ]);
+
+        return response()->json([
+            "status"=> 200,
+            "message"=> "success",
+            "answer_id"=> $answer->id
         ]);
     }
 }

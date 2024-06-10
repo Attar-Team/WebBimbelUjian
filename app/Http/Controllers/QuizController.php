@@ -118,8 +118,8 @@ class QuizController extends Controller
             "exam_id"=> $exam_id,
             // "user_id"=> Auth::user()->id,
             "user_id"=> 1,
-            "status"=> "not finished",
-            "start_date"=> now()
+            
+            
         ]);
         $exam = Exam::find($exam_id);
         if($exam->is_random === 1){
