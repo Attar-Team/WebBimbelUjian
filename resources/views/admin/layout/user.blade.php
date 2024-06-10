@@ -45,9 +45,9 @@
                                 @method('delete')
                                 <button type="submit" onclick="return confirm('Apakah yakin untuk menghapus')" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                               </form>
-                              
+{{--                               
                               <a class="btn btn-warning" href="/admin/user/{{ $user['id'] }}/edit" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-                              <a class="btn btn-success" href="/admin/user/" role="button"><i class="fa-solid fa-circle-info"></i></a>
+                              <a class="btn btn-success" href="/admin/user/" role="button"><i class="fa-solid fa-circle-info"></i></a> --}}
                             </td>
                           </tr>
                           @endforeach

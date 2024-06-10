@@ -70,7 +70,7 @@
 
       <li class="menu-item @active('user.*')">
         <a href="/admin/user" class="menu-link">
-          <i class="fa-solid fa-users"></i>
+          <i class="menu-icon tf-icons fa-solid fa-users"></i>
           <div data-i18n="Analytics">User</div>
         </a>
       </li>
