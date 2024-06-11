@@ -76,7 +76,7 @@
       </li>
 
       <li class="menu-item">
-        <a href="/users" class="menu-link">
+        <a href="/admin/report" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Laporan</div>
         </a>
