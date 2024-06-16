@@ -102,7 +102,7 @@
                 <div class="swiper-paket mySwiperPaket">
                     <div class="swiper-wrapper">
                         @foreach ($packages as $package)
-                            @if ($package->type = 'BUMN')
+                            @if ($package->type == 'BUMN')
                                 <div class="swiper-slide width-paket">
                                     <div class="contoh_paketss">
                                         <img src="{{ asset('image/contoh_paket.png') }}" alt="">
@@ -125,12 +125,12 @@
                                     @endforeach
 
                                     <h5 class="px-3 pt-2 mb-0" style="font-weight: bold">Rp
-                                        {{ FormatRupiah::Rupiah($package->price - $package->discount ) }}</h5>
-                                        <p class="discount">Rp{{ FormatRupiah::Rupiah($package->price) }}</p>
+                                        {{ FormatRupiah::Rupiah($package->price - $package->discount) }}</h5>
+                                    <p class="discount">Rp{{ FormatRupiah::Rupiah($package->price) }}</p>
 
                                     <div class="d-flex px-3 py-2">
                                         <i class='bx bxs-user'></i>
-                                        <p>{{ $package->order_count }} Murid</p>
+                                        <p>{{ $package->order_detail_count }} Murid</p>
                                     </div>
 
                                     <a href="{{ route('detail_paket', $package->id) }}"><button>Detail
@@ -152,11 +152,11 @@
             <h1>Paket Kursus CPNS</h1>
             <div class="keteranganpaket">
                 <i class='bx bxs-user'></i>
-                <p>142 Students</p>
+                <p>{{ $countOrderCPNS }} Murid</p>
             </div>
             <div class="keteranganpaket">
                 <i class='bx bxs-time-five'></i>
-                <p>6 Hours / days</p>
+                <p>{{ $countPackageCpns }} Jenis Paket</p>
             </div>
             <div class="garis"></div>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto ab dicta, repudiandae voluptate ea,
@@ -169,39 +169,41 @@
                 <div class="swiper-wrapper">
                     @foreach ($packages as $package)
                         @if ($package->type == 'CPNS')
-                            <div class="swiper-slide width-paket">
-                                <div class="contoh_paketss">
-                                    <img src="{{ asset('image/contoh_paket.png') }}" alt="">
-                                    <h1 class="mt-2">{{ $package['name'] }}</h1>
-                                    @foreach ($package->packageDetail as $item)
-                                        <?php
-                                        $courseName = $item->course->name ?? '';
-                                        $examName = $item->exam->name ?? '';
-                                        ?>
-                                        @if ($courseName != '')
-                                            <p><span>•</span> {{ $item->course->name }}</p>
-                                        @endif
-                                        @if ($examName != '')
-                                            <p><span>•</span> {{ $item->exam->name }}</p>
-                                        @endif
-                                    @endforeach
+                        <div class="swiper-slide width-paket">
+                            <div class="contoh_paketss">
+                                <img src="{{ asset('image/contoh_paket.png') }}" alt="">
+                                <h1 class="mt-2">{{ $package['name'] }}</h1>
+                                @foreach ($package->packageDetail as $key => $item)
+                                    <?php
+                                    $courseName = $item->course->name ?? '';
+                                    $examName = $item->exam->name ?? '';
+                                    ?>
+                                    @if ($courseName != '')
+                                        <p><span>•</span> {{ $item->course->name }}</p>
+                                    @endif
+                                    @if ($examName != '')
+                                        <p><span>•</span> {{ $item->exam->name }}</p>
+                                    @endif
 
-                                    <h5 class="px-3 pt-2 " style="font-weight: bold">Rp
-                                        {{ FormatRupiah::Rupiah($package->price ) }}</h5>
+                                    @if ($key == 4)
+                                    @break
+                                @endif
+                            @endforeach
 
-                                        <p class="discount">Rp{{ FormatRupiah::Rupiah($package->price) }}</p>
+                            <h5 class="px-3 pt-2 mb-0" style="font-weight: bold">Rp
+                                {{ FormatRupiah::Rupiah($package->price - $package->discount) }}</h5>
+                            <p class="discount">Rp{{ FormatRupiah::Rupiah($package->price) }}</p>
 
-                                    <div class="d-flex px-3 py-2">
-                                        <i class='bx bxs-user'></i>
-                                        <p>{{ $package->order_count }} Murid</p>
-                                    </div>
-
-
-
-                                    <a href="{{ 'isi_paket' }}"><button>Lanjutkan belajar</button></a>
-
-                                </div>
+                            <div class="d-flex px-3 py-2">
+                                <i class='bx bxs-user'></i>
+                                <p>{{ $package->order_detail_count }} Murid</p>
                             </div>
+
+                            <a href="{{ route('detail_paket', $package->id) }}"><button>Detail
+                                    Paket</button></a>
+
+                        </div>
+                    </div>
                         @endif
                     @endforeach
 

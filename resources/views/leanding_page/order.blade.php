@@ -74,6 +74,7 @@ use App\Util\FormatRupiah;
             $('#bayar').click(function() {
                 // Buat array kosong untuk menyimpan nilai-nilai
                 var packageValues = [];
+                var id = {{ Auth::user()->id }};
 
                 // Iterasi melalui setiap elemen input tersembunyi dengan nama 'package[]'
                 $('input[name="package[]"]').each(function() {
@@ -82,6 +83,7 @@ use App\Util\FormatRupiah;
                 });
                 const data = {
                     package_id: packageValues,
+                    ids: id
                 }
                 var token = "";
                 $.ajax({

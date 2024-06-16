@@ -8,6 +8,7 @@ use App\Models\PackageDetail;
 use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Dasboard_userController extends Controller
 {
@@ -26,7 +27,7 @@ class Dasboard_userController extends Controller
         // // ->with('course')
         // ->get();
 
-        $order = Order::where('user_id',1)->get();
+        $order = Order::where('user_id',Auth::user()->id)->get();
         // dd($packages);
         // dd($order->first()->order_details);
          return view('user.layout.paketku',[
@@ -59,7 +60,7 @@ public function tampil_userujian($id){
     }
 
     public function tampil_usertransaksi(){
-        $order = Order::where('user_id',1)->get();
+        $order = Order::where('user_id',Auth::user()->id)->get();
         return view('user.layout.transaksi',[
             "order" => $order
         ]);
