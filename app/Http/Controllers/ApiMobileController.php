@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnswerDetail;
 use App\Models\Course;
 use App\Models\Exam;
 use App\Models\Order;
@@ -252,4 +253,19 @@ class ApiMobileController extends Controller
             'data'=> $exam
         ]);
     }
+
+    public function review($id)
+    {
+        $questionDetail = AnswerDetail::with('question')
+        ->with('questionDetail_questionId')
+        ->where('answer_id',$id)
+        ->orderBy('number_question','asc')->get();
+
+        return response()->json([
+            'status'=> 200,
+            'message'=> 'success',
+            'data'=> $questionDetail
+        ]);
+    }
+    
 }
