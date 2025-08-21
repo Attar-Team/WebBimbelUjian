@@ -22,8 +22,7 @@
             </div>
             <div class="d-flex align-items-center mb-2">
                 <i class="fa-solid fa-location-dot me-3"></i>
-                <p class="m-0">Ruko De Rainbow Square, Jl. Brawijaya No.22, Jubung Lor, Jubung, Kec. Sukorambi,
-                    Kabupaten Jember, Jawa Timur 68151</p>
+                <p class="m-0">Sumberaden Mronjo Selopuro blitar, Jawa Timur 68151</p>
             </div>
 
             <div class="sosial d-flex align-items-center">

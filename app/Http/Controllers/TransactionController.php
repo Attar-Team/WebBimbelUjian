@@ -154,9 +154,6 @@ class TransactionController extends Controller
                     //kirim email
                     Mail::to($user->email)->send(new MailInvoicing($user->name, $name_package, $request->gross_amount,$request->transaction_time,$request->order_id,$result_discount,$sub_total));
 
-                     //update status
-                     
-                  
             }
         }
     }

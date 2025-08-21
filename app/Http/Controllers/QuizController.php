@@ -80,7 +80,7 @@ class QuizController extends Controller
 
         $package_detail = PackageDetail::find($id);
         $answer = Answer::where("exam_id", $package_detail->exam_id)
-        ->where('user_id', 1)->get();
+        ->where('user_id', Auth::user()->id)->get();
 
 
         return view("quiz.start",[
@@ -110,14 +110,13 @@ class QuizController extends Controller
         ]);
     }
 
-    public function submitStart($exam_id)
+    public function submitStart($exam_id, $id)
     {
-
         //menambahkan data ke tabel jawaban
         $answer = Answer::create([
             "exam_id"=> $exam_id,
             // "user_id"=> Auth::user()->id,
-            "user_id"=> 1,
+            "user_id"=> Auth::user()->id,
             
             
         ]);
@@ -141,6 +140,7 @@ class QuizController extends Controller
 
         Session::put('answerId', $answer->id);
         Session::put('is_start', true);
+        Session::put('detail_id', $id);
         Session::put('questions',$question);
         return redirect('/quiz/1');
     }
@@ -294,6 +294,7 @@ class QuizController extends Controller
     {
         $finalDoneAnswer = [];
         $answer_id = Session::get("answerId");
+        $detail_id = Session::get("detail_id");
 
         $question = Session::get("questions");
 
@@ -343,8 +344,9 @@ class QuizController extends Controller
     Session::forget('answerId');
     Session::forget('is_start');
     Session::forget('questions');
-
-    return redirect("/quiz/$exam->exam_id/start");
+    
+    Session::forget('detail_id');
+    return redirect("/quiz/$detail_id/start");
     }
 
     

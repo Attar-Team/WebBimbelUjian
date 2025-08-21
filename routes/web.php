@@ -60,7 +60,7 @@ Route::get('/quiz/confirm',[QuizController::class,'confirm']);
 Route::get('/quiz/review/{id}',[QuizController::class,'review']);
 Route::get('/quiz/{id}/start',[QuizController::class,'start'])->name('startQuiz');
 Route::get('/quiz/{number_question}',[QuizController::class,'index'])->name('quiz');
-Route::post('/quiz/start/{exam_id}',[QuizController::class,'submitStart']);
+Route::post('/quiz/start/{exam_id}/{id}',[QuizController::class,'submitStart']);
 
 Route::middleware(['auth','role:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
@@ -69,7 +69,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
         Route::prefix('package')->group(function () {
             Route::get('/',[PackageController::class,'index'])->name('package.index');
             Route::get('/create',[PackageController::class,'create'])->name('package.create');
-            Route::get('/{id}/edit',[PackageController::class,'edit'])->middleware('acces_package')->name('package.edit');
+            Route::get('/{id}/edit',[PackageController::class,'edit'])->name('package.edit');
             Route::get('/{id}',[PackageController::class,'show'])->name('package.show');
             Route::post('/create',[PackageController::class,'store']);
             Route::post('/{id}/update',[PackageController::class,'update']);
@@ -78,6 +78,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
     
         Route::prefix('order')->group(function () {
             Route::get('/',[OrderController::class,'index'])->name('order.index');
+            Route::get('/detail-order/{id}',[OrderController::class,'show'])->name('order.show');
         });
         Route::prefix('report')->group(function () {
             Route::get('/',[ReportController::class,'index'])->name('report.index');

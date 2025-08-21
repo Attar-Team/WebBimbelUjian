@@ -15,4 +15,13 @@ class OrderController extends Controller
             "orders"=> $order
         ]);
     }
+
+    public function show($id)
+    {
+        $order = Order::find($id);
+        return view("admin.layout.detail-order",[
+            "title"=> "Detail pemesanan",
+            "order"=> $order
+            ]);
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Order extends Model
 {
@@ -27,6 +28,11 @@ class Order extends Model
     public function order_details() : HasMany
     {
         return $this->HasMany(OrderDetail::class,'order_id','id');
+    }
+
+    public function transaction(): HasOne
+    {
+        return $this->HasOne(Transaction::class,'order_id','id');
     }
 
     public function user() : BelongsTo

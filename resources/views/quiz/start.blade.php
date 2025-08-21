@@ -87,12 +87,11 @@
                             <p class="status">Belum Selesai</p>
                             <p class="m-0">Selesai pada -</p>
                         </div>
-                       
                         <div>
                             ---
                         </div>
                         <div style="border" >
-                            <form style="display: inline-block;width: 100%" action="/quiz/start/{{$package_detail->exam_id}}" method="post">
+                            <form style="display: inline-block;width: 100%" action="/quiz/start/{{$package_detail->exam_id}}/{{$package_detail->id}}" method="post">
                                 @csrf
                                 <button class="btn-attempt">Attempt Quiz</button>
                             </form>

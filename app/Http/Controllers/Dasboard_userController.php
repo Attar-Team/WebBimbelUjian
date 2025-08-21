@@ -43,7 +43,7 @@ public function tampil_uservideo($id){
 }
 public function tampil_userujian($id){
     $package_detail = PackageDetail::withCount(['answer'=> function (Builder $query) {
-        $query->where('user_id',1);
+        $query->where('user_id',Auth::user()->id);
     }])
     ->where('package_id', $id)->get();
     return view('user.layout.menu_ujian',[

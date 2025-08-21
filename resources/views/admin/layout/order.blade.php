@@ -34,10 +34,12 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $order->user->name }}</td>
                             <td>{{ $order['date'] }}</td>
-                            <td>{{ $order['status'] }}</td>
+                            <td>
+                              <span class="badge <?= $order['status'] == "paid" ? "bg-label-primary" : "bg-label-danger" ?>  me-1">{{ $order['status'] }}</span>
+                              </td>
                             <td>{{ $order['gross_amount'] }}</td>
                             <td class="d-flex gap-2">            
-                              <a class="btn btn-success" href="/admin/exam/" role="button"><i class="fa-solid fa-circle-info"></i></a>
+                              <a class="btn btn-success" href="{{ route('order.show',$order['id']) }}" role="button"><i class="fa-solid fa-circle-info"></i></a>
                             </td>
                           </tr>
                           @endforeach
